@@ -1,5 +1,5 @@
 # Juego creado para la asignatura juegos en red para el curso 23/24
-# /////////////////////// INTEGRANTES DEL EQUIPO ///////////////////////
+# /////////////////// INTEGRANTES DEL EQUIPO ///////////////////
  ## Daniel Pérez Navarro
 Correo oficial: d.perezn.2021@alumnos.urjc.es
 -- Cuenta GitHub: dperezn2021
@@ -16,7 +16,7 @@ Correo oficial: j.martinga.2021@alumnos.urjc.es
 Correo oficial: m.vivar.2021@alumnos.urjc.es
 -- Cuenta GitHub: MarcosVivarMuiño
 
-# /////////////////////// CONCEPTOS DEL JUEGO ///////////////////////
+# /////////////////// CONCEPTOS DEL JUEGO ///////////////////
 # NOMBRE DEL JUEGO Y DESCRIPCIÓN
 El nombre elegido para nuestro juego ha sido Hitt and Ufo. Queríamos algo sencillo, relacionado con los personajes de nuestra historia: ‘Hitt’, de golpear, para un personaje fuerte y bruto, y ‘Ufo ’, para referirnos a un marciano de pequeño tamaño.
 
@@ -33,7 +33,7 @@ Cada jugador deberá llegar a la meta lo antes posible, utilizando las herramien
 A priori, la victoria y la derrota se pueden definir de forma muy sencilla, tal que el ganador será aquel jugador que alcance la meta primero. Sin embargo, no solo el que llegue primero a la meta será quien gane, hay alguna otra forma de eliminar a tu rival.
 Esta forma será sacarlo de la pantalla, si un jugador es lo suficientemente rápido y consigue sacar la ventaja necesaria a su contrincante para hacer que salga de la pantalla por 5 segundos, el jugador que quede fuera de la pantalla será eliminado y la victoria será instantáneamente para el otro jugador.
 
-# /////////////////////// MECÁNICAS ///////////////////////
+# /////////////////// MECÁNICAS ///////////////////
 # BÁSICAS
  ### Correr → Mas te vale ser el primero en llegar a la meta, o puede que tu civilización entera desaparezca.
  ### Saltar → Será necesario para aquellos casos donde esquivar obstáculos no sea la solución.
@@ -52,7 +52,7 @@ Poción rápida (Te da un 50% más de velocidad durante un corto periodo de tiem
  ### Puño de oro (Te da un 50% más de fuerza durante un corto periodo de tiempo) (Solo Ufo).
  ### Botas Saltarinas (Proporciona doble salto a quien las consigue, durante un corto periodo de tiempo).
 
-# /////////////////////// DISEÑOS Y CONCEPT-ARTS ///////////////////////
+# /////////////////// DISEÑOS Y CONCEPT-ARTS ///////////////////
 # PERSONAJES
 Como ya hemos comentado, nuestros personajes serán Hitt, un cromañón testarudo, fuerte y bruto, que destroza todo lo que toca; y Ufo, un pequeño marciano de altas habilidades que con su inteligencia es capaz de cosas impensables.
  ## HITT
