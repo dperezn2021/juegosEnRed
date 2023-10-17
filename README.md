@@ -57,9 +57,11 @@ Poción rápida (Te da un 50% más de velocidad durante un corto periodo de tiem
 Como ya hemos comentado, nuestros personajes serán Hitt, un cromañón testarudo, fuerte y bruto, que destroza todo lo que toca; y Ufo, un pequeño marciano de altas habilidades que con su inteligencia es capaz de cosas impensables.
  ### HITT
 Para el bárbaro, pensamos en desarrollar un personaje estilo “cromañón” pero caricaturizado, de forma que quede algo cartoon y agradable, acorde con la temática de nuestro juego. Nos hemos basado en diferentes dibujos de típicos cavernícolas, vikingos forzudos y gigantes, como el del personaje del famoso juego “Clash of Clans”.
+![Hitt](Hitt.png)
 
  ### UFO
 Por el contrario, para Ufo, nos basamos en distintas ideas, tomando como referencias algunas caricaturas de marcianos típicos y personajes marcianos de series famosas como el marciano Marvin de “Looney Toons” o Materia Gris de “Ben 10”. Sin embargo, nos hemos decidido por realizar un alien metido en su nave, que utiliza para sacar sus herramientas y moverse más rápida y ágilmente.
+![UFO](Ufo.png)
 
 ## ESCENARIOS
 Para los escenarios, hemos pensado en seguir la temática de animación y dibujos, basándonos en diferentes escenarios de juegos conocidos como “Furwind”, “Super Meat Boy” o “Kirby, & The Amazing Mirror”. Además, queremos darle una temática generalizada con el tema de la prehistoria, los dinosaurios o lo neandertal, puesto que la carrera se desarrollará en La Tierra, de hace millones de años, como ya hemos indicado en la historia.
