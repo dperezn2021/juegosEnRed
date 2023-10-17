@@ -6,7 +6,7 @@ Correo oficial: d.perezn.2021@alumnos.urjc.es
 
  ## Mario Martin Escribano
 Correo oficial: m.martine.2021@alumnos.urjc.es
-- Cuenta GitHub: mariome22
+-- Cuenta GitHub: mariome22
 
  ## Javier Martín García
 Correo oficial: j.martinga.2021@alumnos.urjc.es
