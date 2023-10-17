@@ -77,7 +77,7 @@ Además, queremos darle una temática generalizada con el tema de la prehistoria
 
 A continuación se añaden imágenes de los tiles de dos escenarios: un escenario de tipo Campo y otro escenario de tipo Desierto.
 
-	En el tipo Campo podemos encontrar hierba, hierba más alta o huesos de animales para decorar el escenario. Además contendrá carteles para indicar la ruta que seguir para llegar al final.
+En el tipo Campo podemos encontrar hierba, hierba más alta o huesos de animales para decorar el escenario. Además contendrá carteles para indicar la ruta que seguir para llegar al final.
 
 En el caso del desierto podemos encontrar arena y piedras a modo de decoración de escenario. Y como objeto guía tenemos un cactus con una flor, con el brazo del cactus se guiará al jugador hacia la meta.
 ![Bloques](Bloques1.png)
