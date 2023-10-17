@@ -2,19 +2,19 @@
 # /////////////////////// INTEGRANTES DEL EQUIPO ///////////////////////
  ## Daniel Pérez Navarro
 Correo oficial: d.perezn.2021@alumnos.urjc.es
-Cuenta GitHub: dperezn2021
+- Cuenta GitHub: dperezn2021
 
  ## Mario Martin Escribano
 Correo oficial: m.martine.2021@alumnos.urjc.es
-Cuenta GitHub: mariome22
+- Cuenta GitHub: mariome22
 
  ## Javier Martín García
 Correo oficial: j.martinga.2021@alumnos.urjc.es
-Cuenta GitHub: ReiXx03
+- Cuenta GitHub: ReiXx03
 
  ## Marcos Vivar Muiño
 Correo oficial: m.vivar.2021@alumnos.urjc.es
-Cuenta GitHub: MarcosVivarMuiño
+- Cuenta GitHub: MarcosVivarMuiño
 
 # /////////////////////// CONCEPTOS DEL JUEGO ///////////////////////
 # NOMBRE DEL JUEGO Y DESCRIPCIÓN
