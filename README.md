@@ -41,24 +41,24 @@ Interacción con el entorno → ¿No pensarías que era tan fácil como correr y
 Conseguir objetos → Con esto podrás dificultar la experiencia a tu adversario, o quizás se te complique a ti.
 
 # POWER-UPS
-	LANZABLES
+ ## LANZABLES
 Bola de hielo (Ralentiza, se le lanza al personaje contrario).
 Rayo paralizante (Aturde, se le lanza al personaje contrario).
 
-	CONSUMIBLES
+ ## CONSUMIBLES
 Poción rápida (Te da un 50% más de velocidad durante un corto periodo de tiempo) (Solo Hitt).
 
-	“ARMADURA”
+ ## “ARMADURA”
 Puño de oro (Te da un 50% más de fuerza durante un corto periodo de tiempo) (Solo Ufo).
 Botas Saltarinas (Proporciona doble salto a quien las consigue, durante un corto periodo de tiempo).
 
 # /////////////////////// DISEÑOS Y CONCEPT-ARTS ///////////////////////
 # PERSONAJES
 Como ya hemos comentado, nuestros personajes serán Hitt, un cromañón testarudo, fuerte y bruto, que destroza todo lo que toca; y Ufo, un pequeño marciano de altas habilidades que con su inteligencia es capaz de cosas impensables.
-  HITT
+ ## HITT
 Para el bárbaro, pensamos en desarrollar un personaje estilo “cromañón” pero caricaturizado, de forma que quede algo cartoon y agradable, acorde con la temática de nuestro juego. Nos hemos basado en diferentes dibujos de típicos cavernícolas, vikingos forzudos y gigantes, como el del personaje del famoso juego “Clash of Clans”.
 
-  UFO
+ ## UFO
 Por el contrario, para Ufo, nos basamos en distintas ideas, tomando como referencias algunas caricaturas de marcianos típicos y personajes marcianos de series famosas como el marciano Marvin de “Looney Toons” o Materia Gris de “Ben 10”. Sin embargo, nos hemos decidido por realizar un alien metido en su nave, que utiliza para sacar sus herramientas y moverse más rápida y ágilmente.
 
 # ESCENARIOS
