@@ -1,18 +1,18 @@
 # Juego creado para la asignatura juegos en red para el curso 23/24
 # /////////////////////// INTEGRANTES DEL EQUIPO ///////////////////////
-Daniel Pérez Navarro
+ ## Daniel Pérez Navarro
 Correo oficial: d.perezn.2021@alumnos.urjc.es
 Cuenta GitHub: dperezn2021
 
-Mario Martin Escribano
+ ## Mario Martin Escribano
 Correo oficial: m.martine.2021@alumnos.urjc.es
 Cuenta GitHub: mariome22
 
-Javier Martín García
+ ## Javier Martín García
 Correo oficial: j.martinga.2021@alumnos.urjc.es
 Cuenta GitHub: ReiXx03
 
-Marcos Vivar Muiño
+ ## Marcos Vivar Muiño
 Correo oficial: m.vivar.2021@alumnos.urjc.es
 Cuenta GitHub: MarcosVivarMuiño
 
@@ -35,22 +35,22 @@ Esta forma será sacarlo de la pantalla, si un jugador es lo suficientemente rá
 
 # /////////////////////// MECÁNICAS ///////////////////////
 # BÁSICAS
-Correr → Mas te vale ser el primero en llegar a la meta, o puede que tu civilización entera desaparezca.
-Saltar → Será necesario para aquellos casos donde esquivar obstáculos no sea la solución.
-Interacción con el entorno → ¿No pensarías que era tan fácil como correr y ya, verdad? Encontrarás distintos elementos en el mapa como cuerdas donde podrás balancearte o distintos objetos que podrás romper, por ejemplo.
-Conseguir objetos → Con esto podrás dificultar la experiencia a tu adversario, o quizás se te complique a ti.
+ ### Correr → Mas te vale ser el primero en llegar a la meta, o puede que tu civilización entera desaparezca.
+ ### Saltar → Será necesario para aquellos casos donde esquivar obstáculos no sea la solución.
+ ### Interacción con el entorno → ¿No pensarías que era tan fácil como correr y ya, verdad? Encontrarás distintos elementos en el mapa como cuerdas donde podrás balancearte o distintos objetos que podrás romper, por ejemplo.
+ ### Conseguir objetos → Con esto podrás dificultar la experiencia a tu adversario, o quizás se te complique a ti.
 
 # POWER-UPS
  ## LANZABLES
-Bola de hielo (Ralentiza, se le lanza al personaje contrario).
-Rayo paralizante (Aturde, se le lanza al personaje contrario).
+ ### Bola de hielo (Ralentiza, se le lanza al personaje contrario).
+ ### Rayo paralizante (Aturde, se le lanza al personaje contrario).
 
  ## CONSUMIBLES
 Poción rápida (Te da un 50% más de velocidad durante un corto periodo de tiempo) (Solo Hitt).
 
  ## “ARMADURA”
-Puño de oro (Te da un 50% más de fuerza durante un corto periodo de tiempo) (Solo Ufo).
-Botas Saltarinas (Proporciona doble salto a quien las consigue, durante un corto periodo de tiempo).
+ ### Puño de oro (Te da un 50% más de fuerza durante un corto periodo de tiempo) (Solo Ufo).
+ ### Botas Saltarinas (Proporciona doble salto a quien las consigue, durante un corto periodo de tiempo).
 
 # /////////////////////// DISEÑOS Y CONCEPT-ARTS ///////////////////////
 # PERSONAJES
