@@ -4,6 +4,7 @@
         <script src="phaser.js"></script>
         <script src="scene1.js"></script>
         <script src="scene2.js"></script>
+        <script src="MenuScene.js"></script>
     </head>
     <body>
         <div id="game"></div>
@@ -14,8 +15,7 @@
     parent: "game",
     width: 2124,
     height: 1180,
-    backgroundColor: "#5DACD8",
-    scene: [ Scene1, Scene2 ],
+    scene: [ Scene1, Scene2, MenuScene ],
     physics: {
         default: 'arcade',
         arcade: {

@@ -32,6 +32,7 @@
     }
     };
     var game = new Phaser.Game(config);
+    var camera = new Phaser.camera;
 
     function preload ()
     {
@@ -56,6 +57,7 @@
 
     function create ()
     {
+        this.camera.main.setBounds(0, 0, 1600,1200);
         // Cielo
         this.add.image(400, 300, 'sky');
 
