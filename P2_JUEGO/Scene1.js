@@ -15,33 +15,33 @@ var Scene1 = new Phaser.Class({
         );
         this.load.image('sky','assets/sky.png');
         this.load.image('ground','assets/platform.png');
+        this.load.spritesheet('coin', 'assets/coin.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.image('wall','assets/pared.png');
     },
 
     create: function() {
-        var cam = this.cameras.main;
-        //cam.setBounds(0, 25, 5, 5);
+        var cam = this.cameras.main; // Definicion de la camara
         
+        this.add.image(1062, 590, 'sky').setScale(6,1.97); // Creacion del fondo
 
-        //cam.setSize(2240, 1180);
-        this.add.image(1062, 590, 'sky').setScale(2.7,1.97);
+        platforms = this.physics.add.staticGroup(); // Definicion del grupo platforms
 
-        platforms = this.physics.add.staticGroup();
-
-        platforms.create(1062, 1146, 'ground').setScale(6,3).refreshBody();
+        platforms.create(1062, 1146, 'ground').setScale(12.21,15).refreshBody(); // Suelo
 
         platforms.create(600, 400, 'ground');
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');
+        platforms.create(-1300,100,'wall').setScale(5).refreshBody();
 
-        player1 = this.physics.add.sprite(100, 450, 'dude').setScale(5);
+        player1 = this.physics.add.sprite(100, 450, 'dude').setScale(4); // Creacion del jugador 1
 
         player1.setBounce(0.2);
-        player1.setCollideWorldBounds(true);
+        //player1.setCollideWorldBounds(true);
 
-        player2 = this.physics.add.sprite(500, 450, 'dude').setScale(5);
+        player2 = this.physics.add.sprite(500, 450, 'dude').setScale(4);
 
         player2.setBounce(0.2);
-        player2.setCollideWorldBounds(true);
+        //player2.setCollideWorldBounds(true);
 
 
         // Carga la animacion de andar hacia la izquierda
@@ -67,6 +67,13 @@ var Scene1 = new Phaser.Class({
 
         this.physics.add.collider(player1, platforms);
         this.physics.add.collider(player2, platforms);
+
+        this.anims.create({
+            key: 'spin',
+            frames: this.anims.generateFrameNumbers('coin', { start: 0, end: 5 }),
+            frameRate: 16,
+            repeat: -1
+        });
 
 
         this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
