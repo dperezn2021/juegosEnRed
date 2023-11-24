@@ -20,7 +20,6 @@ var Scene1 = new Phaser.Class({
     },
 
     create: function() {
-        var cam = this.cameras.main; // Definicion de la camara
         
         this.add.image(1062, 590, 'sky').setScale(6,1.97); // Creacion del fondo
 
@@ -31,16 +30,22 @@ var Scene1 = new Phaser.Class({
         platforms.create(600, 400, 'ground');
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');
-        platforms.create(-1300,100,'wall').setScale(5).refreshBody();
+        platforms.create(-1300,100,'wall').setScale(5).refreshBody(); // Pared
+
+        coins = this.physics.add.staticGroup();
+
+        coins.create(300, 600, 'coin');
+
+        this.physics.add.collider(coins, platforms); // Hace que las monedas reboten con el terreno
 
         player1 = this.physics.add.sprite(100, 450, 'dude').setScale(4); // Creacion del jugador 1
 
-        player1.setBounce(0.2);
+        player1.setBounce(0.2); // Limites del jugador
         //player1.setCollideWorldBounds(true);
 
-        player2 = this.physics.add.sprite(500, 450, 'dude').setScale(4);
+        player2 = this.physics.add.sprite(500, 450, 'dude').setScale(4); // Creacion del jugador 2
 
-        player2.setBounce(0.2);
+        player2.setBounce(0.2);// Limites del jugador
         //player2.setCollideWorldBounds(true);
 
 
@@ -65,18 +70,20 @@ var Scene1 = new Phaser.Class({
         repeat: -1
     });
 
-        this.physics.add.collider(player1, platforms);
+        this.physics.add.collider(player1, platforms); // Colisiones entre jugadores y entorno
         this.physics.add.collider(player2, platforms);
 
-        this.anims.create({
+        this.anims.create({ // Animacion de la moneda
             key: 'spin',
             frames: this.anims.generateFrameNumbers('coin', { start: 0, end: 5 }),
             frameRate: 16,
             repeat: -1
         });
 
+        coins.anims.play('spin', true);
 
-        this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
+
+        this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P); // Teclas que utilizaremos
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -84,9 +91,12 @@ var Scene1 = new Phaser.Class({
 
     // Update
     update: function() {
-        cursors = this.input.keyboard.createCursorKeys();
+        var cam = this.cameras.main;
+        var scene = this.scene;
+        fueraPlano();
+        cursors = this.input.keyboard.createCursorKeys(); // Flechas
 
-    if (cursors.left.isDown){
+    if (cursors.left.isDown){ // Interacciones con las flechas (Player1)
         player1.setVelocityX(-300);
 
         player1.anims.play('left', true);
@@ -106,7 +116,7 @@ var Scene1 = new Phaser.Class({
         player1.setVelocityY(-500);
     }
 
-    if (this.keyA.isDown){
+    if (this.keyA.isDown){ // Interacciones W-A-S-D (Player2)
         player2.setVelocityX(-300);
 
         player2.anims.play('left', true);
@@ -126,16 +136,25 @@ var Scene1 = new Phaser.Class({
         player2.setVelocityY(-500);
     }
 
-    if(this.keyP.isDown){
-            this.scene.start("Scene2", { "message": "Game Over" });
+    if(this.keyP.isDown){ // Cambio de escena
+            scene.start("Scene2", { "message": "Game Over" });
     }
-    function Ahead(){
+    cam.startFollow(Ahead()); // La camara sigue al jugador mas adelantado
+
+    function Ahead(){ // Funcion que devuelve el jugador mas adelantado
         if (player1.body.position.x>player2.body.position.x){
-            return player1;
+           return player1;
         }else{
             return player2;
         }
     }
-    this.cameras.main.startFollow(Ahead());
+
+    function fueraPlano(){ // Funcion que comprobara si un jugador se queda fuera de la pantalla
+        if(Math.abs(player1.body.position.x-player2.body.position.x)>1170){
+            scene.start("Scene2", { "message": "Player 2 ha ganado" });
+        }else if(player2.body.position.x<cam.alphaBottomLeft){
+            scene.start("Scene2", { "message": "Player 1 ha ganado" });
+        }
+    }
     }
 });

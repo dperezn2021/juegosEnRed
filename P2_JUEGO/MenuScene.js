@@ -13,12 +13,15 @@ var MenuScene = new Phaser.Class({
         this.load.image('play','assets/play.png');
         this.load.image('ajustes','assets/ajustes.png');
         this.load.image('exit','assets/salir.png');
+        this.load.image('logo','assets/logo.png');
     },
 
     create: function() {
         this.add.image(1062, 590, 'fondo');
 
         let play = this.add.image(1062, 590, 'play').setScale(1.5);
+
+        this.add.image(1062, 390, 'logo');
 
         let ajustes = this.add.image(1062, 720, 'ajustes').setScale(1.2);
 
