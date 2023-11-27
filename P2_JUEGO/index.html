@@ -6,16 +6,18 @@
         <script src="scene2.js"></script>
         <script src="MenuScene.js"></script>
     </head>
-    <body>
+    <body style="background-color:#228B22">
         <div id="game"></div>
         <script>
 
     var config = {
         type: Phaser.AUTO,
     parent: "game",
-    width: 2124,
-    height: 1180,
-    scene: [ MenuScene, Scene2, Scene1 ],
+    width: 2000,
+    height: 1000,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    mode: Phaser.Scale.FIT,
+    scene: [ Scene1, Scene2, MenuScene ],
     physics: {
         default: 'arcade',
         arcade: {

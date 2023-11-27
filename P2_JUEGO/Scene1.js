@@ -17,33 +17,40 @@ var Scene1 = new Phaser.Class({
         this.load.image('ground','assets/platform.png');
         this.load.spritesheet('coin', 'assets/coin.png', { frameWidth: 32, frameHeight: 32 });
         this.load.image('wall','assets/pared.png');
+        this.load.image('TileSupMid', 'assets/EsquinaSupMid.png');
+        this.load.image('TileSupIzq', 'assets/EsquinaSupIzq.png');
+        this.load.image('TileSupDcha', 'assets/EsquinaSupDcha.png');
+        this.load.image('SueloPadrera', 'assets/Suelo_Pradera_SinFondo.png');
     },
 
     create: function() {
+        coins = []; // Crea el array de monedas
+        platforms = []; // Crea el array de tiles del suelo
         
         this.add.image(1062, 590, 'sky').setScale(6,1.97); // Creacion del fondo
 
+        suelo = this.physics.add.staticGroup({ // Suelo superior
+            key: 'SueloPadrera',
+            repeat: 1000,
+            setScale: {x:0.5, y:0.5},
+            setXY: { x: -1290, y: 1146, stepX: 180 } 
+        });
+
         platforms = this.physics.add.staticGroup(); // Definicion del grupo platforms
-
-        platforms.create(1062, 1146, 'ground').setScale(12.21,15).refreshBody(); // Suelo
-
         platforms.create(600, 400, 'ground');
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');
-        platforms.create(-1300,100,'wall').setScale(5).refreshBody(); // Pared
+        platforms.create(-1300,-50,'wall').setScale(5).refreshBody(); // Pared
 
-        coins = this.physics.add.staticGroup();
+        // Instanciacion de las monedas
+        coins[0]=this.add.sprite(100, 450, 'coin').setScale(2);
 
-        coins.create(300, 600, 'coin');
-
-        this.physics.add.collider(coins, platforms); // Hace que las monedas reboten con el terreno
-
-        player1 = this.physics.add.sprite(100, 450, 'dude').setScale(4); // Creacion del jugador 1
+        player1 = this.physics.add.sprite(-1000, 850, 'dude').setScale(4); // Creacion del jugador 1
 
         player1.setBounce(0.2); // Limites del jugador
         //player1.setCollideWorldBounds(true);
 
-        player2 = this.physics.add.sprite(500, 450, 'dude').setScale(4); // Creacion del jugador 2
+        player2 = this.physics.add.sprite(-600, 850, 'dude').setScale(4); // Creacion del jugador 2
 
         player2.setBounce(0.2);// Limites del jugador
         //player2.setCollideWorldBounds(true);
@@ -70,6 +77,8 @@ var Scene1 = new Phaser.Class({
         repeat: -1
     });
 
+        this.physics.add.collider(player1, suelo); // Colisiones entre jugadores y entorno
+        this.physics.add.collider(player2, suelo);
         this.physics.add.collider(player1, platforms); // Colisiones entre jugadores y entorno
         this.physics.add.collider(player2, platforms);
 
@@ -79,8 +88,6 @@ var Scene1 = new Phaser.Class({
             frameRate: 16,
             repeat: -1
         });
-
-        coins.anims.play('spin', true);
 
 
         this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P); // Teclas que utilizaremos
@@ -141,6 +148,10 @@ var Scene1 = new Phaser.Class({
     }
     cam.startFollow(Ahead()); // La camara sigue al jugador mas adelantado
 
+    for(let i = 0;i<coins.length;i++){
+        coins[i].anims.play('spin',true);
+    }
+
     function Ahead(){ // Funcion que devuelve el jugador mas adelantado
         if (player1.body.position.x>player2.body.position.x){
            return player1;
@@ -150,10 +161,12 @@ var Scene1 = new Phaser.Class({
     }
 
     function fueraPlano(){ // Funcion que comprobara si un jugador se queda fuera de la pantalla
-        if(Math.abs(player1.body.position.x-player2.body.position.x)>1170){
-            scene.start("Scene2", { "message": "Player 2 ha ganado" });
-        }else if(player2.body.position.x<cam.alphaBottomLeft){
-            scene.start("Scene2", { "message": "Player 1 ha ganado" });
+        if(Math.abs(player1.body.position.x-player2.body.position.x)>1200){
+            if(player1.body.position.x>player2.body.position.x){
+                scene.start("Scene2", { "message": "Player 1 ha ganado" });
+            }else{
+                scene.start("Scene2", { "message": "Player 2 ha ganado" });
+            }
         }
     }
     }
