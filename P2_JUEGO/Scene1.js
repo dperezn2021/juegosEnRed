@@ -10,21 +10,29 @@ var Scene1 = new Phaser.Class({
 
     preload: function() {
         this.load.spritesheet('dude', 
-        'assets/dude.png',
+        'assets/Partida/dude.png',
         { frameWidth: 32, frameHeight: 48 }
         );
-        this.load.image('sky','assets/sky.png');
-        this.load.image('ground','assets/platform.png');
-        this.load.spritesheet('coin', 'assets/coin.png', { frameWidth: 32, frameHeight: 32 });
-        this.load.image('wall','assets/pared.png');
-        this.load.image('SueloPadrera', 'assets/Suelo_Pradera_SinFondo.png');
-        this.load.spritesheet('PowerUp', 'assets/PowerUp_Prov.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.image('sky','assets/Background/sky.png');
+        this.load.image('ground','assets/Terreno/platform.png');
+        this.load.spritesheet('coin', 'assets/Partida/coin.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.image('wall','assets/Terreno/pared.png');
+        this.load.image('SueloPadrera', 'assets/Terreno/Suelo_Pradera_SinFondo.png');
+        this.load.spritesheet('PowerUp', 'assets/Partida/PowerUp_Prov.png', { frameWidth: 32, frameHeight: 32 });
+        this.load.image('circuloPU', 'assets/Interfaz/CirculoPU.png');
+        this.load.image('snowball', 'assets/Interfaz/snowball.png');
+        this.load.image('electricBall', 'assets/Interfaz/BolaRayo.png');
+        this.load.image('potion', 'assets/Interfaz/Potion.png');
+        this.load.image('battery', 'assets/Interfaz/Battery.png');
+        this.load.image('boots', 'assets/Interfaz/boots.png');
     },
 
     create: function() {
     ///////////////////////////////////////////////////////////////INSTANCIACION////////////////////////////////////////////////////////////////////
         coins = []; // Crea el grupo de monedas
         PowerUps= [];
+        ScoreP1 = 0;
+        ScoreP2 = 0;
 
         this.physics.world.bounds.width = 4000; // Limite al tamaño del mundo
         this.physics.world.bounds.height = 4000;
@@ -46,10 +54,10 @@ var Scene1 = new Phaser.Class({
 
         // Instanciacion de las monedas
         coins[0]=this.physics.add.sprite(200, 590, 'coin').setScale(2); 
-        coins[1]=this.physics.add.sprite(300, 590, 'coin').setScale(2); 
+        coins[1]=this.physics.add.sprite(300, 590, 'coin').setScale(2);
 
         //Instanciacion de los PowerUps
-        PowerUps[0]=this.add.sprite(300, 800, 'PowerUp').setScale(3);
+        PowerUps[0]=this.physics.add.sprite(600, 800, 'PowerUp').setScale(3);
 
         // Instanciacion de los jugadores
         player1 = this.physics.add.sprite(0, 850, 'dude').setScale(4); // Creacion del jugador 1
@@ -63,7 +71,10 @@ var Scene1 = new Phaser.Class({
         player2.setCollideWorldBounds(true);
 
         // Instanciacion texto
-        scoreText = this.add.text(100, 400, 'Score: 0', { fontSize: '50px', fill: '#000' });
+        scoreText1 = this.add.text(0, 50, 'Hitt: 0', { fontSize: '50px', fill: '#000' }).setScrollFactor(0);
+        scoreText2 = this.add.text(1700, 50, '0: Ufo', { fontSize: '50px', fill: '#000' }).setScrollFactor(0);
+        this.add.image(70, 160, 'circuloPU').setScale(0.2).setScrollFactor(0); // Instanciacion de los circulos PU
+        this.add.image(1900, 160, 'circuloPU').setScale(0.2).setScrollFactor(0); 
 
 //////////////////////////////////////////////////////////////////ANIMACIONES///////////////////////////////////////////////////////////////////////////
     // Carga la animacion de andar hacia la izquierda
@@ -106,12 +117,18 @@ var Scene1 = new Phaser.Class({
         this.physics.add.collider(player1, platforms); // Colisiones entre jugadores y entorno
         this.physics.add.collider(player2, platforms);
         for(let i = 0;i<coins.length;i++){
-            this.physics.add.collider(suelo, coins[i]);
-            this.physics.add.collider(suelo, coins[i]);
+            this.physics.add.collider(coins[i], suelo);
+        }
+        for(let i = 0;i<PowerUps.length;i++){
+            this.physics.add.collider(PowerUps[i], suelo);
         }
         for(let i = 0;i<coins.length;i++){
-            this.physics.add.collider(player1, coins[i], takePU, null, this);
-            this.physics.add.collider(player2, coins[i], takePU, null, this);
+            this.physics.add.collider(player1, coins[i], takeCoin, null, this);
+            this.physics.add.collider(player2, coins[i], takeCoin, null, this);
+        }
+        for(let i = 0;i<PowerUps.length;i++){
+            this.physics.add.collider(player1, PowerUps[i], takePU, null, this);
+            this.physics.add.collider(player2, PowerUps[i], takePU, null, this);
         }
 ////////////////////////////////////////////////////////////////////INTERACCIONES///////////////////////////////////////////////////////////////////////////
         this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P); // Teclas que utilizaremos
@@ -119,8 +136,30 @@ var Scene1 = new Phaser.Class({
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
 ///////////////////////////////////////////////////////////////////////FUNCIONES////////////////////////////////////////////////////////////////////////////
-    function takePU(player, coin){
+    function takeCoin(player, coin){
         coin.disableBody(true, true);
+
+        if(player == player1){
+            ScoreP1 += 100; // Actualiza la puntuacion
+            scoreText1.setText('Hitt: ' + ScoreP1);
+        }else if (player == player2){
+            ScoreP2 += 100; // Actualiza la puntuacion
+            scoreText2.setText(ScoreP2+' : Ufo');
+        }
+    }
+    function takePU(player, PU){
+        PU.disableBody(true, true);
+
+        if(player == player1){
+            rand = Math.floor(Math.random() * 4);
+            switch(rand){
+                case 0:
+                     
+                    break;
+            }
+        }else if (player == player2){
+            rand = Math.floor(Math.random() * 4);
+        }
     }
     },
 
@@ -182,9 +221,6 @@ var Scene1 = new Phaser.Class({
     for(let i = 0;i<PowerUps.length;i++){
         PowerUps[i].anims.play('rotate',true);
     }
-    
-    scoreText.x = Ahead().body.position.x;  
-    
 
     function Ahead(){ // Funcion que devuelve el jugador mas adelantado
         if (player1.body.position.x>player2.body.position.x){
