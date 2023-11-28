@@ -17,15 +17,18 @@ var Scene1 = new Phaser.Class({
         this.load.image('ground','assets/platform.png');
         this.load.spritesheet('coin', 'assets/coin.png', { frameWidth: 32, frameHeight: 32 });
         this.load.image('wall','assets/pared.png');
-        this.load.image('TileSupMid', 'assets/EsquinaSupMid.png');
-        this.load.image('TileSupIzq', 'assets/EsquinaSupIzq.png');
-        this.load.image('TileSupDcha', 'assets/EsquinaSupDcha.png');
         this.load.image('SueloPadrera', 'assets/Suelo_Pradera_SinFondo.png');
+        this.load.spritesheet('PowerUp', 'assets/PowerUp_Prov.png', { frameWidth: 32, frameHeight: 32 });
     },
 
     create: function() {
-        coins = []; // Crea el array de monedas
-        platforms = []; // Crea el array de tiles del suelo
+    ///////////////////////////////////////////////////////////////INSTANCIACION////////////////////////////////////////////////////////////////////
+        coins = []; // Crea el grupo de monedas
+        PowerUps= [];
+
+        this.physics.world.bounds.width = 4000; // Limite al tamaño del mundo
+        this.physics.world.bounds.height = 4000;
+        this.cameras.main.setBounds(0, 0); // Define los limites de la camara
         
         this.add.image(1062, 590, 'sky').setScale(6,1.97); // Creacion del fondo
 
@@ -33,30 +36,37 @@ var Scene1 = new Phaser.Class({
             key: 'SueloPadrera',
             repeat: 1000,
             setScale: {x:0.5, y:0.5},
-            setXY: { x: -1290, y: 1146, stepX: 180 } 
+            setXY: { x: 0, y: 1146, stepX: 180 } 
         });
 
         platforms = this.physics.add.staticGroup(); // Definicion del grupo platforms
         platforms.create(600, 400, 'ground');
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');
-        platforms.create(-1300,-50,'wall').setScale(5).refreshBody(); // Pared
 
         // Instanciacion de las monedas
-        coins[0]=this.add.sprite(100, 450, 'coin').setScale(2);
+        coins[0]=this.physics.add.sprite(200, 590, 'coin').setScale(2); 
+        coins[1]=this.physics.add.sprite(300, 590, 'coin').setScale(2); 
 
-        player1 = this.physics.add.sprite(-1000, 850, 'dude').setScale(4); // Creacion del jugador 1
+        //Instanciacion de los PowerUps
+        PowerUps[0]=this.add.sprite(300, 800, 'PowerUp').setScale(3);
+
+        // Instanciacion de los jugadores
+        player1 = this.physics.add.sprite(0, 850, 'dude').setScale(4); // Creacion del jugador 1
 
         player1.setBounce(0.2); // Limites del jugador
-        //player1.setCollideWorldBounds(true);
+        player1.setCollideWorldBounds(true);
 
-        player2 = this.physics.add.sprite(-600, 850, 'dude').setScale(4); // Creacion del jugador 2
+        player2 = this.physics.add.sprite(100, 850, 'dude').setScale(4); // Creacion del jugador 2
 
         player2.setBounce(0.2);// Limites del jugador
-        //player2.setCollideWorldBounds(true);
+        player2.setCollideWorldBounds(true);
 
+        // Instanciacion texto
+        scoreText = this.add.text(100, 400, 'Score: 0', { fontSize: '50px', fill: '#000' });
 
-        // Carga la animacion de andar hacia la izquierda
+//////////////////////////////////////////////////////////////////ANIMACIONES///////////////////////////////////////////////////////////////////////////
+    // Carga la animacion de andar hacia la izquierda
     this.anims.create({
         key: 'left',
         frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
@@ -76,24 +86,42 @@ var Scene1 = new Phaser.Class({
         frameRate: 10,
         repeat: -1
     });
-
+    // Animacion giro de la moneda
+    this.anims.create({ 
+        key: 'spin',
+        frames: this.anims.generateFrameNumbers('coin', { start: 0, end: 5 }),
+        frameRate: 16,
+        repeat: -1
+    });
+    //Animacion PowerUp
+    this.anims.create({ 
+        key: 'rotate',
+        frames: this.anims.generateFrameNumbers('PowerUp', { start: 0, end: 3 }),
+        frameRate: 10,
+        repeat: -1
+    });
+//////////////////////////////////////////////////////////////////////COLISIONES////////////////////////////////////////////////////////////////////////////
         this.physics.add.collider(player1, suelo); // Colisiones entre jugadores y entorno
         this.physics.add.collider(player2, suelo);
         this.physics.add.collider(player1, platforms); // Colisiones entre jugadores y entorno
         this.physics.add.collider(player2, platforms);
-
-        this.anims.create({ // Animacion de la moneda
-            key: 'spin',
-            frames: this.anims.generateFrameNumbers('coin', { start: 0, end: 5 }),
-            frameRate: 16,
-            repeat: -1
-        });
-
-
+        for(let i = 0;i<coins.length;i++){
+            this.physics.add.collider(suelo, coins[i]);
+            this.physics.add.collider(suelo, coins[i]);
+        }
+        for(let i = 0;i<coins.length;i++){
+            this.physics.add.collider(player1, coins[i], takePU, null, this);
+            this.physics.add.collider(player2, coins[i], takePU, null, this);
+        }
+////////////////////////////////////////////////////////////////////INTERACCIONES///////////////////////////////////////////////////////////////////////////
         this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P); // Teclas que utilizaremos
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+///////////////////////////////////////////////////////////////////////FUNCIONES////////////////////////////////////////////////////////////////////////////
+    function takePU(player, coin){
+        coin.disableBody(true, true);
+    }
     },
 
     // Update
@@ -151,6 +179,12 @@ var Scene1 = new Phaser.Class({
     for(let i = 0;i<coins.length;i++){
         coins[i].anims.play('spin',true);
     }
+    for(let i = 0;i<PowerUps.length;i++){
+        PowerUps[i].anims.play('rotate',true);
+    }
+    
+    scoreText.x = Ahead().body.position.x;  
+    
 
     function Ahead(){ // Funcion que devuelve el jugador mas adelantado
         if (player1.body.position.x>player2.body.position.x){
