@@ -65,16 +65,16 @@ Por el momento, como primer boceto del futuro sprite, hemos diseñado un gigante
 ![Hitt](Hitt.png)
 
  ### UFO
-Por el contrario, para Ufo, nos basamos en distintas ideas, tomando como referencias algunas caricaturas de marcianos típicos y personajes marcianos de series famosas como el marciano Marvin de “Looney Toons” o Materia Gris de “Ben 10”. 
+Por el contrario, para Ufo, nos basamos en distintas ideas, tomando como referencias algunas caricaturas de marcianos típicos y personajes marcianos de series famosas como el marciano Marvin de “Looney Toons” o Materia Gris de “Ben 10”: 
 
 ![Aliens](Aliens.png)
 
-Sin embargo, nos hemos decidido por realizar un alien metido en su nave, que utiliza para sacar sus herramientas y moverse más rápida y ágilmente.
+Sin embargo, nos hemos decidido por realizar un alien metido en su nave, que utiliza para sacar sus herramientas y moverse más rápida y ágilmente:
 
 ![UFO](Ufo.png)
 
 ## ESCENARIOS
-Para los escenarios, hemos pensado en seguir la temática de animación y dibujos, basándonos en diferentes escenarios de juegos conocidos como “Furwind”, “Super Meat Boy” o “Kirby, & The Amazing Mirror”. 
+Para los escenarios, hemos pensado en seguir la temática de animación y dibujos, basándonos en diferentes escenarios de juegos conocidos como “Furwind”, “Super Meat Boy” o “Kirby, & The Amazing Mirror”:
 
 ![Escenarios](Escenarios.png)
 
@@ -84,10 +84,10 @@ A continuación se añaden imágenes de los tiles de dos escenarios: un escenari
 
 En el tipo Campo podemos encontrar hierba, hierba más alta o huesos de animales para decorar el escenario. Además contendrá carteles para indicar la ruta que seguir para llegar al final.
 
-En el caso del desierto podemos encontrar arena y piedras a modo de decoración de escenario. Y como objeto guía tenemos un cactus con una flor, con el brazo del cactus se guiará al jugador hacia la meta.
+En el caso del desierto podemos encontrar arena y piedras a modo de decoración de escenario. Y como objeto guía tenemos un cactus con una flor, con el brazo del cactus se guiará al jugador hacia la meta:
 
 ![Bloques](Bloques1.png)
 
-Aquí podemos observar un boceto muy básico de lo que sería el escenario de Campo, con su decoración, saltos y sus correspondientes carteles.
+Aquí podemos observar un boceto muy básico de lo que sería el escenario de Campo, con su decoración, saltos y sus correspondientes carteles:
 
 ![Mapa](Mapa.png)
