@@ -33,6 +33,10 @@ var Scene1 = new Phaser.Class({
         PowerUps= [];
         ScoreP1 = 0;
         ScoreP2 = 0;
+        tipoPU1 = -1;
+        tipoPU2 = -1;
+        vel1 = 300;
+        vel2 = 300;
 
         this.physics.world.bounds.width = 4000; // Limite al tamaño del mundo
         this.physics.world.bounds.height = 4000;
@@ -58,6 +62,7 @@ var Scene1 = new Phaser.Class({
 
         //Instanciacion de los PowerUps
         PowerUps[0]=this.physics.add.sprite(600, 800, 'PowerUp').setScale(3);
+        PowerUps[1]=this.physics.add.sprite(800, 800, 'PowerUp').setScale(3);
 
         // Instanciacion de los jugadores
         player1 = this.physics.add.sprite(0, 850, 'dude').setScale(4); // Creacion del jugador 1
@@ -135,6 +140,8 @@ var Scene1 = new Phaser.Class({
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        this.keyE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+        this.keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
 ///////////////////////////////////////////////////////////////////////FUNCIONES////////////////////////////////////////////////////////////////////////////
     function takeCoin(player, coin){
         coin.disableBody(true, true);
@@ -151,14 +158,49 @@ var Scene1 = new Phaser.Class({
         PU.disableBody(true, true);
 
         if(player == player1){
+            if(tipoPU1==-1){
             rand = Math.floor(Math.random() * 4);
             switch(rand){
                 case 0:
-                     
+                     tipoPU1 = 0;
+                     Objeto1 = this.add.image(70, 160, 'snowball').setScale(2).setScrollFactor(0); 
+                    break;
+                case 1:
+                     tipoPU1 = 1;
+                     Objeto1 = this.add.image(70, 160, 'electricBall').setScale(0.1).setScrollFactor(0); 
+                    break;
+                case 2:
+                     tipoPU1 = 2;
+                     Objeto1 = this.add.image(70, 160, 'potion').setScale(2.3).setScrollFactor(0); 
+                    break;
+                case 3:
+                     tipoPU1 = 3;
+                     Objeto1 = this.add.image(70, 160, 'boots').setScale(0.3).setScrollFactor(0); 
                     break;
             }
+            }
         }else if (player == player2){
+            if(tipoPU2==-1){
             rand = Math.floor(Math.random() * 4);
+            switch(rand){
+                case 0:
+                     tipoPU2 = 0;
+                     Objeto2 = this.add.image(1900, 160, 'snowball').setScale(2).setScrollFactor(0); 
+                    break;
+                case 1:
+                     tipoPU2 = 1;
+                     Objeto2 = this.add.image(1900, 160, 'electricBall').setScale(0.1).setScrollFactor(0); 
+                    break;
+                case 2:
+                     tipoPU2 = 2;
+                     Objeto2 = this.add.image(1900, 160, 'battery').setScale(0.15).setScrollFactor(0); 
+                    break;
+                case 3:
+                     tipoPU2 = 3;
+                     Objeto2 = this.add.image(1900, 160, 'boots').setScale(0.3).setScrollFactor(0); 
+                    break;
+            }
+            }
         }
     }
     },
@@ -169,14 +211,16 @@ var Scene1 = new Phaser.Class({
         var scene = this.scene;
         fueraPlano();
         cursors = this.input.keyboard.createCursorKeys(); // Flechas
-
-    if (cursors.left.isDown){ // Interacciones con las flechas (Player1)
-        player1.setVelocityX(-300);
+    
+    ////////////////////////////////////////////////////////////CONTROLES////////////////////////////////////////////////////////////////////////////////////
+    // Controles player 1
+    if (cursors.left.isDown){ 
+        player1.setVelocityX(-vel1);
 
         player1.anims.play('left', true);
     }
     else if (cursors.right.isDown){
-        player1.setVelocityX(300);
+        player1.setVelocityX(vel1);
 
         player1.anims.play('right', true);
     }
@@ -190,13 +234,14 @@ var Scene1 = new Phaser.Class({
         player1.setVelocityY(-500);
     }
 
+    // Controles player 2
     if (this.keyA.isDown){ // Interacciones W-A-S-D (Player2)
-        player2.setVelocityX(-300);
+        player2.setVelocityX(-vel2);
 
         player2.anims.play('left', true);
     }
     else if (this.keyD.isDown){
-        player2.setVelocityX(300);
+        player2.setVelocityX(vel2);
 
         player2.anims.play('right', true);
     }
@@ -213,8 +258,61 @@ var Scene1 = new Phaser.Class({
     if(this.keyP.isDown){ // Cambio de escena
             scene.start("Scene2", { "message": "Game Over" });
     }
+
+    ///////////////////////////////////////////////////////////////COMPROBACIONES///////////////////////////////////////////////////////////////////////////
     cam.startFollow(Ahead()); // La camara sigue al jugador mas adelantado
 
+    if(this.keyE.isDown){ // Accion jugador 1
+        switch(tipoPU2){
+            case 0:
+                Objeto2.destroy();
+                tipoPU2 = -1;
+                this.time.addEvent({ delay: 0, callback:congelado, callbackScope: this});
+                this.time.addEvent({ delay: 2500, callback:descongelado, callbackScope: this});
+                break;
+            case 1:
+                Objeto2.destroy();
+                tipoPU2 = -1;
+                this.time.addEvent({ delay: 0, callback:paralizado, callbackScope: this});
+                this.time.addEvent({ delay: 1500, callback:desparalizado, callbackScope: this});
+                break;
+            case 2:
+                Objeto2.destroy();
+                tipoPU2 = -1;
+                break;
+            case 3:
+                Objeto2.destroy();
+                tipoPU2 = -1;
+                this.time.addEvent({ delay: 0, callback:paralizado, callbackScope: this});
+                this.time.addEvent({ delay: 1500, callback:desparalizado, callbackScope: this});
+                break;
+        }
+    }
+    if(this.keyENTER.isDown){
+        switch(tipoPU1){
+            case 0:
+                Objeto1.destroy();
+                tipoPU1 = -1;
+                this.time.addEvent({ delay: 0, callback:congelado, callbackScope: this});
+                this.time.addEvent({ delay: 2500, callback:descongelado, callbackScope: this});
+                break;
+            case 1:
+                Objeto1.destroy();
+                tipoPU1 = -1;
+                this.time.addEvent({ delay: 0, callback:paralizado, callbackScope: this});
+                this.time.addEvent({ delay: 1500, callback:desparalizado, callbackScope: this});
+                break;
+            case 2:
+                Objeto1.destroy();
+                tipoPU1 = -1;
+                break;
+            case 3:
+                Objeto1.destroy();
+                tipoPU1 = -1;
+                break;
+        }
+    }
+    /////////////////////////////////////////////////////////////////ANIMACIONES////////////////////////////////////////////////////////////////////////////
     for(let i = 0;i<coins.length;i++){
         coins[i].anims.play('spin',true);
     }
@@ -222,6 +320,7 @@ var Scene1 = new Phaser.Class({
         PowerUps[i].anims.play('rotate',true);
     }
 
+    ////////////////////////////////////////////////////////////////////FUNCIONES//////////////////////////////////////////////////////////////////////////
     function Ahead(){ // Funcion que devuelve el jugador mas adelantado
         if (player1.body.position.x>player2.body.position.x){
            return player1;
@@ -237,6 +336,43 @@ var Scene1 = new Phaser.Class({
             }else{
                 scene.start("Scene2", { "message": "Player 2 ha ganado" });
             }
+        }
+    }
+
+    function congelado(){
+        if(this.keyE.isDown){
+            player1.setTint(0x0000ff); // pinta al jugador de rojo
+            vel1 = 150;
+        }else if(this.keyENTER.isDown){
+            player2.setTint(0x0000ff); // pinta al jugador de rojo
+            vel2 = 150;
+        }
+    }
+    function descongelado(){
+        if(vel1 == 150){
+            player1.clearTint(); // pinta al jugador de rojo
+            vel1 = 300;
+        }else if(vel2 == 150){
+            player2.clearTint(); // pinta al jugador de rojo
+            vel2 = 300;
+        }
+    }
+    function paralizado(){
+        if(this.keyE.isDown){
+            player1.setTint(0xffff00); // pinta al jugador de rojo
+            vel1 = 0;
+        }else if(this.keyENTER.isDown){
+            player2.setTint(0xffff00); // pinta al jugador de rojo
+            vel2 = 0;
+        }
+    }
+    function desparalizado(){
+        if(vel1 == 0){
+            player1.clearTint(); // pinta al jugador de rojo
+            vel1 = 300;
+        }else if(vel2 == 0){
+            player2.clearTint(); // pinta al jugador de rojo
+            vel2 = 300;
         }
     }
     }
