@@ -91,3 +91,20 @@ En el caso del desierto podemos encontrar arena y piedras a modo de decoración 
 Aquí podemos observar un boceto muy básico de lo que sería el escenario de Campo, con su decoración, saltos y sus correspondientes carteles:
 
 ![Mapa](Mapa.png)
+
+# /////////////////// REALIZACIÓN DEL JUEGO ///////////////////
+ ## ESCENARIO 1
+  ### FASE 1
+  En primer lugar, al pensar como íbamos a realizar el escenario principal, comenzamos con esto:
+  ![Fase 1 del Escenario 1](escenario1.png)
+
+  ### FASE 2
+  Continuamos avanzando en la realización del mismo, añadiendo lo siguiente:
+  ![Fase 2 del Escenario 1](escenario1_fase2.png)
+
+  ### FASE FINAL
+  Finalmente, el boceto de alta calidad del escenario 1 es el siguiente:
+  ![Fase 1 del Escenario 1](escenario1_final.png)
+  
+
+
