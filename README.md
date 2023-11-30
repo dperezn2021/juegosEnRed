@@ -106,5 +106,8 @@ Aquí podemos observar un boceto muy básico de lo que sería el escenario de Ca
   Finalmente, el boceto de alta calidad del escenario 1 es el siguiente:
   ![Fase 1 del Escenario 1](escenario1_final.png)
   
-
+  ### BOCETO FINAL
+  Añadiendo los personajes y las funcionalidades de cada objeto, obtenemos:
+  ![Fase 1 del Escenario 1](escenario1_fase3.png)
+  
 
