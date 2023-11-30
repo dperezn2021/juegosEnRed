@@ -25,6 +25,7 @@ var Scene1 = new Phaser.Class({
         this.load.image('potion', 'assets/Interfaz/Potion.png');
         this.load.image('battery', 'assets/Interfaz/Battery.png');
         this.load.image('boots', 'assets/Interfaz/boots.png');
+        this.load.image('rock', 'assets/Partida/roquita.png');
     },
 
     create: function() {
@@ -35,11 +36,17 @@ var Scene1 = new Phaser.Class({
         ScoreP2 = 0;
         tipoPU1 = -1;
         tipoPU2 = -1;
-        vel1 = 300;
+        vel1 = 250;
         vel2 = 300;
+        canDoubleJump1 = false;
+        canDoubleJump2 = false;
+        numJump1 = 0;
+        numJump2 = 0;
+        fuerza1 = 50;
+        fuerza2 = 30;
 
         this.physics.world.bounds.width = 4000; // Limite al tamaño del mundo
-        this.physics.world.bounds.height = 4000;
+        this.physics.world.bounds.height = 1000;
         this.cameras.main.setBounds(0, 0); // Define los limites de la camara
         
         this.add.image(1062, 590, 'sky').setScale(6,1.97); // Creacion del fondo
@@ -65,12 +72,12 @@ var Scene1 = new Phaser.Class({
         PowerUps[1]=this.physics.add.sprite(800, 800, 'PowerUp').setScale(3);
 
         // Instanciacion de los jugadores
-        player1 = this.physics.add.sprite(0, 850, 'dude').setScale(4); // Creacion del jugador 1
+        player1 = this.physics.add.sprite(0, 850, 'dude').setScale(4); // Creacion del jugador 1(cursors)
 
         player1.setBounce(0.2); // Limites del jugador
         player1.setCollideWorldBounds(true);
 
-        player2 = this.physics.add.sprite(100, 850, 'dude').setScale(4); // Creacion del jugador 2
+        player2 = this.physics.add.sprite(100, 850, 'dude').setScale(4); // Creacion del jugador 2 (WASD)
 
         player2.setBounce(0.2);// Limites del jugador
         player2.setCollideWorldBounds(true);
@@ -80,6 +87,9 @@ var Scene1 = new Phaser.Class({
         scoreText2 = this.add.text(1700, 50, '0: Ufo', { fontSize: '50px', fill: '#000' }).setScrollFactor(0);
         this.add.image(70, 160, 'circuloPU').setScale(0.2).setScrollFactor(0); // Instanciacion de los circulos PU
         this.add.image(1900, 160, 'circuloPU').setScale(0.2).setScrollFactor(0); 
+
+        // Instanciacion rocas
+        roca1 = this.physics.add.sprite(1000, 800, 'rock').setScale(0.5).setFriction(1);
 
 //////////////////////////////////////////////////////////////////ANIMACIONES///////////////////////////////////////////////////////////////////////////
     // Carga la animacion de andar hacia la izquierda
@@ -121,20 +131,24 @@ var Scene1 = new Phaser.Class({
         this.physics.add.collider(player2, suelo);
         this.physics.add.collider(player1, platforms); // Colisiones entre jugadores y entorno
         this.physics.add.collider(player2, platforms);
-        for(let i = 0;i<coins.length;i++){
+        for(let i = 0;i<coins.length;i++){ // Colisiones entre moneda y suelo
             this.physics.add.collider(coins[i], suelo);
         }
-        for(let i = 0;i<PowerUps.length;i++){
+        for(let i = 0;i<PowerUps.length;i++){ // Colisiones entre Power Up y suelo
             this.physics.add.collider(PowerUps[i], suelo);
         }
-        for(let i = 0;i<coins.length;i++){
+        for(let i = 0;i<coins.length;i++){ // Colisiones entre monedas y jugador
             this.physics.add.collider(player1, coins[i], takeCoin, null, this);
             this.physics.add.collider(player2, coins[i], takeCoin, null, this);
         }
-        for(let i = 0;i<PowerUps.length;i++){
+        for(let i = 0;i<PowerUps.length;i++){ // Colisiones entre PowerUps y jugador
             this.physics.add.collider(player1, PowerUps[i], takePU, null, this);
             this.physics.add.collider(player2, PowerUps[i], takePU, null, this);
         }
+        this.physics.add.collider(roca1, suelo); // Colisiones entre las rocas y el escenario
+        this.physics.add.collider(roca1, platforms); 
+        this.physics.add.collider(player2, roca1, empujar, null, this);
+        this.physics.add.collider(player1, roca1, empujar, null, this);
 ////////////////////////////////////////////////////////////////////INTERACCIONES///////////////////////////////////////////////////////////////////////////
         this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P); // Teclas que utilizaremos
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
@@ -203,6 +217,28 @@ var Scene1 = new Phaser.Class({
             }
         }
     }
+    function empujar(player, roca){
+        if(player==player2){
+            if(roca.body.touching.left){
+                roca.setVelocityX(fuerza2);
+                this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
+            }else if(roca.body.touching.right){
+                roca.setVelocityX(-fuerza2);
+                this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
+            }
+        }else if(player == player1){
+            if(roca.body.touching.left){
+                roca.setVelocityX(fuerza1);
+                this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
+            }else if(roca.body.touching.right){
+                roca.setVelocityX(-fuerza1);
+                this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
+            }
+        }
+    }
+    function stop(){
+        roca1.setVelocityX(0);
+    }
     },
 
     // Update
@@ -230,9 +266,17 @@ var Scene1 = new Phaser.Class({
         player1.anims.play('turn');
     }
 
-    if (cursors.up.isDown && player1.body.touching.down){
-        player1.setVelocityY(-500);
-    }
+    if (Phaser.Input.Keyboard.JustDown(cursors.up)) {
+        if (player1.body.touching.down) {
+          canDoubleJump1 = true;
+          player1.body.setVelocityY(-400);
+        } else if (numJump1>0 && canDoubleJump1) {
+          // player can only jump 2x (double jump)
+          canDoubleJump1 = false;
+          player1.body.setVelocityY(-400);
+          numJump1--;
+        }
+      }
 
     // Controles player 2
     if (this.keyA.isDown){ // Interacciones W-A-S-D (Player2)
@@ -251,9 +295,17 @@ var Scene1 = new Phaser.Class({
         player2.anims.play('turn');
     }
 
-    if (this.keyW.isDown && player2.body.touching.down){
-        player2.setVelocityY(-500);
-    }
+    if (Phaser.Input.Keyboard.JustDown(this.keyW)) {
+        if (player2.body.touching.down) {
+          canDoubleJump2 = true;
+          player2.body.setVelocityY(-400);
+        } else if (numJump2>0 && canDoubleJump2) {
+          canDoubleJump2 = false;
+          player2.body.setVelocityY(-400);
+          numJump2--;
+        }
+      }
+    
 
     if(this.keyP.isDown){ // Cambio de escena
             scene.start("Scene2", { "message": "Game Over" });
@@ -262,7 +314,7 @@ var Scene1 = new Phaser.Class({
     ///////////////////////////////////////////////////////////////COMPROBACIONES///////////////////////////////////////////////////////////////////////////
     cam.startFollow(Ahead()); // La camara sigue al jugador mas adelantado
 
-    if(this.keyE.isDown){ // Accion jugador 1
+    if(this.keyE.isDown){ // Accion jugador 2
         switch(tipoPU2){
             case 0:
                 Objeto2.destroy();
@@ -278,17 +330,18 @@ var Scene1 = new Phaser.Class({
                 break;
             case 2:
                 Objeto2.destroy();
+                this.time.addEvent({ delay: 0, callback:esteroides, callbackScope: this});
+                this.time.addEvent({ delay: 2500, callback:desinflado, callbackScope: this});
                 tipoPU2 = -1;
                 break;
             case 3:
                 Objeto2.destroy();
                 tipoPU2 = -1;
-                this.time.addEvent({ delay: 0, callback:paralizado, callbackScope: this});
-                this.time.addEvent({ delay: 1500, callback:desparalizado, callbackScope: this});
+                numJump2 = 10;
                 break;
         }
     }
-    if(this.keyENTER.isDown){
+    if(this.keyENTER.isDown){ // Accion Jugador1
         switch(tipoPU1){
             case 0:
                 Objeto1.destroy();
@@ -305,10 +358,13 @@ var Scene1 = new Phaser.Class({
             case 2:
                 Objeto1.destroy();
                 tipoPU1 = -1;
+                this.time.addEvent({ delay: 0, callback:correr, callbackScope: this});
+                this.time.addEvent({ delay: 2500, callback:parar, callbackScope: this});
                 break;
             case 3:
                 Objeto1.destroy();
                 tipoPU1 = -1;
+                numJump1 = 10;
                 break;
         }
     }
@@ -351,7 +407,7 @@ var Scene1 = new Phaser.Class({
     function descongelado(){
         if(vel1 == 150){
             player1.clearTint(); // pinta al jugador de rojo
-            vel1 = 300;
+            vel1 = 250;
         }else if(vel2 == 150){
             player2.clearTint(); // pinta al jugador de rojo
             vel2 = 300;
@@ -369,11 +425,27 @@ var Scene1 = new Phaser.Class({
     function desparalizado(){
         if(vel1 == 0){
             player1.clearTint(); // pinta al jugador de rojo
-            vel1 = 300;
+            vel1 = 250;
         }else if(vel2 == 0){
             player2.clearTint(); // pinta al jugador de rojo
             vel2 = 300;
         }
+    }
+    function correr(){
+        player1.setTint(0x00FFFF);
+        vel1 = 400;
+    }
+    function parar(){
+        player1.clearTint();
+        vel1 = 300;
+    }
+    function esteroides(){
+        player2.setTint(0x00FFFF);
+        fuerza2 = 80;
+    }
+    function desinflado(){
+        player2.clearTint();
+        fuerza2=30;
     }
     }
 });
