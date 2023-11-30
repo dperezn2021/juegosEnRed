@@ -104,10 +104,12 @@ Aquí podemos observar un boceto muy básico de lo que sería el escenario de Ca
 
   ### FASE FINAL
   Finalmente, el boceto de alta calidad del escenario 1 es el siguiente:
-  ![Fase 1 del Escenario 1](escenario1_final.png)
+  ![Fase final del Escenario 1](escenario1_final.png)
   
   ### BOCETO FINAL
   Añadiendo los personajes y las funcionalidades de cada objeto, obtenemos:
-  ![Fase 1 del Escenario 1](escenario1_fase3.png)
-  
+  ![Boceto de alta calidad del Escenario 1](escenario1_fase3.png)
 
+  ### AÑADIDO DE TILES
+  A continuación, al boceto inicial, se le han añadido los tiles de cada zona del escenario, consiguiendo el siguiente resultado, a falta de añadir las lianas y las bolas de fuego:
+  ![Escenario 1 hecho con Tiles](escenario1_tiles_casiCompleto.png)
