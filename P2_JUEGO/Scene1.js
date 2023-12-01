@@ -32,18 +32,7 @@ var Scene1 = new Phaser.Class({
     ///////////////////////////////////////////////////////////////INSTANCIACION////////////////////////////////////////////////////////////////////
         coins = []; // Crea el grupo de monedas
         PowerUps= [];
-        ScoreP1 = 0;
-        ScoreP2 = 0;
-        tipoPU1 = -1;
-        tipoPU2 = -1;
-        vel1 = 250;
-        vel2 = 300;
-        canDoubleJump1 = false;
-        canDoubleJump2 = false;
-        numJump1 = 0;
-        numJump2 = 0;
-        fuerza1 = 50;
-        fuerza2 = 30;
+        breakW = [];
 
         this.physics.world.bounds.width = 4000; // Limite al tamaño del mundo
         this.physics.world.bounds.height = 1000;
@@ -73,11 +62,23 @@ var Scene1 = new Phaser.Class({
 
         // Instanciacion de los jugadores
         player1 = this.physics.add.sprite(0, 850, 'dude').setScale(4); // Creacion del jugador 1(cursors)
+        player1.tipoPU = -1;
+        player1.canDoubleJump = false
+        player1.vel = 250;
+        player1.numJump = 0;
+        player1.fuerza = 8;
+        player1.score = 0;
 
         player1.setBounce(0.2); // Limites del jugador
         player1.setCollideWorldBounds(true);
 
         player2 = this.physics.add.sprite(100, 850, 'dude').setScale(4); // Creacion del jugador 2 (WASD)
+        player2.tipoPU = -1;
+        player2.canDoubleJump = false
+        player2.vel = 300;
+        player2.numJump = 0;
+        player2.fuerza = 5;
+        player2.score = 0;
 
         player2.setBounce(0.2);// Limites del jugador
         player2.setCollideWorldBounds(true);
@@ -89,7 +90,14 @@ var Scene1 = new Phaser.Class({
         this.add.image(1900, 160, 'circuloPU').setScale(0.2).setScrollFactor(0); 
 
         // Instanciacion rocas
-        roca1 = this.physics.add.sprite(1000, 800, 'rock').setScale(0.5).setFriction(1);
+        roca1 = this.physics.add.sprite(3000, 800, 'rock').setScale(0.5).setFriction(1);
+
+        // Muros rompibles
+        breakW[0] = this.physics.add.staticImage(1000, 748, 'wall').setScale(2, 1);
+        for(let i = 0; i<breakW.length;i++){
+            breakW[i].dureza=40;
+            breakW[i].tocado = false;
+        }
 
 //////////////////////////////////////////////////////////////////ANIMACIONES///////////////////////////////////////////////////////////////////////////
     // Carga la animacion de andar hacia la izquierda
@@ -137,6 +145,9 @@ var Scene1 = new Phaser.Class({
         for(let i = 0;i<PowerUps.length;i++){ // Colisiones entre Power Up y suelo
             this.physics.add.collider(PowerUps[i], suelo);
         }
+        for(let i = 0;i<breakW.length;i++){ // Colisiones entre Muros rompibles y el suelo
+            this.physics.add.collider(breakW[i], suelo);
+        }
         for(let i = 0;i<coins.length;i++){ // Colisiones entre monedas y jugador
             this.physics.add.collider(player1, coins[i], takeCoin, null, this);
             this.physics.add.collider(player2, coins[i], takeCoin, null, this);
@@ -145,72 +156,84 @@ var Scene1 = new Phaser.Class({
             this.physics.add.collider(player1, PowerUps[i], takePU, null, this);
             this.physics.add.collider(player2, PowerUps[i], takePU, null, this);
         }
+        for(let i = 0;i<breakW.length;i++){ // Colisiones entre los muros rompibles y jugador
+            this.physics.add.collider(player1, breakW[i], contacto, null, this);
+            this.physics.add.collider(player2, breakW[i], contacto, null, this);
+        }
         this.physics.add.collider(roca1, suelo); // Colisiones entre las rocas y el escenario
         this.physics.add.collider(roca1, platforms); 
         this.physics.add.collider(player2, roca1, empujar, null, this);
         this.physics.add.collider(player1, roca1, empujar, null, this);
+
 ////////////////////////////////////////////////////////////////////INTERACCIONES///////////////////////////////////////////////////////////////////////////
-        this.keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P); // Teclas que utilizaremos
-        this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        this.keyE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-        this.keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
+        // Controles Jugador 2
+        this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W); // Arriba
+        this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A); // Izquierda
+        this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D); // Derecha
+        this.keyE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E); // Power Up
+        this.keyQ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q); // Interactuar
+
+        // Controles Jugador 1
+        this.keyI = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);  // Arriba
+        this.keyJ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.J);  // Izquierda
+        this.keyL = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);  // Derecha
+        this.keyU = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.U);  // Interactuar
+        this.keyO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O);  // Power Up
 ///////////////////////////////////////////////////////////////////////FUNCIONES////////////////////////////////////////////////////////////////////////////
     function takeCoin(player, coin){
         coin.disableBody(true, true);
 
         if(player == player1){
-            ScoreP1 += 100; // Actualiza la puntuacion
-            scoreText1.setText('Hitt: ' + ScoreP1);
+            player1.score += 100; // Actualiza la puntuacion
+            scoreText1.setText('Hitt: ' + player1.score);
         }else if (player == player2){
-            ScoreP2 += 100; // Actualiza la puntuacion
-            scoreText2.setText(ScoreP2+' : Ufo');
+            player2.score += 100; // Actualiza la puntuacion
+            scoreText2.setText(player2.score+' : Ufo');
         }
     }
     function takePU(player, PU){
         PU.disableBody(true, true);
 
         if(player == player1){
-            if(tipoPU1==-1){
+            if(player1.tipoPU==-1){
             rand = Math.floor(Math.random() * 4);
             switch(rand){
                 case 0:
-                     tipoPU1 = 0;
+                     player1.tipoPU = 0;
                      Objeto1 = this.add.image(70, 160, 'snowball').setScale(2).setScrollFactor(0); 
                     break;
                 case 1:
-                     tipoPU1 = 1;
+                     player1.tipoPU = 1;
                      Objeto1 = this.add.image(70, 160, 'electricBall').setScale(0.1).setScrollFactor(0); 
                     break;
                 case 2:
-                     tipoPU1 = 2;
+                     player1.tipoPU = 2;
                      Objeto1 = this.add.image(70, 160, 'potion').setScale(2.3).setScrollFactor(0); 
                     break;
                 case 3:
-                     tipoPU1 = 3;
+                     player1.tipoPU = 3;
                      Objeto1 = this.add.image(70, 160, 'boots').setScale(0.3).setScrollFactor(0); 
                     break;
             }
             }
         }else if (player == player2){
-            if(tipoPU2==-1){
+            if(player2.tipoPU==-1){
             rand = Math.floor(Math.random() * 4);
             switch(rand){
                 case 0:
-                     tipoPU2 = 0;
+                     player2.tipoPU = 0;
                      Objeto2 = this.add.image(1900, 160, 'snowball').setScale(2).setScrollFactor(0); 
                     break;
                 case 1:
-                     tipoPU2 = 1;
+                     player2.tipoPU = 1;
                      Objeto2 = this.add.image(1900, 160, 'electricBall').setScale(0.1).setScrollFactor(0); 
                     break;
                 case 2:
-                     tipoPU2 = 2;
+                     player2.tipoPU = 2;
                      Objeto2 = this.add.image(1900, 160, 'battery').setScale(0.15).setScrollFactor(0); 
                     break;
                 case 3:
-                     tipoPU2 = 3;
+                     player2.tipoPU = 3;
                      Objeto2 = this.add.image(1900, 160, 'boots').setScale(0.3).setScrollFactor(0); 
                     break;
             }
@@ -220,24 +243,27 @@ var Scene1 = new Phaser.Class({
     function empujar(player, roca){
         if(player==player2){
             if(roca.body.touching.left){
-                roca.setVelocityX(fuerza2);
+                roca.setVelocityX(player2.fuerza);
                 this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
             }else if(roca.body.touching.right){
-                roca.setVelocityX(-fuerza2);
+                roca.setVelocityX(-player2.fuerza);
                 this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
             }
         }else if(player == player1){
             if(roca.body.touching.left){
-                roca.setVelocityX(fuerza1);
+                roca.setVelocityX(player1.fuerza);
                 this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
             }else if(roca.body.touching.right){
-                roca.setVelocityX(-fuerza1);
+                roca.setVelocityX(-player1.fuerza);
                 this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
             }
         }
     }
     function stop(){
         roca1.setVelocityX(0);
+    }
+    function contacto(player, wall){
+        wall.tocado = true;
     }
     },
 
@@ -250,13 +276,13 @@ var Scene1 = new Phaser.Class({
     
     ////////////////////////////////////////////////////////////CONTROLES////////////////////////////////////////////////////////////////////////////////////
     // Controles player 1
-    if (cursors.left.isDown){ 
-        player1.setVelocityX(-vel1);
+    if (this.keyJ.isDown){ 
+        player1.setVelocityX(-player1.vel);
 
         player1.anims.play('left', true);
     }
-    else if (cursors.right.isDown){
-        player1.setVelocityX(vel1);
+    else if (this.keyL.isDown){
+        player1.setVelocityX(player1.vel);
 
         player1.anims.play('right', true);
     }
@@ -266,26 +292,26 @@ var Scene1 = new Phaser.Class({
         player1.anims.play('turn');
     }
 
-    if (Phaser.Input.Keyboard.JustDown(cursors.up)) {
+    if (Phaser.Input.Keyboard.JustDown(this.keyI)) {
         if (player1.body.touching.down) {
-          canDoubleJump1 = true;
+          player1.canDoubleJump = true;
           player1.body.setVelocityY(-400);
-        } else if (numJump1>0 && canDoubleJump1) {
+        } else if (player1.numJump>0 && player1.canDoubleJump) {
           // player can only jump 2x (double jump)
-          canDoubleJump1 = false;
+          player1.canDoubleJump = false;
           player1.body.setVelocityY(-400);
-          numJump1--;
+          player1.numJump--;
         }
       }
 
     // Controles player 2
     if (this.keyA.isDown){ // Interacciones W-A-S-D (Player2)
-        player2.setVelocityX(-vel2);
+        player2.setVelocityX(-player2.vel);
 
         player2.anims.play('left', true);
     }
     else if (this.keyD.isDown){
-        player2.setVelocityX(vel2);
+        player2.setVelocityX(player2.vel);
 
         player2.anims.play('right', true);
     }
@@ -297,34 +323,28 @@ var Scene1 = new Phaser.Class({
 
     if (Phaser.Input.Keyboard.JustDown(this.keyW)) {
         if (player2.body.touching.down) {
-          canDoubleJump2 = true;
+          player2.canDoubleJump = true;
           player2.body.setVelocityY(-400);
-        } else if (numJump2>0 && canDoubleJump2) {
-          canDoubleJump2 = false;
+        } else if (player2.numJump>0 && player2.canDoubleJump) {
+          player2.canDoubleJump = false;
           player2.body.setVelocityY(-400);
-          numJump2--;
+          player2.numJump--;
         }
-      }
-    
-
-    if(this.keyP.isDown){ // Cambio de escena
-            scene.start("Scene2", { "message": "Game Over" });
     }
-
     ///////////////////////////////////////////////////////////////COMPROBACIONES///////////////////////////////////////////////////////////////////////////
-    cam.startFollow(Ahead()); // La camara sigue al jugador mas adelantado
+    cam.centerOnX(Ahead().x); // La camara sigue al jugador mas adelantado
 
     if(this.keyE.isDown){ // Accion jugador 2
-        switch(tipoPU2){
+        switch(player2.tipoPU){
             case 0:
                 Objeto2.destroy();
-                tipoPU2 = -1;
+                player2.tipoPU = -1;
                 this.time.addEvent({ delay: 0, callback:congelado, callbackScope: this});
                 this.time.addEvent({ delay: 2500, callback:descongelado, callbackScope: this});
                 break;
             case 1:
                 Objeto2.destroy();
-                tipoPU2 = -1;
+                player2.tipoPU = -1;
                 this.time.addEvent({ delay: 0, callback:paralizado, callbackScope: this});
                 this.time.addEvent({ delay: 1500, callback:desparalizado, callbackScope: this});
                 break;
@@ -332,42 +352,61 @@ var Scene1 = new Phaser.Class({
                 Objeto2.destroy();
                 this.time.addEvent({ delay: 0, callback:esteroides, callbackScope: this});
                 this.time.addEvent({ delay: 2500, callback:desinflado, callbackScope: this});
-                tipoPU2 = -1;
+                player2.tipoPU = -1;
                 break;
             case 3:
                 Objeto2.destroy();
-                tipoPU2 = -1;
-                numJump2 = 10;
+                player2.tipoPU = -1;
+                player2.numJump = 10;
                 break;
         }
     }
-    if(this.keyENTER.isDown){ // Accion Jugador1
-        switch(tipoPU1){
+    if(this.keyO.isDown){ // Accion Jugador1
+        switch(player1.tipoPU){
             case 0:
                 Objeto1.destroy();
-                tipoPU1 = -1;
+                player1.tipoPU = -1;
                 this.time.addEvent({ delay: 0, callback:congelado, callbackScope: this});
                 this.time.addEvent({ delay: 2500, callback:descongelado, callbackScope: this});
                 break;
             case 1:
                 Objeto1.destroy();
-                tipoPU1 = -1;
+                player1.tipoPU = -1;
                 this.time.addEvent({ delay: 0, callback:paralizado, callbackScope: this});
                 this.time.addEvent({ delay: 1500, callback:desparalizado, callbackScope: this});
                 break;
             case 2:
                 Objeto1.destroy();
-                tipoPU1 = -1;
+                player1.tipoPU = -1;
                 this.time.addEvent({ delay: 0, callback:correr, callbackScope: this});
                 this.time.addEvent({ delay: 2500, callback:parar, callbackScope: this});
                 break;
             case 3:
                 Objeto1.destroy();
-                tipoPU1 = -1;
-                numJump1 = 10;
+                player1.tipoPU = -1;
+                player1.numJump = 10;
                 break;
         }
     }
+    for(let i = 0; i<breakW.length;i++){
+        if(Phaser.Input.Keyboard.JustDown(this.keyQ) && breakW[i].tocado == true){ // Interaccion con breakable Walls
+            breakW[i].dureza -= player2.fuerza;
+        }else if(Phaser.Input.Keyboard.JustDown(this.keyU) && breakW[i].tocado == true){
+            breakW[i].dureza -= player1.fuerza;
+        }
+        if(breakW[i].dureza<40 && breakW[i].dureza > 20){
+            breakW[i].setTint(0xF0F720);
+        }else if(breakW[i].dureza<20 && breakW[i].dureza > 10){
+            breakW[i].setTint(0xFF6A06);
+        }else if(breakW[i].dureza<10){
+            breakW[i].setTint(0xFF0000);
+        } 
+        if(breakW[i].dureza<=0){
+            breakW[i].destroy();
+        }
+        breakW[i].tocado = false;
+    }
+    
     /////////////////////////////////////////////////////////////////ANIMACIONES////////////////////////////////////////////////////////////////////////////
     for(let i = 0;i<coins.length;i++){
         coins[i].anims.play('spin',true);
@@ -398,54 +437,54 @@ var Scene1 = new Phaser.Class({
     function congelado(){
         if(this.keyE.isDown){
             player1.setTint(0x0000ff); // pinta al jugador de rojo
-            vel1 = 150;
-        }else if(this.keyENTER.isDown){
+            player1.vel = 150;
+        }else if(this.keyO.isDown){
             player2.setTint(0x0000ff); // pinta al jugador de rojo
-            vel2 = 150;
+            player2.vel = 150;
         }
     }
     function descongelado(){
-        if(vel1 == 150){
+        if(player1.vel == 150){
             player1.clearTint(); // pinta al jugador de rojo
-            vel1 = 250;
-        }else if(vel2 == 150){
+            player1.vel = 250;
+        }else if(player2.vel == 150){
             player2.clearTint(); // pinta al jugador de rojo
-            vel2 = 300;
+            player2.vel = 300;
         }
     }
     function paralizado(){
         if(this.keyE.isDown){
             player1.setTint(0xffff00); // pinta al jugador de rojo
-            vel1 = 0;
-        }else if(this.keyENTER.isDown){
+            player1.vel = 0;
+        }else if(this.keyO.isDown){
             player2.setTint(0xffff00); // pinta al jugador de rojo
-            vel2 = 0;
+            player2.vel = 0;
         }
     }
     function desparalizado(){
-        if(vel1 == 0){
+        if(player1.vel == 0){
             player1.clearTint(); // pinta al jugador de rojo
-            vel1 = 250;
-        }else if(vel2 == 0){
+            player1.vel = 250;
+        }else if(player2.vel == 0){
             player2.clearTint(); // pinta al jugador de rojo
-            vel2 = 300;
+            player2.vel = 300;
         }
     }
     function correr(){
         player1.setTint(0x00FFFF);
-        vel1 = 400;
+        player1.vel = 400;
     }
     function parar(){
         player1.clearTint();
-        vel1 = 300;
+        player1.vel = 300;
     }
     function esteroides(){
         player2.setTint(0x00FFFF);
-        fuerza2 = 80;
+        player2.fuerza = 80;
     }
     function desinflado(){
         player2.clearTint();
-        fuerza2=30;
+        player2.fuerza=30;
     }
     }
 });
