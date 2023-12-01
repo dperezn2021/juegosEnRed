@@ -19,16 +19,13 @@ var MenuScene = new Phaser.Class({
     create: function() {
         this.add.image(1000, 500, 'fondo').setScale(0.99, 0.85);
 
-        let play = this.add.image(1000, 590, 'play').setScale(2);
+        let play = this.add.image(1000, 590, 'play').setScale(3);
 
         //let ajustes = this.add.image(1000, 720, 'ajustes').setScale(1.2);
-
-        let salir = this.add.image(1000, 720, 'exit').setScale(1.5);
 
         // Añade interactividad a los botones
         play.setInteractive();
         //ajustes.setInteractive();
-        salir.setInteractive();
 
         function exitButtonClick() 
         {    if (confirm("¿Seguro que quieres salir?")) {
@@ -40,11 +37,11 @@ var MenuScene = new Phaser.Class({
         })
 
         play.on("pointerover",()=>{
-            play.setScale(2.5);
+            play.setScale(3.5);
         })
 
         play.on("pointerout",()=>{
-            play.setScale(2);
+            play.setScale(3);
         })
 
         /*ajustes.on("pointerover",()=>{
@@ -54,18 +51,6 @@ var MenuScene = new Phaser.Class({
         ajustes.on("pointerout",()=>{
             ajustes.setScale(1.2);
         })*/
-
-        salir.on("pointerover",()=>{
-            salir.setScale(2);
-        })
-
-        salir.on("pointerout",()=>{
-            salir.setScale(1.5);
-        })
-
-        salir.on("pointerdown",()=>{
-           exitButtonClick();
-        })
     },
     update: function() {
         

@@ -33,6 +33,7 @@ var Scene1 = new Phaser.Class({
         coins = []; // Crea el grupo de monedas
         PowerUps= [];
         breakW = [];
+        paused = false;
 
         this.physics.world.bounds.width = 4000; // Limite al tamaño del mundo
         this.physics.world.bounds.height = 1000;
@@ -179,6 +180,9 @@ var Scene1 = new Phaser.Class({
         this.keyL = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);  // Derecha
         this.keyU = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.U);  // Interactuar
         this.keyO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.O);  // Power Up
+
+        // Menu de Pause
+        this.keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
 ///////////////////////////////////////////////////////////////////////FUNCIONES////////////////////////////////////////////////////////////////////////////
     function takeCoin(player, coin){
         coin.disableBody(true, true);
@@ -331,6 +335,20 @@ var Scene1 = new Phaser.Class({
           player2.numJump--;
         }
     }
+
+    if(Phaser.Input.Keyboard.JustDown(this.keyESC)){
+        if(!paused){
+            pauseText = this.add.text(800, 400, 'PAUSADO', { fontSize: '100px', color: "#000000",fontStyle: "bold"});
+            player1.body.moves = false;
+            player2.body.moves = false;
+            paused=true;
+        }else if(paused){
+            pauseText.destroy();
+            player1.body.moves = true;
+            player2.body.moves = true;
+            paused = false;
+        }
+    }
     ///////////////////////////////////////////////////////////////COMPROBACIONES///////////////////////////////////////////////////////////////////////////
     cam.centerOnX(Ahead().x); // La camara sigue al jugador mas adelantado
 
@@ -388,7 +406,7 @@ var Scene1 = new Phaser.Class({
                 break;
         }
     }
-    for(let i = 0; i<breakW.length;i++){
+    for(let i = 0; i<breakW.length;i++){ // Comprueba si el jugador rompe el muro y lo actualiza en consecuencia
         if(Phaser.Input.Keyboard.JustDown(this.keyQ) && breakW[i].tocado == true){ // Interaccion con breakable Walls
             breakW[i].dureza -= player2.fuerza;
         }else if(Phaser.Input.Keyboard.JustDown(this.keyU) && breakW[i].tocado == true){
@@ -427,10 +445,11 @@ var Scene1 = new Phaser.Class({
     function fueraPlano(){ // Funcion que comprobara si un jugador se queda fuera de la pantalla
         if(Math.abs(player1.body.position.x-player2.body.position.x)>1200){
             if(player1.body.position.x>player2.body.position.x){
-                scene.start("Scene2", { "message": "Player 1 ha ganado" });
+                player1.score += 1000;
             }else{
-                scene.start("Scene2", { "message": "Player 2 ha ganado" });
+                player2.score += 1000;
             }
+            scene.start("Scene2", { "points1": player1.score, "points2": player2.score });
         }
     }
 
@@ -480,11 +499,11 @@ var Scene1 = new Phaser.Class({
     }
     function esteroides(){
         player2.setTint(0x00FFFF);
-        player2.fuerza = 80;
+        player2.fuerza = 10;
     }
     function desinflado(){
         player2.clearTint();
-        player2.fuerza=30;
+        player2.fuerza=5;
     }
     }
 });
