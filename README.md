@@ -133,8 +133,10 @@ Como ya se ha comentado previamente, los personajes serán “Hitt”, un croma�
 
 ###1.1. HITT
 Para el bárbaro, pensamos en desarrollar un personaje estilo “cromañón” caricaturizado, plasmando un cartoon y agradable, acorde con la temática del juego. Para ello, el personaje ha sido basado en diferentes tipos de cavernícolas o gigantes, como los personajes del famoso juego “Clash of Clans”, el gigante (Figura 16) y el bárbaro (Figura 17), adaptando sus vestimentas a la ambientación prehistórica del juego.
-			
-Figura 16: Gigante, Clash of Clans			Figura 17: Bárbaro, Clash of Clans
+![Hitt](giganteCoC.jpg)			
+Figura 16: Gigante, Clash of Clans
+![Hitt](barbaroCoC.png)
+Figura 17: Bárbaro, Clash of Clans
 
 Partiendo de la base de un boceto inicial, de un cavernícola más ambientado en un gigante, muy forzudo y con aspecto rudo (Figura 18), se decidió realizar un cambio a un nuevo Hitt, eligiendo un sprite con aspecto de mayor liderazgo, pero conservando los rasgos característicos de tozudez y menor inteligencia, así como el físico portentoso del cromañón (Figura 19). 
 ![Ufo](Hitt.png)			     
@@ -143,7 +145,7 @@ Figura 18: Boceto inicial de Hitt
 Figura 19: Sprite final de Hitt
 
 Así podemos ver la paleta de colores del personaje (Figura 20), en el que predominan los tonos cálidos, colores como el naranja, el marrón o el de la piel que se combinan para dar uniformidad de color al personaje.
-
+![Hitt](paletaColoresHitt.png)
 Figura 20: Paleta de colores de Hitt
 
 ###1.2. UFO
@@ -152,15 +154,15 @@ En el caso del marciano, llamándose Ufo, se pensó que el mejor sprite posible 
 Figura 21: Boceto inicial de Ufo.
 
 Primeramente, para el diseño del marciano, se tomaron como referencias algunos personajes de series famosas, como “Materia Gris (Ben 10)” (Figura 22), caricaturizándolo a un estilo más infantil, como el de “Marvin (Looney Tunes)” (Figura 23)
-					
+![Hitt](materiaGris.png)					
 Figura 22: Materia Gris (Ben 10)
-
+![Hitt](Marvin.png)
 Figura 23: Marvin (Looney Toons)
 
 Finalmente, al igual que con Hitt, se realizaron grandes avances y cambios en la idea del concepto, que permitieron elegir un sprite final para Ufo (Figura 24), que no se alejaba de la idea principal. Los cambios realizados fueron en la paleta de colores (Figura 25), poner colores más llamativos que pegasen con ese estilo cartoon de colores más vivos.
 ![Ufo](Spritesheets/spritesheetUFOV3.png)	
 Figura 24: Sprite de Ufo.
-
+![Hitt](paletaUfo.png)
 Figura 25: Paleta de colores de Ufo
 
 ##NIVELES
@@ -168,16 +170,16 @@ Para los niveles, por ser un juego de plataformas, se basó el diseño en los ma
 
 Por lo general, a la hora de realizar el diseño de niveles, se recabaron diversos títulos conocidos de este tipo de juegos, en base a estos títulos se fueron cogiendo ideas de cada uno de ellos, ya que  como ejemplo, las físicas que mejor encajaban con el juego a al hora de implementar la movilidad, serían las de juegos como “Furwind” (Figura 26) o “Kirby, & The Amazing Mirror” (Figura 27)
 
-		
+![Hitt](furwind.jpg)		
 Figura 26: Furwind
-
+![Hitt](kirby.jpg)
 Figura 27: Kirby & the Amazing Mirror
 
 Sin embargo, en base a la difícil implementación de físicas y movilidad de juegos como el “Celeste” (Figura 25), se ha tomado de referencia junto a otro de los grandes juegos como el “Hollow Knight” (Figura 26), para tomar ideas sobre puzzles y “Power-Ups” útiles para nuestro juego
 
-	           
+![Hitt](celeste.jpg)	           
 Figura 28: Celeste
-
+![Hitt](hollowknight.jpg)
 Figura 29: Hollow Knight
 
 De esta forma, teniendo en cuenta las posibilidades de implementación, se ha realizado un boceto para el diseño de niveles, que incluye elementos tales como plataformas para “parkour”, pinchos, agua y lava como elementos que hacen daño, puzzles que implican romper objetos o moverlos, así como una recogida de objetos tales como monedas, “Power-Ups” y una llave, necesaria la última para pasarse el nivel. Así acaba finalmente el boceto de diseño de niveles, la primera mitad (Figura 30) y la segunda mitad (Figura 31).
@@ -189,7 +191,7 @@ Figura 31: Boceto de la segunda mitad del nivel
 
 ##ESCENARIOS
 Con todo el diseño de niveles ya definido y el diseño general de los personajes, se establece el diseño de los tiles y demás objetos que formarán parte del escenario. Para ello, una vez más, se tomó referencia de algunos de los juegos de plataformas más populares, alguno ya mencionado como el “Kirby, & The Amazing Mirror” (Figura 32), cuyos colores y ambientación general eran los más adecuados para nuestro juego. Para su adaptación, se fusionó junto con el diseño del dibujo de “The Meat Boy” (Figura 33).
-		
+![Hitt](kirby.jpg)		
 Figura 32: Kirby, & The Amazing Mirror
 
 Figura 33: The Meat Boy
@@ -201,7 +203,7 @@ De esta forma, el primer escenario que encontraremos será la pradera, en la que
 Figura 34: Tiles de pradera
 
 La paleta de ambos escenarios contendrá colores similares pero en tonalidades diferentes, para poder jugar así con la ambientación del lugar, viendo marrones para pradera y naranjas para el desierto, verde para la hierba de la pradera y los cactus del desierto y blancos y grises para las calaveras de la pradera y las piedras del desierto, así como el azul del agua (Figura 35).
-
+![Hitt](paletaTiles.png)
 Figura 35: Paleta de colores de los tiles
 
 Una vez disponemos de los tiles necesarios para la creación de los escenarios, quedan implementados como suelos, plataformas y techos, en el primer nivel de la siguiente manera (Figuras 36):
@@ -209,13 +211,14 @@ Una vez disponemos de los tiles necesarios para la creación de los escenarios, 
 Figura 36: Escenario 1, primera parte
 
 ##LOGO DEL JUEGO
-	Para el logo del juego (Figura 38) se ha decidido seguir el estilo cartoon, dividiendo el logo en 2 partes, por una parte el nombre de Hitt, envuelto en la estela de llamas naranjas, rojas y amarillas de un asteroide granate por el fuego (Figura 39), representando la época prehistórica a la que pertenecen Hitt y su pueblo. Por otro lado, el nombre de UFO, envuelto en una estela moderna, de tonalidades verdes (Figura 40), de estilo digital y futurista que representa la llegada del ovni con la población alienígena. De esta forma, podemos combinar el logo jugando con las ambientaciones antiguas y modernas para cada personaje.
+Para el logo del juego (Figura 38) se ha decidido seguir el estilo cartoon, dividiendo el logo en 2 partes, por una parte el nombre de Hitt, envuelto en la estela de llamas naranjas, rojas y amarillas de un asteroide granate por el fuego (Figura 39), representando la época prehistórica a la que pertenecen Hitt y su pueblo. Por otro lado, el nombre de UFO, envuelto en una estela moderna, de tonalidades verdes (Figura 40), de estilo digital y futurista que representa la llegada del ovni con la población alienígena. De esta forma, podemos combinar el logo jugando con las ambientaciones antiguas y modernas para cada personaje.
 
 ![Ufo](Logo_Hitt_and_Ufo.png)
 Figura 38: Logo del juego
 
-			
+![Hitt](paletaLogoHitt.png)			
 Figura 39: Paleta de color logo Hitt
+![Hitt](paletaLogoUfo.png)
 Figura 40: Paleta de color logo Ufo
 
 ##MENÚ DE INICIO
@@ -229,7 +232,7 @@ A cada lado del haz de luz, se han añadido a ambos protagonistas del juego, a l
 Figura 41: Diseño del menú de inicio
 
 En cuanto a la paleta de colores (Figura 42), para implementar correctamente tanto el logo del juego como las opciones a elegir en pantalla, se ha incluido un sombreado negro, que deja el fondo de pantalla en segundo plano y permite resaltar las opciones y el logo. Lo que deja en el fondo, un diseño de colores oscuros, mezclando el azul del cielo anochecido, con los grises de la nave. Haciendo resaltar los detalles brillantes de las luces verdes y amarillas de la nave, junto con el haz de luz amarillo que sale de la propia nave.
-
+![Hitt](paletaMenúInicio.png)
 Figura 42: Paleta de colores del menú de inicio
 
 De esta forma, al logo del juego (Figura 43), se le ha incluido un marco con un fondo más visual, a modo de cartel, en el que se sigue jugando con esa combinación de ambientaciones de ambos personajes, incluyendo un marco de piedra para la mitad del logo de Hitt y un marco de neón para la mitad del logo de UFO. Todo ello con un fondo estrellado simulando el espacio exterior.
@@ -237,7 +240,7 @@ De esta forma, al logo del juego (Figura 43), se le ha incluido un marco con un 
 Figura 43: Marco para el logo del juego
 
 Por lo que para la paleta de colores de este marco (Figura 42), se han combinado los colores grises del marco de piedra de la mitad alta, con el contraste verde del borde neón de la mitad baja. Todo ello por encima de un fondo negro con estrellas blancas que ayuda a resaltar el logo.
-
+![Hitt](paletaMarcoLogo.png)
 Figura 44: Paleta de colores del marco del logo
 
 ##INTERFAZ DE VICTORIA Y DERROTA
@@ -249,9 +252,9 @@ Figura 45: Interfaz de victoria de Ufo
 Figura 46: Interfaz de victoria de Hitt
 ##MÚSICA Y SONIDOS
 Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 47), y otra totalmente diferente como música de fondo del videojuego (Figura 48).
-
+![Hitt](PatronMusica1.png)
 Figura 47: Patrón de la música de la pantalla de inicio
-
+![Hitt](PatronMusica2.png)
 Figura 48: Patrón de la música de fondo del videojuego
 
 Además, se han incluido diferentes sonidos, extraídos de la página web de “Pixabay”, como los siguientes:
@@ -262,6 +265,6 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 
 #FLUJOGRAMA
 Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 49).
-
+![Hitt](flujograma.png)
 Figura 49: Flujograma
 
