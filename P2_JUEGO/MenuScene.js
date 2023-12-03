@@ -10,7 +10,7 @@ var MenuScene = new Phaser.Class({
 
     preload: function() {
         this.load.image('fondo','assets/Background/Fondo_Menu.jpg');
-        this.load.image('play','assets/Menu/play.png');
+        this.load.image('play','assets/Menu/BotonJugar.png');
         this.load.image('ajustes','assets/Menu/ajustes.png');
         this.load.image('exit','assets/Menu/salir.png');
         this.load.image('logo','assets/Menu/logo.png');
@@ -32,11 +32,11 @@ var MenuScene = new Phaser.Class({
         play.setInteractive();
         //ajustes.setInteractive();
 
-        function exitButtonClick() 
+        /*function exitButtonClick() 
         {    if (confirm("¿Seguro que quieres salir?")) {
             //navigator.app.exitApp();  
              }
-            ;}
+            ;}*/
         play.on("pointerdown",()=>{
             backgroundMusic.stop();
             this.scene.start("Scene1");

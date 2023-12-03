@@ -5,6 +5,7 @@
         <script src="scene1.js"></script>
         <script src="scene2.js"></script>
         <script src="MenuScene.js"></script>
+        <div style="font-family:Super Squad; position:absolute; left:-1000px; visibility:hidden;">.</div>
     </head>
     <body style="background-color:#228B22">
         <div id="game"></div>
@@ -17,7 +18,7 @@
     height: 1000,
     autoCenter: Phaser.Scale.CENTER_BOTH,
     mode: Phaser.Scale.FIT,
-    scene: [ Scene1, Scene2, MenuScene ],
+    scene: [ MenuScene, Scene1, Scene2 ],
     physics: {
         default: 'arcade',
         arcade: {
@@ -29,5 +30,11 @@
             const game = new Phaser.Game(config);
 
         </script>
+        <style media='screen' type='text/css'>
+            @font-face {
+              font-family: Super Squad;
+              src: url('assets/Menu/Super Squad.ttf');
+            }
+      </style>
     </body>
 </html>

@@ -115,7 +115,7 @@ var Scene1 = new Phaser.Class({
         platforms.create(3624, 250, 'sueloP1');
         platforms.create(4096, 335, 'sueloM2');
         platforms.create(4096, 490, 'sueloM2');
-        platforms.create(3955, 570, 'sueloP3');
+        platforms.create(4050, 570, 'sueloP3');
         platforms.create(4550, 582, 'sueloM1').setScale(1,1);
         platforms.create(4410, 770, 'sueloP3');
         // Definicion Zona 4
@@ -198,7 +198,7 @@ var Scene1 = new Phaser.Class({
         PowerUps[8]=this.physics.add.staticSprite(7170, 830, 'PowerUp').setScale(1.5);
 
         // Instanciacion de los jugadores
-        player1 = this.physics.add.sprite(1000, 330, 'Hitt').setScale(0.3); // Creacion del jugador 1(cursors)
+        player1 = this.physics.add.sprite(800, 130, 'Hitt').setScale(0.3); // Creacion del jugador 1(cursors)
         player1.tipoPU = -1;
         player1.canDoubleJump = false
         player1.vel = 250;
@@ -210,7 +210,7 @@ var Scene1 = new Phaser.Class({
         player1.setBounce(0.2); // Limites del jugador
         player1.setCollideWorldBounds(true);
 
-        player2 = this.physics.add.sprite(4600, 220, 'Ufo').setScale(0.3); // Creacion del jugador 2 (WASD)
+        player2 = this.physics.add.sprite(400, 720, 'Ufo').setScale(0.3); // Creacion del jugador 2 (WASD) 
         player2.tipoPU = -1;
         player2.canDoubleJump = false
         player2.vel = 300;
@@ -567,7 +567,7 @@ var Scene1 = new Phaser.Class({
     update: function() {
         var cam = this.cameras.main;
         var scene = this.scene;
-        //fueraPlano();
+        fueraPlano();
         cursors = this.input.keyboard.createCursorKeys(); // Flechas
     
     ////////////////////////////////////////////////////////////CONTROLES////////////////////////////////////////////////////////////////////////////////////
