@@ -2,10 +2,10 @@ GRUPO 10: GG TEAM
 “HITT AND UFO”
 #INTEGRANTES
 GG TEAM
-     Mario Martín Escribano	          Javier Martín García
+Mario Martín Escribano	          Javier Martín García
 
 
-       Daniel Pérez Navarro 		  Marcos Vivar Muiño
+Daniel Pérez Navarro 		  Marcos Vivar Muiño
 
 #INTEGRANTES DEL EQUIPO
 Daniel Pérez Navarro
@@ -50,9 +50,9 @@ Cada jugador deberá llegar a la meta lo antes posible, utilizando las herramien
 	“Hitt and Ufo” es un juego de plataformas y parkour basado en algunos de los títulos más famosos del mercado como el “Celeste” (figura 3) o el mismo “Super Mario Bros” (figura 4). A diferencia de estos títulos, “Hitt and Ufo” es un juego casual, dedicado a todos los públicos, a aquellos jugadores a los que les gusten los juegos de competición y que quieran jugar partidas puntuales.
 
 	
-		     Figura 3: Celeste				Figura 4: Super Mario Bros
+Figura 3: Celeste				Figura 4: Super Mario Bros
 
-	La historia del juego es básica para entender el contexto, al no ser un juego para realizar un modo historia, el tipo de jugadores que se buscan, son aquellos jugadores llamados “casuals” que buscan jugar partidas puntuales que no requieran ningún tipo de progreso previo ni ningún avance para guardar.
+La historia del juego es básica para entender el contexto, al no ser un juego para realizar un modo historia, el tipo de jugadores que se buscan, son aquellos jugadores llamados “casuals” que buscan jugar partidas puntuales que no requieran ningún tipo de progreso previo ni ningún avance para guardar.
 
 Por otra parte, se busca llegar a tanta gente como sea posible, de entre todos aquellos públicos que puedan tener acceso a ordenadores se ha seleccionado un público objetivo mayor a los 7 años, implementando un estilo cartoon que no resulta agresivo para aquellos jugadores menores que lo jueguen.
 
@@ -61,12 +61,12 @@ Por otra parte, se busca llegar a tanta gente como sea posible, de entre todos a
 A priori, la victoria y la derrota se pueden definir de forma muy sencilla, tal que el ganador será aquel jugador que alcance la meta primero. Sin embargo, esta no tiene por qué ser la forma en la que se gane, existen diversas formas.
 La primera forma será por puntos, en el juego se irán otorgando puntos durante la carrera dependiendo de lo que logren hacer los corredores. Primero, por el mapa aparecerán monedas (Figura 5) que otorgarán 100 puntos por cada una de ellas recogida. En segundo lugar, habrá una llave (Figura 6) que dejará una puerta abierta, de tal forma que el primero que llegue a esa llave, conseguirá 1000 puntos y por último, el jugador que llegue primero a la meta, recibirá 2000 puntos.
 		      
-                                        	        Figura 5: Moneda		                              Figura 6: Llave
+Figura 5: Moneda		                              Figura 6: Llave
 La segunda forma será sacarlo de la pantalla, si un jugador es lo suficientemente rápido y consigue sacar la ventaja necesaria a su contrincante para hacer que salga de la pantalla por un tiempo determinado, el jugador que quede fuera de la pantalla será eliminado y el otro jugador recibirá 1000 puntos.
 Con estos métodos, conseguiremos que el juego tenga un nivel de estrategia superior que la de una simple carrera. Durante la partida los jugadores deberán pensar la mejor estrategia para poder ganar.
 #MECÁNICAS
 ###2.1. BÁSICAS
-	Estas son las mecánicas básicas que permiten avanzar en el juego, ya sean tanto de movilidad como de usabilidad:
+Estas son las mecánicas básicas que permiten avanzar en el juego, ya sean tanto de movilidad como de usabilidad:
 
 Correr: Mas te vale ser el primero en llegar a la meta, o puede que tu civilización entera desaparezca.
 Saltar: Será necesario para aquellos casos donde se deban esquivar obstáculos. 
@@ -86,7 +86,7 @@ Bola de hielo: Objeto arrojadizo que se lanza al adversario para reducir su velo
 Rayo paralizante: Rayo que aturde al rival, lo que le hace paralizarse y quedarse inmóvil por unos instantes. (Figura 10)
 
 		
-                  Figura 9: Bola de hielo		 	Figura 10: Rayo paralizante
+Figura 9: Bola de hielo		 	Figura 10: Rayo paralizante
 
 ####2.2.2. CONSUMIBLES
 Poción rápida: Poción que otorga un 50% más de velocidad y que solo puede ser consumida por Hitt. (Figura 11)
@@ -103,7 +103,7 @@ Figura 13: Botas saltarinas
 ##CONTROLES EN LOCAL Y EN RED
 	El juego se puede jugar tanto en local, con ambos jugadores en un mismo dispositivo (Figura 14), como en red, donde cada jugador competirá desde su propio dispositivo (Figura 15).
 
-	En cuanto a los controles, existen 3 tipos de movimientos básicos y 2 de usabilidad. En la movilidad se puede avanzar hacia delante (derecha), hacia atrás (izquierda) y saltar (arriba). Mientras que en la usabilidad están la utilización de objetos y power ups y las interacciones.
+En cuanto a los controles, existen 3 tipos de movimientos básicos y 2 de usabilidad. En la movilidad se puede avanzar hacia delante (derecha), hacia atrás (izquierda) y saltar (arriba). Mientras que en la usabilidad están la utilización de objetos y power ups y las interacciones.
 	
 En local, los controles para el jugador 1 se dividen de la siguiente forma:
 “W”, “A”, “D” para movilidad siendo arriba, izquierda y derecha respectivamente. La tecla “S” no se utiliza ya que no existe un movimiento hacia abajo.
@@ -115,7 +115,7 @@ Mientras que para el jugador 2 se dividen de esta forma:
 
 Figura 14. Controles en local de los jugadores
 
-	Por su parte, para le juego en red, los controles se reducen simplemente a los controles explicados para el jugador 1 en local. Es decir, “W”, ”A”, ”D”, ”Q”, ”E”, que serían para saltar, ir hacia la izquierda, ir hacia la derecha, usar un consumible e interactuar respectivamente.
+Por su parte, para le juego en red, los controles se reducen simplemente a los controles explicados para el jugador 1 en local. Es decir, “W”, ”A”, ”D”, ”Q”, ”E”, que serían para saltar, ir hacia la izquierda, ir hacia la derecha, usar un consumible e interactuar respectivamente.
 
 Figura 15. Controles en red de los jugadores
 
@@ -128,11 +128,11 @@ Para el bárbaro, pensamos en desarrollar un personaje estilo “cromañón” c
 			
 Figura 16: Gigante, Clash of Clans			Figura 17: Bárbaro, Clash of Clans
 
-	Partiendo de la base de un boceto inicial, de un cavernícola más ambientado en un gigante, muy forzudo y con aspecto rudo (Figura 18), se decidió realizar un cambio a un nuevo Hitt, eligiendo un sprite con aspecto de mayor liderazgo, pero conservando los rasgos característicos de tozudez y menor inteligencia, así como el físico portentoso del cromañón (Figura 19). 
+Partiendo de la base de un boceto inicial, de un cavernícola más ambientado en un gigante, muy forzudo y con aspecto rudo (Figura 18), se decidió realizar un cambio a un nuevo Hitt, eligiendo un sprite con aspecto de mayor liderazgo, pero conservando los rasgos característicos de tozudez y menor inteligencia, así como el físico portentoso del cromañón (Figura 19). 
 			     
-       Figura 18: Boceto inicial de Hitt			Figura 19: Sprite final de Hitt
+Figura 18: Boceto inicial de Hitt			Figura 19: Sprite final de Hitt
 
-	Así podemos ver la paleta de colores del personaje (Figura 20), en el que predominan los tonos cálidos, colores como el naranja, el marrón o el de la piel que se combinan para dar uniformidad de color al personaje.
+Así podemos ver la paleta de colores del personaje (Figura 20), en el que predominan los tonos cálidos, colores como el naranja, el marrón o el de la piel que se combinan para dar uniformidad de color al personaje.
 
 Figura 20: Paleta de colores de Hitt
 
@@ -147,7 +147,7 @@ Figura 22: Materia Gris (Ben 10)			Figura 23: Marvin (Looney Toons)
 
 Finalmente, al igual que con Hitt, se realizaron grandes avances y cambios en la idea del concepto, que permitieron elegir un sprite final para Ufo (Figura 24), que no se alejaba de la idea principal. Los cambios realizados fueron en la paleta de colores (Figura 25), poner colores más llamativos que pegasen con ese estilo cartoon de colores más vivos.
 			
-                      Figura 24: Sprite de Ufo.		                         Figura 25: Paleta de colores de Ufo
+Figura 24: Sprite de Ufo.		                         Figura 25: Paleta de colores de Ufo
 ##NIVELES
 Para los niveles, por ser un juego de plataformas, se basó el diseño en los mapas de algunos de los mejores juegos indie de plataformas de la actualidad. Intentando dar luz con elementos característicos de estos juegos, añadiendo mecánicas de “parkour” y elementos interactuables que dan lugar a puzzles, ya sean ruedas, llaves, plataformas móviles…
 
@@ -159,9 +159,9 @@ Figura 26: Furwind			       Figura 27: Kirby & the Amazing Mirror
 Sin embargo, en base a la difícil implementación de físicas y movilidad de juegos como el “Celeste” (Figura 25), se ha tomado de referencia junto a otro de los grandes juegos como el “Hollow Knight” (Figura 26), para tomar ideas sobre puzzles y “Power-Ups” útiles para nuestro juego
 
 	           
-        Figura 28: Celeste					Figura 29: Hollow Knight
+Figura 28: Celeste					Figura 29: Hollow Knight
 
-	De esta forma, teniendo en cuenta las posibilidades de implementación, se ha realizado un boceto para el diseño de niveles, que incluye elementos tales como plataformas para “parkour”, pinchos, agua y lava como elementos que hacen daño, puzzles que implican romper objetos o moverlos, así como una recogida de objetos tales como monedas, “Power-Ups” y una llave, necesaria la última para pasarse el nivel. Así acaba finalmente el boceto de diseño de niveles, la primera mitad (Figura 30) y la segunda mitad (Figura 31).
+De esta forma, teniendo en cuenta las posibilidades de implementación, se ha realizado un boceto para el diseño de niveles, que incluye elementos tales como plataformas para “parkour”, pinchos, agua y lava como elementos que hacen daño, puzzles que implican romper objetos o moverlos, así como una recogida de objetos tales como monedas, “Power-Ups” y una llave, necesaria la última para pasarse el nivel. Así acaba finalmente el boceto de diseño de niveles, la primera mitad (Figura 30) y la segunda mitad (Figura 31).
 
 Figura 30: Boceto de la primera mitad del nivel
 
@@ -171,7 +171,7 @@ Figura 31: Boceto de la segunda mitad del nivel
 ##ESCENARIOS
 Con todo el diseño de niveles ya definido y el diseño general de los personajes, se establece el diseño de los tiles y demás objetos que formarán parte del escenario. Para ello, una vez más, se tomó referencia de algunos de los juegos de plataformas más populares, alguno ya mencionado como el “Kirby, & The Amazing Mirror” (Figura 32), cuyos colores y ambientación general eran los más adecuados para nuestro juego. Para su adaptación, se fusionó junto con el diseño del dibujo de “The Meat Boy” (Figura 33).
 		
-           Figura 32: Kirby, & The Amazing Mirror			Figura 33: The Meat Boy
+Figura 32: Kirby, & The Amazing Mirror			Figura 33: The Meat Boy
 
 En el juego se implementarán varios niveles, es por eso que podemos encontrar diversas ambientaciones dependiendo del lugar en el que transcurra la carrera (Figura 34).
 De esta forma, el primer escenario que encontraremos será la pradera, en la que encontraremos bloques de tierra y césped, con adornos como calaveras de animales o carteles que indican las direcciones por las que poder avanzar.
@@ -179,7 +179,7 @@ Como segundo escenario podemos encontrar el desierto, en este caso podemos encon
 
 Figura 34: Tiles de pradera y desierto
 
-	La paleta de ambos escenarios contendrá colores similares pero en tonalidades diferentes, para poder jugar así con la ambientación del lugar, viendo marrones para pradera y naranjas para el desierto, verde para la hierba de la pradera y los cactus del desierto y blancos y grises para las calaveras de la pradera y las piedras del desierto, así como el azul del agua (Figura 35).
+La paleta de ambos escenarios contendrá colores similares pero en tonalidades diferentes, para poder jugar así con la ambientación del lugar, viendo marrones para pradera y naranjas para el desierto, verde para la hierba de la pradera y los cactus del desierto y blancos y grises para las calaveras de la pradera y las piedras del desierto, así como el azul del agua (Figura 35).
 
 Figura 35: Paleta de colores de los tiles
 Una vez disponemos de los tiles necesarios para la creación de los escenarios, quedan implementados como suelos, plataformas y techos, en el primer nivel de la siguiente manera (Figuras 36 y 37):
@@ -212,7 +212,7 @@ De esta forma, al logo del juego (Figura 43), se le ha incluido un marco con un 
 
 Figura 43: Marco para el logo del juego
 
-	Por lo que para la paleta de colores de este marco (Figura 42), se han combinado los colores grises del marco de piedra de la mitad alta, con el contraste verde del borde neón de la mitad baja. Todo ello por encima de un fondo negro con estrellas blancas que ayuda a resaltar el logo.
+Por lo que para la paleta de colores de este marco (Figura 42), se han combinado los colores grises del marco de piedra de la mitad alta, con el contraste verde del borde neón de la mitad baja. Todo ello por encima de un fondo negro con estrellas blancas que ayuda a resaltar el logo.
 
 Figura 44: Paleta de colores del marco del logo
 
@@ -236,7 +236,7 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 - Victoria
 
 #FLUJOGRAMA
-	Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 49).
+Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 49).
 
 Figura 49: Flujograma
 
