@@ -14,12 +14,17 @@ var MenuScene = new Phaser.Class({
         this.load.image('ajustes','assets/Menu/ajustes.png');
         this.load.image('exit','assets/Menu/salir.png');
         this.load.image('logo','assets/Menu/logo.png');
+        this.load.audio('background_music', 'assets/MUSICAS/menuUno.mp3');
     },
 
     create: function() {
         this.add.image(1000, 500, 'fondo').setScale(0.99, 0.85);
 
         let play = this.add.image(1000, 590, 'play').setScale(3);
+
+        backgroundMusic = this.sound.add('background_music',{volume: 0.5});
+        backgroundMusic.loop = true; // This is what you are looking for
+        backgroundMusic.play();
 
         //let ajustes = this.add.image(1000, 720, 'ajustes').setScale(1.2);
 
@@ -33,6 +38,7 @@ var MenuScene = new Phaser.Class({
              }
             ;}
         play.on("pointerdown",()=>{
+            backgroundMusic.stop();
             this.scene.start("Scene1");
         })
 
