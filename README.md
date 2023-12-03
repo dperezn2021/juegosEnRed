@@ -105,7 +105,7 @@ Batería: Batería que recarga la nave de Ufo, lo que le otorga temporalmente un
 Figura 12: Batería
 
 Botas Saltarinas: Proporciona doble salto a quien las consigue, durante un corto periodo de tiempo. (Figura 13)
-![Ufo](PowerUps/BotasSaltarinasePU.png)
+![Ufo](PowerUps/BotasSaltarinasPU.png)
 Figura 13: Botas saltarinas
 
 ##CONTROLES EN LOCAL Y EN RED
