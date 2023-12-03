@@ -29,12 +29,12 @@ Cuenta GitHub: MarcosVivarMuiño
 ##NOMBRE DEL JUEGO Y DESCRIPCIÓN
 El nombre elegido para nuestro juego ha sido “Hitt and Ufo”. Se pretendía buscar algo sencillo, tal como los nombres de los personajes, que están relacionados con la naturaleza  de cada uno. 
 ‘Hitt’, es el nombre elegido para el cromañón, haciendo el juego de palabra con el término inglés ‘Hit’ que significa golpear. (Figura 1).
-![Hitt].(Spritesheets/spritesheetHitt.png)
+![Hitt](Spritesheets/spritesheetHitt.png)
 Figura 1: Spritesheet de Hitt
 
 Mientras que para el marciano, se elige ‘UFO’, haciendo el símil con las siglas inglesas de “Unidentified Flying Object”, que es el OVNI en el que se mueve Ufo.(Figura 2).
 
-![Ufo].(Spritesheets/spritesheetUFOV3.png)
+![Ufo](Spritesheets/spritesheetUFOV3.png)
 Figura 2: Spritesheet de Ufo.
 
 ##HISTORIA
@@ -60,8 +60,13 @@ Por otra parte, se busca llegar a tanta gente como sea posible, de entre todos a
 ##CONDICIONES DE VICTORIA Y DERROTA
 A priori, la victoria y la derrota se pueden definir de forma muy sencilla, tal que el ganador será aquel jugador que alcance la meta primero. Sin embargo, esta no tiene por qué ser la forma en la que se gane, existen diversas formas.
 La primera forma será por puntos, en el juego se irán otorgando puntos durante la carrera dependiendo de lo que logren hacer los corredores. Primero, por el mapa aparecerán monedas (Figura 5) que otorgarán 100 puntos por cada una de ellas recogida. En segundo lugar, habrá una llave (Figura 6) que dejará una puerta abierta, de tal forma que el primero que llegue a esa llave, conseguirá 1000 puntos y por último, el jugador que llegue primero a la meta, recibirá 2000 puntos.
-		      
-Figura 5: Moneda		                              Figura 6: Llave
+
+![Ufo](ASSETS/coin.png)
+Figura 5: Moneda
+
+![Ufo](ASSETS/llave.png)
+Figura 6: Llave
+
 La segunda forma será sacarlo de la pantalla, si un jugador es lo suficientemente rápido y consigue sacar la ventaja necesaria a su contrincante para hacer que salga de la pantalla por un tiempo determinado, el jugador que quede fuera de la pantalla será eliminado y el otro jugador recibirá 1000 puntos.
 Con estos métodos, conseguiremos que el juego tenga un nivel de estrategia superior que la de una simple carrera. Durante la partida los jugadores deberán pensar la mejor estrategia para poder ganar.
 #MECÁNICAS
@@ -77,31 +82,34 @@ Figura 7: Boceto interacción con el entorno
 Conseguir objetos: Existen diversos “Power-Ups” para beneficio propio y objetos para dificultar el avance del rival.
 
 ###2.2. POWER-UPS
-	En el juego podremos encontrar 3 tipos de “Power-Ups” diferentes, que saldrán de bloques misteriosos (Figura 8),  unos son los lanzables o arrojadizos, otros son consumibles y otros son armaduras.
-
+En el juego podremos encontrar 3 tipos de “Power-Ups” diferentes, que saldrán de bloques misteriosos (Figura 8),  unos son los lanzables o arrojadizos, otros son consumibles y otros son armaduras.
+![Ufo](ASSETS/powerUp.png)
 Figura 8: Bloque misterioso
 
 ####2.2.1. LANZABLES
 Bola de hielo: Objeto arrojadizo que se lanza al adversario para reducir su velocidad y obtener ventaja. (Figura 9)
 Rayo paralizante: Rayo que aturde al rival, lo que le hace paralizarse y quedarse inmóvil por unos instantes. (Figura 10)
 
-		
-Figura 9: Bola de hielo		 	Figura 10: Rayo paralizante
+![Ufo](ASSETS/BoladehieloPU.png)
+Figura 9: Bola de hielo
+![Ufo](ASSETS/RayoParalizantePU.png)
+Figura 10: Rayo paralizante
 
 ####2.2.2. CONSUMIBLES
 Poción rápida: Poción que otorga un 50% más de velocidad y que solo puede ser consumida por Hitt. (Figura 11)
-
+![Ufo](ASSETS/PocionHittPU.png)
 Figura 11: Poción rápida
 ####	2.2.3 .“ARMADURA”
 Batería: Batería que recarga la nave de Ufo, lo que le otorga temporalmente un 50% más de fuerza. (Figura 12)
-
+![Ufo](ASSETS/BateriaPU.png)
 Figura 12: Batería
 
 Botas Saltarinas: Proporciona doble salto a quien las consigue, durante un corto periodo de tiempo. (Figura 13)
-
+![Ufo](ASSETS/BotasSaltarinasePU.png)
 Figura 13: Botas saltarinas
+
 ##CONTROLES EN LOCAL Y EN RED
-	El juego se puede jugar tanto en local, con ambos jugadores en un mismo dispositivo (Figura 14), como en red, donde cada jugador competirá desde su propio dispositivo (Figura 15).
+El juego se puede jugar tanto en local, con ambos jugadores en un mismo dispositivo (Figura 14), como en red, donde cada jugador competirá desde su propio dispositivo (Figura 15).
 
 En cuanto a los controles, existen 3 tipos de movimientos básicos y 2 de usabilidad. En la movilidad se puede avanzar hacia delante (derecha), hacia atrás (izquierda) y saltar (arriba). Mientras que en la usabilidad están la utilización de objetos y power ups y las interacciones.
 	
@@ -129,8 +137,10 @@ Para el bárbaro, pensamos en desarrollar un personaje estilo “cromañón” c
 Figura 16: Gigante, Clash of Clans			Figura 17: Bárbaro, Clash of Clans
 
 Partiendo de la base de un boceto inicial, de un cavernícola más ambientado en un gigante, muy forzudo y con aspecto rudo (Figura 18), se decidió realizar un cambio a un nuevo Hitt, eligiendo un sprite con aspecto de mayor liderazgo, pero conservando los rasgos característicos de tozudez y menor inteligencia, así como el físico portentoso del cromañón (Figura 19). 
-			     
-Figura 18: Boceto inicial de Hitt			Figura 19: Sprite final de Hitt
+![Ufo](Hitt.png)			     
+Figura 18: Boceto inicial de Hitt
+![Hitt](Spritesheets/spritesheetHitt.png)
+Figura 19: Sprite final de Hitt
 
 Así podemos ver la paleta de colores del personaje (Figura 20), en el que predominan los tonos cálidos, colores como el naranja, el marrón o el de la piel que se combinan para dar uniformidad de color al personaje.
 
@@ -138,31 +148,40 @@ Figura 20: Paleta de colores de Hitt
 
 ###1.2. UFO
 En el caso del marciano, llamándose Ufo, se pensó que el mejor sprite posible sería el propio marciano subido en su OVNI particular, de tal forma que fuera su método de movimiento, lo que le permite ser más rápido que Hitt. Por lo que se elaboró un primer boceto inicial, de un marciano normal metido en su nave, la cual tiene los instrumentos necesarios para coger utilizables y poder disparar realizar la acción de pegar (Figura 21).
-
+![Ufo](Ufo.png)
 Figura 21: Boceto inicial de Ufo.
 
 Primeramente, para el diseño del marciano, se tomaron como referencias algunos personajes de series famosas, como “Materia Gris (Ben 10)” (Figura 22), caricaturizándolo a un estilo más infantil, como el de “Marvin (Looney Tunes)” (Figura 23)
 					
-Figura 22: Materia Gris (Ben 10)			Figura 23: Marvin (Looney Toons)
+Figura 22: Materia Gris (Ben 10)
+
+Figura 23: Marvin (Looney Toons)
 
 Finalmente, al igual que con Hitt, se realizaron grandes avances y cambios en la idea del concepto, que permitieron elegir un sprite final para Ufo (Figura 24), que no se alejaba de la idea principal. Los cambios realizados fueron en la paleta de colores (Figura 25), poner colores más llamativos que pegasen con ese estilo cartoon de colores más vivos.
-			
-Figura 24: Sprite de Ufo.		                         Figura 25: Paleta de colores de Ufo
+![Ufo](Spritesheets/spritesheetUFOV3.png)	
+Figura 24: Sprite de Ufo.
+
+Figura 25: Paleta de colores de Ufo
+
 ##NIVELES
 Para los niveles, por ser un juego de plataformas, se basó el diseño en los mapas de algunos de los mejores juegos indie de plataformas de la actualidad. Intentando dar luz con elementos característicos de estos juegos, añadiendo mecánicas de “parkour” y elementos interactuables que dan lugar a puzzles, ya sean ruedas, llaves, plataformas móviles…
 
 Por lo general, a la hora de realizar el diseño de niveles, se recabaron diversos títulos conocidos de este tipo de juegos, en base a estos títulos se fueron cogiendo ideas de cada uno de ellos, ya que  como ejemplo, las físicas que mejor encajaban con el juego a al hora de implementar la movilidad, serían las de juegos como “Furwind” (Figura 26) o “Kirby, & The Amazing Mirror” (Figura 27)
 
 		
-Figura 26: Furwind			       Figura 27: Kirby & the Amazing Mirror
+Figura 26: Furwind
+
+Figura 27: Kirby & the Amazing Mirror
 
 Sin embargo, en base a la difícil implementación de físicas y movilidad de juegos como el “Celeste” (Figura 25), se ha tomado de referencia junto a otro de los grandes juegos como el “Hollow Knight” (Figura 26), para tomar ideas sobre puzzles y “Power-Ups” útiles para nuestro juego
 
 	           
-Figura 28: Celeste					Figura 29: Hollow Knight
+Figura 28: Celeste
+
+Figura 29: Hollow Knight
 
 De esta forma, teniendo en cuenta las posibilidades de implementación, se ha realizado un boceto para el diseño de niveles, que incluye elementos tales como plataformas para “parkour”, pinchos, agua y lava como elementos que hacen daño, puzzles que implican romper objetos o moverlos, así como una recogida de objetos tales como monedas, “Power-Ups” y una llave, necesaria la última para pasarse el nivel. Así acaba finalmente el boceto de diseño de niveles, la primera mitad (Figura 30) y la segunda mitad (Figura 31).
-
+![Ufo](evolucionEscenario1/bocetoFase3.png)
 Figura 30: Boceto de la primera mitad del nivel
 
 
@@ -171,29 +190,33 @@ Figura 31: Boceto de la segunda mitad del nivel
 ##ESCENARIOS
 Con todo el diseño de niveles ya definido y el diseño general de los personajes, se establece el diseño de los tiles y demás objetos que formarán parte del escenario. Para ello, una vez más, se tomó referencia de algunos de los juegos de plataformas más populares, alguno ya mencionado como el “Kirby, & The Amazing Mirror” (Figura 32), cuyos colores y ambientación general eran los más adecuados para nuestro juego. Para su adaptación, se fusionó junto con el diseño del dibujo de “The Meat Boy” (Figura 33).
 		
-Figura 32: Kirby, & The Amazing Mirror			Figura 33: The Meat Boy
+Figura 32: Kirby, & The Amazing Mirror
+
+Figura 33: The Meat Boy
 
 En el juego se implementarán varios niveles, es por eso que podemos encontrar diversas ambientaciones dependiendo del lugar en el que transcurra la carrera (Figura 34).
 De esta forma, el primer escenario que encontraremos será la pradera, en la que encontraremos bloques de tierra y césped, con adornos como calaveras de animales o carteles que indican las direcciones por las que poder avanzar.
-Como segundo escenario podemos encontrar el desierto, en este caso podemos encontrar tiles de arena naranja, con los típicos cardos rusos que ruedan por el desierto o piedras a modo de decoración. Además en este escenario, el método de guía serán los cactus que indican el camino por el que avanzar.
 
-Figura 34: Tiles de pradera y desierto
+![Ufo](Mapa.png)
+Figura 34: Tiles de pradera
 
 La paleta de ambos escenarios contendrá colores similares pero en tonalidades diferentes, para poder jugar así con la ambientación del lugar, viendo marrones para pradera y naranjas para el desierto, verde para la hierba de la pradera y los cactus del desierto y blancos y grises para las calaveras de la pradera y las piedras del desierto, así como el azul del agua (Figura 35).
 
 Figura 35: Paleta de colores de los tiles
-Una vez disponemos de los tiles necesarios para la creación de los escenarios, quedan implementados como suelos, plataformas y techos, en el primer nivel de la siguiente manera (Figuras 36 y 37):
+
+Una vez disponemos de los tiles necesarios para la creación de los escenarios, quedan implementados como suelos, plataformas y techos, en el primer nivel de la siguiente manera (Figuras 36):
+![Ufo](evolucionEscenario1/tilesFinal.png)
 Figura 36: Escenario 1, primera parte
-Figura 37: Escenario 1, segunda parte
 
 ##LOGO DEL JUEGO
 	Para el logo del juego (Figura 38) se ha decidido seguir el estilo cartoon, dividiendo el logo en 2 partes, por una parte el nombre de Hitt, envuelto en la estela de llamas naranjas, rojas y amarillas de un asteroide granate por el fuego (Figura 39), representando la época prehistórica a la que pertenecen Hitt y su pueblo. Por otro lado, el nombre de UFO, envuelto en una estela moderna, de tonalidades verdes (Figura 40), de estilo digital y futurista que representa la llegada del ovni con la población alienígena. De esta forma, podemos combinar el logo jugando con las ambientaciones antiguas y modernas para cada personaje.
 
-
+![Ufo](Logo_Hitt_and_Ufo.png)
 Figura 38: Logo del juego
 
 			
-Figura 39: Paleta de color logo Hitt			                Figura 40: Paleta de color logo Ufo
+Figura 39: Paleta de color logo Hitt
+Figura 40: Paleta de color logo Ufo
 
 ##MENÚ DE INICIO
 Para el menú de inicio (Figura 41), se ha dibujado tanto un fondo de pantalla personalizado, como un fondo con un marco personalizado para el logo del juego.
@@ -202,6 +225,7 @@ Para el fondo de pantalla, se ha hecho una composición con la supuesta nave ali
 
 A cada lado del haz de luz, se han añadido a ambos protagonistas del juego, a la izquierda Hitt y a la derecha Ufo.
 
+![Ufo](Interfaces/Menú_Hitt_and_Ufo_final.jpg)
 Figura 41: Diseño del menú de inicio
 
 En cuanto a la paleta de colores (Figura 42), para implementar correctamente tanto el logo del juego como las opciones a elegir en pantalla, se ha incluido un sombreado negro, que deja el fondo de pantalla en segundo plano y permite resaltar las opciones y el logo. Lo que deja en el fondo, un diseño de colores oscuros, mezclando el azul del cielo anochecido, con los grises de la nave. Haciendo resaltar los detalles brillantes de las luces verdes y amarillas de la nave, junto con el haz de luz amarillo que sale de la propia nave.
@@ -209,7 +233,7 @@ En cuanto a la paleta de colores (Figura 42), para implementar correctamente tan
 Figura 42: Paleta de colores del menú de inicio
 
 De esta forma, al logo del juego (Figura 43), se le ha incluido un marco con un fondo más visual, a modo de cartel, en el que se sigue jugando con esa combinación de ambientaciones de ambos personajes, incluyendo un marco de piedra para la mitad del logo de Hitt y un marco de neón para la mitad del logo de UFO. Todo ello con un fondo estrellado simulando el espacio exterior.
-
+![Ufo](Logo_con_marco.png)
 Figura 43: Marco para el logo del juego
 
 Por lo que para la paleta de colores de este marco (Figura 42), se han combinado los colores grises del marco de piedra de la mitad alta, con el contraste verde del borde neón de la mitad baja. Todo ello por encima de un fondo negro con estrellas blancas que ayuda a resaltar el logo.
@@ -218,13 +242,14 @@ Figura 44: Paleta de colores del marco del logo
 
 ##INTERFAZ DE VICTORIA Y DERROTA
 Finalmente, a la hora de determinar el ganador, se ha desarrollado una interfaz final dedicada a esta condición (Figuras 45 y 46). Dividiendo en dos la pantalla, la zona en la que aparece el ganador será mayor que la del perdedor. En cada mitad se definirá el nombre, el sprite y la puntuación de cada uno.
-
+![Ufo](Interfaces/InterfazFinal.png)
 Figura 45: Interfaz de victoria de Ufo
 
-
+![Ufo](Interfaces/InterfazFinal2.png)
 Figura 46: Interfaz de victoria de Hitt
 ##MÚSICA Y SONIDOS
 Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 47), y otra totalmente diferente como música de fondo del videojuego (Figura 48).
+
 Figura 47: Patrón de la música de la pantalla de inicio
 
 Figura 48: Patrón de la música de fondo del videojuego
