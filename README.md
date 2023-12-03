@@ -90,22 +90,22 @@ Figura 8: Bloque misterioso
 Bola de hielo: Objeto arrojadizo que se lanza al adversario para reducir su velocidad y obtener ventaja. (Figura 9)
 Rayo paralizante: Rayo que aturde al rival, lo que le hace paralizarse y quedarse inmóvil por unos instantes. (Figura 10)
 
-![Ufo](ASSETS/BoladehieloPU.png)
+![Ufo](PowerUps/BoladehieloPU.png)
 Figura 9: Bola de hielo
-![Ufo](ASSETS/RayoParalizantePU.png)
+![Ufo](PowerUps/RayoParalizantePU.png)
 Figura 10: Rayo paralizante
 
 ####2.2.2. CONSUMIBLES
 Poción rápida: Poción que otorga un 50% más de velocidad y que solo puede ser consumida por Hitt. (Figura 11)
-![Ufo](ASSETS/PocionHittPU.png)
+![Ufo](PowerUps/PocionHittPU.png)
 Figura 11: Poción rápida
 ####	2.2.3 .“ARMADURA”
 Batería: Batería que recarga la nave de Ufo, lo que le otorga temporalmente un 50% más de fuerza. (Figura 12)
-![Ufo](ASSETS/BateriaPU.png)
+![Ufo](PowerUps/BateriaPU.png)
 Figura 12: Batería
 
 Botas Saltarinas: Proporciona doble salto a quien las consigue, durante un corto periodo de tiempo. (Figura 13)
-![Ufo](ASSETS/BotasSaltarinasePU.png)
+![Ufo](PowerUps/BotasSaltarinasePU.png)
 Figura 13: Botas saltarinas
 
 ##CONTROLES EN LOCAL Y EN RED
