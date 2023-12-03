@@ -316,7 +316,7 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 - Tirar Power-Up
 - Victoria
 
-FLUJOGRAMA
+#FLUJOGRAMA
 	Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 49).
 
 Figura 49: Flujograma
