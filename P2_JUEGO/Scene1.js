@@ -13,19 +13,42 @@ var Scene1 = new Phaser.Class({
         'assets/Partida/dude.png',
         { frameWidth: 32, frameHeight: 48 }
         );
-        this.load.image('sky','assets/Background/sky.png');
-        this.load.image('ground','assets/Terreno/platform.png');
+        this.load.image('sky','assets/Background/fondo.png');
+        this.load.image('sueloP1','assets/Terreno/z1/p1_z1.png');
+        this.load.image('sueloCartel','assets/Terreno/z1/p3_z1.png');
+        this.load.image('sueloHierba','assets/Terreno/z1/p2_z1.png');
+        this.load.image('sueloP4','assets/Terreno/z1/p4_z1.png');
+        this.load.image('sueloB2','assets/Terreno/z1/b2_z1.png');
+        this.load.image('sueloM1','assets/Terreno/z1/m1_z1.png');
+        this.load.image('sueloM2','assets/Terreno/z5/m1_z5.png');
+        this.load.image('sueloP3','assets/Terreno/z1/p3_z1.png');
+        this.load.image('suelo3','assets/Terreno/sueloPorBloques/3.png');
+        this.load.image('suelo2','assets/Terreno/sueloPorBloques/2.png');
+        this.load.image('suelo1','assets/Terreno/sueloPorBloques/1.png');
+        this.load.image('suelo4','assets/Terreno/sueloPorBloques/4y13.png');
+        this.load.image('suelo5','assets/Terreno/sueloPorBloques/5y14.png');
+        this.load.image('suelo6','assets/Terreno/sueloPorBloques/6y15.png');
+        this.load.image('suelo9','assets/Terreno/sueloPorBloques/9.png');
+        this.load.image('suelo10','assets/Terreno/sueloPorBloques/10.png');
+        this.load.image('suelo11','assets/Terreno/sueloPorBloques/11.png');
+        this.load.image('suelo12','assets/Terreno/sueloPorBloques/12.png');
+        this.load.image('suelo18','assets/Terreno/sueloPorBloques/18.png');
+        this.load.image('suelo19','assets/Terreno/sueloPorBloques/19.png');
+        this.load.image('suelo20','assets/Terreno/sueloPorBloques/20.png');
+        this.load.image('pared','assets/Terreno/sueloPorBloques/pared.png');
         this.load.spritesheet('coin', 'assets/Partida/coin.png', { frameWidth: 32, frameHeight: 32 });
-        this.load.image('wall','assets/Terreno/pared.png');
-        this.load.image('SueloPadrera', 'assets/Terreno/Suelo_Pradera_SinFondo.png');
+        this.load.image('wall','assets/Partida/paredRompible.png');
         this.load.spritesheet('PowerUp', 'assets/Partida/PowerUp_Prov.png', { frameWidth: 32, frameHeight: 32 });
         this.load.image('circuloPU', 'assets/Interfaz/CirculoPU.png');
-        this.load.image('snowball', 'assets/Interfaz/snowball.png');
-        this.load.image('electricBall', 'assets/Interfaz/BolaRayo.png');
-        this.load.image('potion', 'assets/Interfaz/Potion.png');
+        this.load.image('snowball', 'assets/Interfaz/BoladehieloPU.png');
+        this.load.image('electricBall', 'assets/Interfaz/RayoParalizantePU.png');
+        this.load.image('potion', 'assets/Interfaz/PocionHittPU.png');
         this.load.image('battery', 'assets/Interfaz/Battery.png');
         this.load.image('boots', 'assets/Interfaz/boots.png');
-        this.load.image('rock', 'assets/Partida/roquita.png');
+        this.load.image('rock', 'assets/Partida/bola.png');
+        this.load.spritesheet('Hitt', 'assets/Partida/SpriteSheetHitt.png', { frameWidth: 315.5, frameHeight: 441 });
+        this.load.image('pincho1', 'assets/Partida/pincho1.png');
+        this.load.image('pincho2', 'assets/Partida/pincho2.png');
     },
 
     create: function() {
@@ -33,53 +56,119 @@ var Scene1 = new Phaser.Class({
         coins = []; // Crea el grupo de monedas
         PowerUps= [];
         breakW = [];
+        pinchos = [];
         paused = false;
 
-        this.physics.world.bounds.width = 4000; // Limite al tamaño del mundo
+        this.physics.world.bounds.width = 8544; // Limite al tamaño del mundo
         this.physics.world.bounds.height = 1000;
-        this.cameras.main.setBounds(0, 0); // Define los limites de la camara
+        this.cameras.main.setBounds(0, 0,8530,1000); // Define los limites de la camara
         
-        this.add.image(1062, 590, 'sky').setScale(6,1.97); // Creacion del fondo
-
-        suelo = this.physics.add.staticGroup({ // Suelo superior
-            key: 'SueloPadrera',
-            repeat: 1000,
-            setScale: {x:0.5, y:0.5},
-            setXY: { x: 0, y: 1146, stepX: 180 } 
-        });
+        this.add.image(1062, 590, 'sky').setScale(1).setOrigin(0.125,0.59); // Creacion del fondo
 
         platforms = this.physics.add.staticGroup(); // Definicion del grupo platforms
-        platforms.create(600, 400, 'ground');
-        platforms.create(50, 250, 'ground');
-        platforms.create(750, 220, 'ground');
-
+        // Definicion Zona 1
+        platforms.create(135, 960, 'suelo1');
+        platforms.create(370, 925, 'suelo2').setScale(1,1.1);
+        platforms.create(1089, 960, 'suelo3').setScale(1.2,1);
+        platforms.create(840, 690, 'sueloP4').setScale(0.9,1);
+        platforms.create(1100, 560, 'sueloB2');
+        platforms.create(770, 400, 'sueloCartel');
+        platforms.create(417, 350, 'sueloHierba');
+        platforms.create(140, 250, 'sueloP1');
+        platforms.create(1300, 330, 'sueloM1');
+        platforms.create(180, 600, 'sueloB2');
+        // Definicion Zona 2
+        platforms.create(1765, 920, 'suelo4');
+        platforms.create(1859, 875, 'suelo5');
+        platforms.create(2144, 960, 'suelo6');
+        platforms.create(2429, 875, 'suelo5').setFlipX(true);
+        platforms.create(2523, 920, 'suelo4').setFlipX(true);
+        platforms.create(3085, 960, 'suelo9').setScale(0.9,1);
+        platforms.create(1440, 600, 'sueloP3');
+        platforms.create(1840, 450, 'sueloP3');
+        platforms.create(2440, 450, 'sueloP3');
+        platforms.create(2900, 590, 'sueloP4').setScale(0.9,1);
+        platforms.create(2600, 550, 'sueloB2');
+        platforms.create(3200, 330, 'sueloM1');
+        // Definicion Zona 3
+        platforms.create(3650, 890, 'suelo10');
+        platforms.create(4173, 960, 'suelo11');
+        platforms.create(3340, 600, 'sueloP3');
+        platforms.create(3900, 250, 'sueloP1').setScale(1.7,1);
+        platforms.create(4095, 410, 'sueloM1').setScale(1,0.6);
+        platforms.create(3955, 570, 'sueloP3');
+        platforms.create(4550, 582, 'sueloM1').setScale(1,1);
+        platforms.create(4410, 770, 'sueloP3');
+        // Definicion Zona 4
+        platforms.create(5074, 959, 'suelo12');
+        platforms.create(5595, 920, 'suelo4');
+        platforms.create(5689, 875, 'suelo5');
+        platforms.create(5974, 960, 'suelo6');
+        platforms.create(6259, 875, 'suelo5').setFlipX(true);
+        platforms.create(6353, 920, 'suelo4').setFlipX(true);
+        platforms.create(6592, 960, 'suelo18');
+        platforms.create(4786, 285, 'sueloP4').setScale(1.5,1);
+        platforms.create(5686, 285, 'sueloP4').setScale(2,1);
+        platforms.create(5354, 470, 'sueloM2').setScale(1,1.4);
+        platforms.create(6350, 285, 'sueloP4').setScale(1.7,1);
+        platforms.create(4965, 605, 'sueloP4')
+        platforms.create(5340, 605, 'sueloP4')
+        platforms.create(5800, 610, 'sueloB2');
+        platforms.create(6100, 610, 'sueloB2');
+        // Definicion Zona 5
+        platforms.create(6924, 879, 'suelo19');
+        platforms.create(7735, 960, 'suelo20');
+        platforms.create(8444, 500, 'pared').setScale(1.5,1);
+        platforms.create(7550, 30, 'suelo20').setFlipY(true).setScale(0.8,1);
+        platforms.create(6980, 125, 'sueloM2');
+        platforms.create(7050, 500, 'sueloP4');
+        platforms.create(8038, 125, 'sueloM2');
+        platforms.create(7287, 415, 'suelo5').setFlipX(true);
+        platforms.create(7193, 460, 'suelo4');
+        platforms.create(7430, 331, 'sueloP4');
+        platforms.create(7771, 415, 'sueloM2');
+        platforms.create(7630, 331, 'sueloP4');
+        platforms.create(8038, 600, 'sueloM2');
+        platforms.create(7802, 720, 'sueloP4');
+        platforms.create(7250, 720, 'sueloP4');
         // Instanciacion de las monedas
-        coins[0]=this.physics.add.sprite(200, 590, 'coin').setScale(2); 
-        coins[1]=this.physics.add.sprite(300, 590, 'coin').setScale(2);
+        // Monedas Zona 1
+        coins[0]=this.physics.add.sprite(615, 800, 'coin').setScale(2); 
+        coins[1]=this.physics.add.sprite(370, 770, 'coin').setScale(2);
+        coins[2]=this.physics.add.sprite(885, 890, 'coin').setScale(2);
+        coins[3]=this.physics.add.sprite(1185, 890, 'coin').setScale(2);
+        coins[4]=this.physics.add.sprite(835, 590, 'coin').setScale(2);
+        coins[5]=this.physics.add.sprite(1095, 490, 'coin').setScale(2);
+        coins[6]=this.physics.add.sprite(770, 320, 'coin').setScale(2);
+        coins[7]=this.physics.add.sprite(420, 260, 'coin').setScale(2);
+        coins[8]=this.physics.add.staticSprite(2910, 780, 'coin').setScale(2);
 
         //Instanciacion de los PowerUps
-        PowerUps[0]=this.physics.add.sprite(600, 800, 'PowerUp').setScale(3);
-        PowerUps[1]=this.physics.add.sprite(800, 800, 'PowerUp').setScale(3);
+        // Power Ups Zona 1
+        PowerUps[0]=this.physics.add.sprite(150, 100, 'PowerUp').setScale(3.5);
+        PowerUps[1]=this.physics.add.sprite(180, 500, 'PowerUp').setScale(3.5);
 
         // Instanciacion de los jugadores
-        player1 = this.physics.add.sprite(0, 850, 'dude').setScale(4); // Creacion del jugador 1(cursors)
+        player1 = this.physics.add.sprite(7850, 330, 'Hitt').setScale(0.3); // Creacion del jugador 1(cursors)
         player1.tipoPU = -1;
         player1.canDoubleJump = false
         player1.vel = 250;
         player1.numJump = 0;
         player1.fuerza = 8;
         player1.score = 0;
+        player1.setGravityY(100);
 
         player1.setBounce(0.2); // Limites del jugador
         player1.setCollideWorldBounds(true);
 
-        player2 = this.physics.add.sprite(100, 850, 'dude').setScale(4); // Creacion del jugador 2 (WASD)
+        player2 = this.physics.add.sprite(7500, 820, 'dude').setScale(3); // Creacion del jugador 2 (WASD)
         player2.tipoPU = -1;
         player2.canDoubleJump = false
         player2.vel = 300;
         player2.numJump = 0;
         player2.fuerza = 5;
         player2.score = 0;
+        player2.setGravityY(100);
 
         player2.setBounce(0.2);// Limites del jugador
         player2.setCollideWorldBounds(true);
@@ -91,30 +180,62 @@ var Scene1 = new Phaser.Class({
         this.add.image(1900, 160, 'circuloPU').setScale(0.2).setScrollFactor(0); 
 
         // Instanciacion rocas
-        roca1 = this.physics.add.sprite(3000, 800, 'rock').setScale(0.5).setFriction(1);
+        roca1 = this.physics.add.sprite(3200, 770, 'rock').setScale(1.2).setBounce(0);
 
         // Muros rompibles
-        breakW[0] = this.physics.add.staticImage(1000, 748, 'wall').setScale(2, 1);
+        breakW[0] = this.physics.add.staticImage(1300, 793, 'wall').setScale(1, 0.9);
+        breakW[1] = this.physics.add.staticImage(2500, 280, 'wall').setScale(1, 0.9);
+        breakW[2] = this.physics.add.staticImage(4100, 765, 'wall').setScale(1, 1.1);
+        breakW[3] = this.physics.add.staticImage(4100, 58, 'wall').setScale(1, 1.1);
+        breakW[4] = this.physics.add.staticImage(6100, 88, 'wall').setScale(1, 1.1);
+        breakW[5] = this.physics.add.staticImage(6500, 88, 'wall').setScale(1, 1.1);
+        breakW[6] = this.physics.add.staticImage(8038, 825, 'wall').setScale(1,0.7);
         for(let i = 0; i<breakW.length;i++){
-            breakW[i].dureza=40;
+            breakW[i].dureza=80;
             breakW[i].tocado = false;
         }
+        // Pinchos
+        pinchos[0] = this.physics.add.staticImage(106, 598, 'pincho1').setScale(1.3).setFlipX(true);
+        pinchos[1] = this.physics.add.staticImage(255, 598, 'pincho1').setScale(1.3).setFlipX(false);
+        pinchos[2] = this.physics.add.staticImage(1226, 640, 'pincho1').setScale(1.3).setFlipX(true);
+        pinchos[3] = this.physics.add.staticImage(1226, 580, 'pincho1').setScale(1.3).setFlipX(true);
+        pinchos[4] = this.physics.add.staticImage(1226, 520, 'pincho1').setScale(1.3).setFlipX(true);
+        pinchos[5] = this.physics.add.staticImage(1226, 460, 'pincho1').setScale(1.3).setFlipX(true);
+        pinchos[6] = this.physics.add.staticImage(2880, 892, 'pincho2').setScale(1.3);
+        pinchos[7] = this.physics.add.staticImage(2930, 892, 'pincho2').setScale(1.3);
+        pinchos[8] = this.physics.add.staticImage(2880, 660, 'pincho2').setScale(1.3).setFlipY(true);
+        pinchos[9] = this.physics.add.staticImage(2930, 660, 'pincho2').setScale(1.3).setFlipY(true);
+        pinchos[10] = this.physics.add.staticImage(3773, 890, 'pincho1').setScale(1.3);
+        pinchos[11] = this.physics.add.staticImage(3773, 830, 'pincho1').setScale(1.3);
+        pinchos[12] = this.physics.add.staticImage(3773, 770, 'pincho1').setScale(1.3);
+        pinchos[13] = this.physics.add.staticImage(4800, 215, 'pincho2').setScale(1.3);
+        pinchos[14] = this.physics.add.staticImage(4740, 215, 'pincho2').setScale(1.3);
+        pinchos[15] = this.physics.add.staticImage(4860, 215, 'pincho2').setScale(1.3);
+        pinchos[16] = this.physics.add.staticImage(5000, 890, 'pincho2').setScale(1.3);
+        pinchos[17] = this.physics.add.staticImage(5060, 890, 'pincho2').setScale(1.3);
+        pinchos[18] = this.physics.add.staticImage(5060, 675, 'pincho2').setScale(1.3).setFlipY(true);
+        pinchos[19] = this.physics.add.staticImage(5000, 675, 'pincho2').setScale(1.3).setFlipY(true);
+        pinchos[20] = this.physics.add.staticImage(7500, 262, 'pincho2').setScale(1.3);
+        pinchos[21] = this.physics.add.staticImage(7560, 262, 'pincho2').setScale(1.3);
+        pinchos[22] = this.physics.add.staticImage(7500, 892, 'pincho2').setScale(1.3);
+        pinchos[23] = this.physics.add.staticImage(7560, 892, 'pincho2').setScale(1.3);
+        pinchos[24] = this.physics.add.staticImage(8038, 448, 'pincho2').setScale(1.3);
 
 //////////////////////////////////////////////////////////////////ANIMACIONES///////////////////////////////////////////////////////////////////////////
-    // Carga la animacion de andar hacia la izquierda
+    // Carga la animacion de andar hacia la izquierda (Temporal)
     this.anims.create({
         key: 'left',
         frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
         frameRate: 10,
         repeat: -1
     });
-    // Carga la animacion de darse la vuelta
+    // Carga la animacion de darse la vuelta (Temporal)
     this.anims.create({
         key: 'turn',
         frames: [ { key: 'dude', frame: 4 } ],
         frameRate: 20
     });
-    // Carga la animacion de ir hacia la dcha
+    // Carga la animacion de ir hacia la dcha (Temporal)
     this.anims.create({
         key: 'right',
         frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
@@ -135,19 +256,34 @@ var Scene1 = new Phaser.Class({
         frameRate: 10,
         repeat: -1
     });
+    // Carga la animacion de andar hacia la izquierda (Hitt)
+    this.anims.create({
+        key: 'leftHitt',
+        frames: this.anims.generateFrameNumbers('Hitt', { start: 3, end: 5 }),
+        frameRate: 6,
+        repeat: -1
+    });
+    // Carga la animacion de darse la vuelta (Hitt)
+    this.anims.create({
+        key: 'turnHitt',
+        frames: [ { key: 'Hitt', frame: 0 } ],
+        frameRate: 20
+    });
+    // Carga la animacion de ir hacia la dcha (Hitt)
+    this.anims.create({
+        key: 'rightHitt',
+        frames: this.anims.generateFrameNumbers('Hitt', { start: 0, end: 2 }),
+        frameRate: 6,
+        repeat: -1
+    });
 //////////////////////////////////////////////////////////////////////COLISIONES////////////////////////////////////////////////////////////////////////////
-        this.physics.add.collider(player1, suelo); // Colisiones entre jugadores y entorno
-        this.physics.add.collider(player2, suelo);
         this.physics.add.collider(player1, platforms); // Colisiones entre jugadores y entorno
         this.physics.add.collider(player2, platforms);
-        for(let i = 0;i<coins.length;i++){ // Colisiones entre moneda y suelo
-            this.physics.add.collider(coins[i], suelo);
+        for(let i = 0;i<coins.length;i++){ // Colisiones entre monedas y suelo
+            this.physics.add.collider(platforms, coins[i]);
         }
-        for(let i = 0;i<PowerUps.length;i++){ // Colisiones entre Power Up y suelo
-            this.physics.add.collider(PowerUps[i], suelo);
-        }
-        for(let i = 0;i<breakW.length;i++){ // Colisiones entre Muros rompibles y el suelo
-            this.physics.add.collider(breakW[i], suelo);
+        for(let i = 0;i<PowerUps.length;i++){ // Colisiones entre Power Ups y suelo
+            this.physics.add.collider(platforms, PowerUps[i]);
         }
         for(let i = 0;i<coins.length;i++){ // Colisiones entre monedas y jugador
             this.physics.add.collider(player1, coins[i], takeCoin, null, this);
@@ -161,10 +297,13 @@ var Scene1 = new Phaser.Class({
             this.physics.add.collider(player1, breakW[i], contacto, null, this);
             this.physics.add.collider(player2, breakW[i], contacto, null, this);
         }
-        this.physics.add.collider(roca1, suelo); // Colisiones entre las rocas y el escenario
+        for(let i = 0;i<pinchos.length;i++){ // Colisiones entre los muros rompibles y jugador
+            this.physics.add.overlap(player1, pinchos[i], pinchado, null, this);
+            this.physics.add.overlap(player2, pinchos[i], pinchado, null, this);
+        }
         this.physics.add.collider(roca1, platforms); 
-        this.physics.add.collider(player2, roca1, empujar, null, this);
-        this.physics.add.collider(player1, roca1, empujar, null, this);
+        this.physics.add.collider(player2, roca1);
+        this.physics.add.collider(player1, roca1);
 
 ////////////////////////////////////////////////////////////////////INTERACCIONES///////////////////////////////////////////////////////////////////////////
         // Controles Jugador 2
@@ -204,7 +343,7 @@ var Scene1 = new Phaser.Class({
             switch(rand){
                 case 0:
                      player1.tipoPU = 0;
-                     Objeto1 = this.add.image(70, 160, 'snowball').setScale(2).setScrollFactor(0); 
+                     Objeto1 = this.add.image(70, 160, 'snowball').setScale(0.1).setScrollFactor(0); 
                     break;
                 case 1:
                      player1.tipoPU = 1;
@@ -212,7 +351,7 @@ var Scene1 = new Phaser.Class({
                     break;
                 case 2:
                      player1.tipoPU = 2;
-                     Objeto1 = this.add.image(70, 160, 'potion').setScale(2.3).setScrollFactor(0); 
+                     Objeto1 = this.add.image(70, 160, 'potion').setScale(0.1).setScrollFactor(0); 
                     break;
                 case 3:
                      player1.tipoPU = 3;
@@ -226,7 +365,7 @@ var Scene1 = new Phaser.Class({
             switch(rand){
                 case 0:
                      player2.tipoPU = 0;
-                     Objeto2 = this.add.image(1900, 160, 'snowball').setScale(2).setScrollFactor(0); 
+                     Objeto2 = this.add.image(1900, 160, 'snowball').setScale(0.1).setScrollFactor(0); 
                     break;
                 case 1:
                      player2.tipoPU = 1;
@@ -244,30 +383,32 @@ var Scene1 = new Phaser.Class({
             }
         }
     }
-    function empujar(player, roca){
-        if(player==player2){
-            if(roca.body.touching.left){
-                roca.setVelocityX(player2.fuerza);
-                this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
-            }else if(roca.body.touching.right){
-                roca.setVelocityX(-player2.fuerza);
-                this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
-            }
-        }else if(player == player1){
-            if(roca.body.touching.left){
-                roca.setVelocityX(player1.fuerza);
-                this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
-            }else if(roca.body.touching.right){
-                roca.setVelocityX(-player1.fuerza);
-                this.time.addEvent({ delay: 1500, callback:stop, callbackScope: this});
-            }
-        }
-    }
-    function stop(){
-        roca1.setVelocityX(0);
-    }
     function contacto(player, wall){
         wall.tocado = true;
+    }
+    function pinchado(player, pincho){
+        if(player == player1){
+            player1.vel = 130;
+            player1.setTint(0xff0000);
+            player1.setGravityY(500);
+            this.time.addEvent({ delay: 1000, callback:normal, callbackScope: this});
+        }else if (player == player2){
+            player2.vel = 130;
+            player2.setTint(0xff0000);
+            player2.setGravityY(500);
+            this.time.addEvent({ delay: 1000, callback:normal, callbackScope: this});
+        }
+    }
+    function normal(){
+        if(player1.vel == 130){
+            player1.vel=250;
+            player1.clearTint();
+            player1.setGravityY(100);
+        }else if(player2.vel == 130){
+            player2.vel=300;
+            player2.setGravityY(100);
+            player2.clearTint();
+        }
     }
     },
 
@@ -283,17 +424,17 @@ var Scene1 = new Phaser.Class({
     if (this.keyJ.isDown){ 
         player1.setVelocityX(-player1.vel);
 
-        player1.anims.play('left', true);
+        player1.anims.play('leftHitt', true);
     }
     else if (this.keyL.isDown){
         player1.setVelocityX(player1.vel);
 
-        player1.anims.play('right', true);
+        player1.anims.play('rightHitt', true);
     }
     else{
         player1.setVelocityX(0);
 
-        player1.anims.play('turn');
+        player1.anims.play('turnHitt');
     }
 
     if (Phaser.Input.Keyboard.JustDown(this.keyI)) {
@@ -336,14 +477,16 @@ var Scene1 = new Phaser.Class({
         }
     }
 
-    if(Phaser.Input.Keyboard.JustDown(this.keyESC)){
+    if(Phaser.Input.Keyboard.JustDown(this.keyESC)){ // Menu de pausa
         if(!paused){
-            pauseText = this.add.text(800, 400, 'PAUSADO', { fontSize: '100px', color: "#000000",fontStyle: "bold"});
+            pauseText1 = this.add.text(800, 400, 'PAUSADO', { fontSize: '100px', color: "#000000",fontStyle: "bold"});
+            pauseText2 = this.add.text(800, 600, '<PULSA ESC PARA REANUDAR>', { fontSize: '100px', color: "#000000",fontStyle: "bold"});
             player1.body.moves = false;
             player2.body.moves = false;
             paused=true;
         }else if(paused){
-            pauseText.destroy();
+            pauseText1.destroy();
+            pauseText2.destroy();
             player1.body.moves = true;
             player2.body.moves = true;
             paused = false;
@@ -406,25 +549,27 @@ var Scene1 = new Phaser.Class({
                 break;
         }
     }
-    for(let i = 0; i<breakW.length;i++){ // Comprueba si el jugador rompe el muro y lo actualiza en consecuencia
-        if(Phaser.Input.Keyboard.JustDown(this.keyQ) && breakW[i].tocado == true){ // Interaccion con breakable Walls
-            breakW[i].dureza -= player2.fuerza;
-        }else if(Phaser.Input.Keyboard.JustDown(this.keyU) && breakW[i].tocado == true){
-            breakW[i].dureza -= player1.fuerza;
+    // Comprueba si el jugador rompe el muro y lo actualiza en consecuencia
+    aux = inTouch();
+    if(aux != undefined){
+        if(Phaser.Input.Keyboard.JustDown(this.keyQ)){ // Interaccion con breakable Walls
+            aux.dureza -= player2.fuerza;
+            aux.tocado = false;
+        }else if(Phaser.Input.Keyboard.JustDown(this.keyU)){
+            aux.dureza -= player1.fuerza;
+            aux.tocado = false;
         }
-        if(breakW[i].dureza<40 && breakW[i].dureza > 20){
-            breakW[i].setTint(0xF0F720);
-        }else if(breakW[i].dureza<20 && breakW[i].dureza > 10){
-            breakW[i].setTint(0xFF6A06);
-        }else if(breakW[i].dureza<10){
-            breakW[i].setTint(0xFF0000);
+        if(aux.dureza<80 && aux.dureza > 60){
+            aux.setTint(0xF0F720);
+        }else if(aux.dureza<60 && aux.dureza > 40){
+            aux.setTint(0xFF6A06);
+        }else if(aux.dureza<40){
+            aux.setTint(0xFF0000);
         } 
-        if(breakW[i].dureza<=0){
-            breakW[i].destroy();
+        if(aux.dureza<=0){
+            aux.destroy();
         }
-        breakW[i].tocado = false;
     }
-    
     /////////////////////////////////////////////////////////////////ANIMACIONES////////////////////////////////////////////////////////////////////////////
     for(let i = 0;i<coins.length;i++){
         coins[i].anims.play('spin',true);
@@ -455,10 +600,10 @@ var Scene1 = new Phaser.Class({
 
     function congelado(){
         if(this.keyE.isDown){
-            player1.setTint(0x0000ff); // pinta al jugador de rojo
+            player1.setTint(0x0000ff); // pinta al jugador de azul
             player1.vel = 150;
         }else if(this.keyO.isDown){
-            player2.setTint(0x0000ff); // pinta al jugador de rojo
+            player2.setTint(0x0000ff); // pinta al jugador de azul
             player2.vel = 150;
         }
     }
@@ -504,6 +649,13 @@ var Scene1 = new Phaser.Class({
     function desinflado(){
         player2.clearTint();
         player2.fuerza=5;
+    }
+    function inTouch(){
+        for(let i = 0;i<breakW.length;i++){
+            if(breakW[i].tocado == true){
+                return breakW[i];
+            }
+        }
     }
     }
 });
