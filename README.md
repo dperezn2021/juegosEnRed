@@ -29,12 +29,12 @@ Cuenta GitHub: MarcosVivarMuiño
 ##NOMBRE DEL JUEGO Y DESCRIPCIÓN
 El nombre elegido para nuestro juego ha sido “Hitt and Ufo”. Se pretendía buscar algo sencillo, tal como los nombres de los personajes, que están relacionados con la naturaleza  de cada uno. 
 ‘Hitt’, es el nombre elegido para el cromañón, haciendo el juego de palabra con el término inglés ‘Hit’ que significa golpear. (Figura 1).
-
+![Hitt].(Spritesheets/spritesheetHitt.png)
 Figura 1: Spritesheet de Hitt
 
 Mientras que para el marciano, se elige ‘UFO’, haciendo el símil con las siglas inglesas de “Unidentified Flying Object”, que es el OVNI en el que se mueve Ufo.(Figura 2).
 
-
+![Ufo].(Spritesheets/spritesheetUFOV3.png)
 Figura 2: Spritesheet de Ufo.
 
 ##HISTORIA
