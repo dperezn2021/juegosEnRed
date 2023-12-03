@@ -9,7 +9,7 @@ var MenuScene = new Phaser.Class({
     init: function() {},
 
     preload: function() {
-        this.load.image('fondo','assets/Background/Fondo_Menu.jpg');
+        this.load.image('fondo','assets/Background/Menu_Final.jpg');
         this.load.image('play','assets/Menu/BotonJugar.png');
         this.load.image('ajustes','assets/Menu/ajustes.png');
         this.load.image('exit','assets/Menu/salir.png');
