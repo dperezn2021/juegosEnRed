@@ -16,6 +16,49 @@ var Scene2 = new Phaser.Class({
     },
 
     create: function() {
+		$.ajax({
+						
+					method: "PUT",
+					
+					url:ipLocal+"puntos/"+idP1,
+					 
+					data: JSON.stringify({puntos:this.points1}),
+					
+					processData: false,
+					
+					headers: {
+						"Content-type":"application/json"
+					}
+					
+					}).done(function(data, textStatus, jqXHR) {
+						console.log(data);
+						console.log("Puntos guardados1");
+						console.log(textStatus+" "+jqXHR.statusCode());
+					}).fail(function(data){
+						console.log("Puntos menores");
+					});
+					
+					$.ajax({
+						
+					method: "PUT",
+					
+					url:ipLocal+"puntos/"+idP2,
+					 
+					data: JSON.stringify({puntos:this.points2}),
+					
+					processData: false,
+					
+					headers: {
+						"Content-type":"application/json"
+					}
+					
+					}).done(function(data, textStatus, jqXHR) {
+						console.log(data);
+						console.log("Puntos guardados2");
+						console.log(textStatus+" "+jqXHR.statusCode());
+					}).fail(function(data){
+						console.log("Puntos menores");
+					});
         if(this.points1>this.points2){
             this.add.image(900, 500, 'ganaHitt').setScale(0.9,1); 
             this.add.text(580, 750, this.points1, {fontSize: 100,color: "#ffffff", fontFamily: 'Impact, fantasy'}).setOrigin(0.5);

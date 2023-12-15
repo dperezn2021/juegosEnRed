@@ -22,8 +22,6 @@ var signInScene = new Phaser.Class({
     create: function() {
 		listo1 = false;
 		listo2 = false;
-        IdP1 = " ";
-        IdP2 = " ";
 		ipLocal = "http://127.0.0.1:8080/";
         this.add.image(900, 500, 'fondo').setScale(0.85, 0.85);
 
@@ -76,7 +74,7 @@ var signInScene = new Phaser.Class({
         ready1.on("pointerdown",()=>{
             const inputTextId = elementId1.getChildByName('nameField');
             const inputTextPw = elementPw1.getChildByName('nameField');
-
+            
                 if (inputTextId.value !== '' && inputTextPw.value !== '' )
                 {
                     $.ajax({
@@ -92,6 +90,8 @@ var signInScene = new Phaser.Class({
 					}
 					
 					}).done(function(data, textStatus, jqXHR) {
+						console.log(data);
+						console.log(inputTextPw.value);
 						console.log(textStatus+" "+jqXHR.statusCode());
 						if(textStatus == "success" && inputTextPw.value == data.password){
                             IdP1 = inputTextId.value;
@@ -105,7 +105,7 @@ var signInScene = new Phaser.Class({
 						}else{
 							alert("Contraseña del jugador 1 incorrecta. ");
 						}
-					}).fail(function(data, textStatus, jqXHR){
+					}).fail(function(data){
 						alert("Usuario invalido o no registrado");
 					});
                 }
@@ -138,6 +138,8 @@ var signInScene = new Phaser.Class({
 					}
 					
 					}).done(function(data, textStatus, jqXHR) {
+						console.log(data);
+						console.log(inputTextPw.value);
 						console.log(textStatus+" "+jqXHR.statusCode());
 						if(textStatus == "success" && inputTextPw.value == data.password){
                             IdP2 = inputTextId.value;

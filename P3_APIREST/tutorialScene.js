@@ -9,30 +9,16 @@ var tutorialScene = new Phaser.Class({
 
     preload: function() {
          // Pantalla de carga
-         var progressBar = this.add.graphics();
-         var progressBox = this.add.graphics();
-         progressBox.fillStyle(0x222222, 0.8);
-         progressBox.fillRect(840, 470, 320, 50);
-         var width = this.cameras.main.width;
-         var height = this.cameras.main.height;
-         var loadingText = this.make.text({
-         x: width / 2,
-         y: height / 2 - 50,
-         text: 'Loading...',
-         style: {
-             font: '20px monospace',
-             fill: '#ffffff'
-         }
-         });
-         loadingText.setOrigin(0.5, 0.5);
- 
+         this.add.image(900, 500, 'fondoCarga');
+
          var percentText = this.make.text({
-             x: width / 2,
-             y: height / 2 - 5,
+             x: 1720,
+             y: 960,
              text: '0%',
              style: {
-                 font: '18px monospace',
-                 fill: '#ffffff'
+                 fontSize: 70,
+                 fill: '#ffffff',
+                 fontFamily: 'Impact, fantasy'
              }
          });
          percentText.setOrigin(0.5, 0.5);
@@ -40,9 +26,6 @@ var tutorialScene = new Phaser.Class({
          this.load.on('progress', function (value) {
              console.log(value);
              percentText.setText(parseInt(value * 100) + '%');
-             progressBar.clear();
-             progressBar.fillStyle(0xffffff, 1);
-             progressBar.fillRect(850, 480, 300 * value, 30);
          });
                      
          this.load.on('fileprogress', function (file) {
@@ -50,9 +33,6 @@ var tutorialScene = new Phaser.Class({
          });
          this.load.on('complete', function () {
              console.log('complete');
-             progressBar.destroy();
-             progressBox.destroy();
-             loadingText.destroy();
              percentText.destroy();
          });
 
@@ -68,8 +48,19 @@ var tutorialScene = new Phaser.Class({
         this.load.image('pincho2', 'assets/Partida/pincho2.png');
         this.load.image('PSalto', 'assets/Partida/salto.png');
         this.load.image('PowerUp', 'assets/Partida/powerUp.png');
+        this.load.image('lava1','assets/Tutorial/bloques/lava.png');
+        this.load.image('floor1','assets/Tutorial/bloques/s1.png');
+        this.load.image('agua1','assets/Tutorial/bloques/agua.png');
         // Terreno
-        this.load.image('suelo3','assets/Terreno/3.png');
+        this.load.image('floor1','assets/Tutorial/bloques/s1.png');
+        this.load.image('floor2','assets/Tutorial/bloques/s2.png');
+        this.load.image('floor3','assets/Tutorial/bloques/s3.png');
+        this.load.image('floor4','assets/Tutorial/bloques/s4.png');
+        this.load.image('floor5','assets/Tutorial/bloques/s5.png');
+        this.load.image('floor6','assets/Tutorial/bloques/s6.png');
+        this.load.image('floor7','assets/Tutorial/bloques/s7.png');
+        this.load.image('floor8','assets/Tutorial/bloques/s8.png');
+        this.load.image('techo1','assets/Tutorial/bloques/t1.png');
         //Sonidos 
         this.load.audio('Acoin', 'assets/Sonidos/cogerMoneda.mp3');
         this.load.audio('APU', 'assets/Sonidos/cogerPowerUp.mp3');
@@ -78,7 +69,7 @@ var tutorialScene = new Phaser.Class({
     },
 
     create: function() {
-        this.physics.world.bounds.width = 2000; // Limite al tamaño del mundo
+        this.physics.world.bounds.width = 4000; // Limite al tamaño del mundo
         this.physics.world.bounds.height = 1000;
         this.cameras.main.setBounds(0, 0,1990,1000); // Define los limites de la camara
         this.cameras.main.setBackgroundColor(0xffffff)

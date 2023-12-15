@@ -83,9 +83,9 @@ var logInScene = new Phaser.Class({
 						
 					method: "POST",
 					
-					url:ipLocal+"usuario/",
+					url:ipLocal+"usuario",
 					
-					data: JSON.stringify({id: inputTextId.value, password: inputTextPw.value}),
+					data: JSON.stringify({nombre: inputTextId.value, password: inputTextPw.value}),
 					
 					processData: false,
 					
@@ -94,6 +94,7 @@ var logInScene = new Phaser.Class({
 					}
 					
 					}).done(function(data, textStatus, jqXHR) {
+						console.log(data);
 						console.log(textStatus+" "+jqXHR.statusCode());
 						if(textStatus == "success"){
                             IdP1 = inputTextId.value;
@@ -105,8 +106,7 @@ var logInScene = new Phaser.Class({
                     		player1.setVisible(true);
                     		listo1 = true;
 						}
-					}).fail(function(data, textStatus, jqXHR){
-						console.log(textStatus+" "+jqXHR.statusCode());
+					}).fail(function(data){
 						alert("Usuario invalido o ya registrado.");
 					});
                 }
@@ -130,9 +130,9 @@ var logInScene = new Phaser.Class({
 						
 					method: "POST",
 					
-					url:ipLocal+"usuario/",
+					url:ipLocal+"usuario",
 					
-					data: JSON.stringify({id: inputTextId.value, password: inputTextPw.value}),
+					data: JSON.stringify({nombre: inputTextId.value, password: inputTextPw.value}),
 					
 					processData: false,
 					
@@ -142,6 +142,7 @@ var logInScene = new Phaser.Class({
 					
 					}).done(function(data, textStatus, jqXHR) {
 						console.log(textStatus+" "+jqXHR.statusCode());
+						console.log(data);
 						if(textStatus == "success"){
                             IdP2 = inputTextId.value;
 							elementId2.setVisible(false);
@@ -152,8 +153,7 @@ var logInScene = new Phaser.Class({
                     		player2.setVisible(true);
                     		listo2 = true;
 						}
-					}).fail(function(data, textStatus, jqXHR){
-						console.log(textStatus+" "+jqXHR.statusCode());
+					}).fail(function(data){
 						alert("Usuario invalido o ya registrado.");
 					});
                 }
@@ -172,11 +172,11 @@ var logInScene = new Phaser.Class({
         })
 
         volver.on("pointerover",()=>{
-            volver.setScale(1.6)
+            volver.setScale(1.6);
         })
 
         volver.on("pointerout",()=>{
-            volver.setScale(1.2)
+            volver.setScale(1.2);
         })
     },
 

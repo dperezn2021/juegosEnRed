@@ -52,6 +52,7 @@ var ElecScene = new Phaser.Class({
 
         volver.on("pointerdown",()=>{
             volver.destroy();
+            backgroundMusic.stop();
             this.scene.start("MenuScene");
         })
 
