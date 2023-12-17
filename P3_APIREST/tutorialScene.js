@@ -36,24 +36,32 @@ var tutorialScene = new Phaser.Class({
             percentText.destroy();
         });
 
-        //Carga de imagenes
+        //////////////////////////////////////////////CARGA DE IMÁGENES//////////////////////////////////////
+        //Partida
         this.load.spritesheet('Hitt', 'assets/Partida/SpriteSheetHitt.png', { frameWidth: 315.5, frameHeight: 441 });
         this.load.spritesheet('coin', 'assets/Partida/coin.png', { frameWidth: 32, frameHeight: 32 });
         this.load.spritesheet('coin', 'assets/Partida/coin.png', { frameWidth: 32, frameHeight: 32 });
         this.load.image('wall','assets/Partida/paredRompible.png');
+        this.load.image('pincho2', 'assets/Partida/pincho2.png');
+        this.load.image('PSalto', 'assets/Partida/salto.png');
+        this.load.image('PowerUp', 'assets/Partida/powerUp.png');
+        this.load.image('portal', 'assets/Partida/portal.png');
+        //Interfaz
         this.load.image('circuloPU', 'assets/Interfaz/CirculoPU.png');
         this.load.image('snowball', 'assets/Interfaz/BoladehieloPU.png');
         this.load.image('electricBall', 'assets/Interfaz/RayoParalizantePU.png');
         this.load.image('potion', 'assets/Interfaz/PocionHittPU.png');
         this.load.image('boots', 'assets/Interfaz/BotasSaltarinasPU.png');
-        this.load.image('pincho2', 'assets/Partida/pincho2.png');
-        this.load.image('PSalto', 'assets/Partida/salto.png');
-        this.load.image('PowerUp', 'assets/Partida/powerUp.png');
-        this.load.image('portal', 'assets/Partida/portal.png');
-        this.load.image('lava1','assets/Tutorial/bloques/lava.png');
-        this.load.image('agua1','assets/Tutorial/bloques/agua.png');
-        this.load.image('medidorHitt', 'assets/Interfaz/medidorPuntosHitt.png');
         this.load.image('circuloPU', 'assets/Interfaz/CirculoPU.png');
+        this.load.image('medidorHitt', 'assets/Interfaz/medidorPuntosHitt.png');
+        //Menu
+        this.load.image('ajustes', 'assets/Menu/ajustes.png');
+        this.load.image('exit', 'assets/Menu/salir.png');
+        this.load.image('menuPausa', 'assets/Menu/menuPausa.png');
+        
+        //Tutorial
+        this.load.image('agua1','assets/Tutorial/bloques/agua.png');
+        this.load.image('lava1','assets/Tutorial/bloques/lava.png');
         this.load.image('fondoTutorial','assets/Tutorial/fondo.png');
         // Terreno
         this.load.image('floor1','assets/Tutorial/bloques/s1.png');
@@ -70,6 +78,16 @@ var tutorialScene = new Phaser.Class({
         this.load.image('hierba3','assets/Tutorial/bloques/hierbas/h3.png');
         this.load.image('hierba4','assets/Tutorial/bloques/hierbas/h4.png');
         this.load.image('hierba5','assets/Tutorial/bloques/hierbas/h5.png');
+        //Carteles
+        this.load.image('aguaLavaCartel','assets/Tutorial/carteles/aguaLava.png');
+        this.load.image('interactuarCartel','assets/Tutorial/carteles/interactuar.png');
+        this.load.image('izqDerCartel','assets/Tutorial/carteles/izqDer.png');
+        this.load.image('objetosCartel','assets/Tutorial/carteles/objetos.png');
+        this.load.image('pinchosCartel','assets/Tutorial/carteles/pinchos.png');
+        this.load.image('PUCartel','assets/Tutorial/carteles/PU.png');
+        this.load.image('saltoCartel','assets/Tutorial/carteles/salto.png');
+        this.load.image('xCartel','assets/Tutorial/carteles/x.png');
+        this.load.image('cartel','assets/Tutorial/carteles/cartel.png');
         
         //Sonidos 
         this.load.audio('Acoin', 'assets/Sonidos/cogerMoneda.mp3');
@@ -81,16 +99,6 @@ var tutorialScene = new Phaser.Class({
         this.load.audio('aguaSplash', 'assets/Sonidos/agua.mp3');
         this.load.audio('lavaSplash', 'assets/Sonidos/lava.mp3');
         this.load.audio('BGMusic', 'assets/MUSICAS/cancionJuego.mp3');
-        //Carteles
-        this.load.image('aguaLavaCartel','assets/Tutorial/carteles/aguaLava.png');
-        this.load.image('interactuarCartel','assets/Tutorial/carteles/interactuar.png');
-        this.load.image('izqDerCartel','assets/Tutorial/carteles/izqDer.png');
-        this.load.image('objetosCartel','assets/Tutorial/carteles/objetos.png');
-        this.load.image('pinchosCartel','assets/Tutorial/carteles/pinchos.png');
-        this.load.image('PUCartel','assets/Tutorial/carteles/PU.png');
-        this.load.image('saltoCartel','assets/Tutorial/carteles/salto.png');
-        this.load.image('xCartel','assets/Tutorial/carteles/x.png');
-        this.load.image('cartel','assets/Tutorial/carteles/cartel.png');
        
     },
 
@@ -182,7 +190,7 @@ var tutorialScene = new Phaser.Class({
         //CARTEL 1
         c1 = carteles[0];
         c1.setInteractive();
-        cartel1 = this.add.image(900, 575, 'izqDerCartel');
+        cartel1 = this.add.image(900, 575, 'izqDerCartel').setScrollFactor(0);
         cartel1.visible = false;
         c1.on('pointerdown', function ()
         {
@@ -192,7 +200,7 @@ var tutorialScene = new Phaser.Class({
         //CARTEL 2
         c2 = carteles[1];
         c2.setInteractive();
-        cartel2 = this.add.image(900, 575, 'saltoCartel');
+        cartel2 = this.add.image(900, 575, 'saltoCartel').setScrollFactor(0);
         cartel2.visible = false;
         c2.on('pointerdown', function ()
         {
@@ -202,7 +210,7 @@ var tutorialScene = new Phaser.Class({
         //CARTEL 3
         c3 = carteles[2];
         c3.setInteractive();
-        cartel3 = this.add.image(900, 575, 'aguaLavaCartel');
+        cartel3 = this.add.image(900, 575, 'aguaLavaCartel').setScrollFactor(0);
         cartel3.visible = false;
         c3.on('pointerdown', function ()
         {
@@ -212,7 +220,7 @@ var tutorialScene = new Phaser.Class({
         //CARTEL 4
         c4 = carteles[3];
         c4.setInteractive();
-        cartel4 = this.add.image(1550, 575, 'pinchosCartel');
+        cartel4 = this.add.image(900, 575, 'pinchosCartel').setScrollFactor(0);
         cartel4.visible = false;
         c4.on('pointerdown', function ()
         {
@@ -222,7 +230,7 @@ var tutorialScene = new Phaser.Class({
         //CARTEL 5
         c5 = carteles[4];
         c5.setInteractive();
-        cartel5 = this.add.image(1800, 575, 'objetosCartel');
+        cartel5 = this.add.image(900, 575, 'objetosCartel').setScrollFactor(0);
         cartel5.visible = false;
         c5.on('pointerdown', function ()
         {
@@ -232,7 +240,7 @@ var tutorialScene = new Phaser.Class({
         //CARTEL 6
         c6 = carteles[5];
         c6.setInteractive();
-        cartel6 = this.add.image(2200, 575, 'PUCartel');
+        cartel6 = this.add.image(900, 575, 'PUCartel').setScrollFactor(0);
         cartel6.visible = false;
         c6.on('pointerdown', function ()
         {
@@ -242,7 +250,7 @@ var tutorialScene = new Phaser.Class({
         //CARTEL 7
         c7 = carteles[6];
         c7.setInteractive();
-        cartel7 = this.add.image(3125, 575, 'interactuarCartel');
+        cartel7 = this.add.image(900, 575, 'interactuarCartel').setScrollFactor(0);
         cartel7.visible = false;
         c7.on('pointerdown', function ()
         {
@@ -268,7 +276,7 @@ var tutorialScene = new Phaser.Class({
         lavaSplash = this.sound.add('lavaSplash', {volume: 0.5});
         
         backgroundMusic.stop();
-        backgroundMusic = this.sound.add('BGMusic', {volume: 0.3});
+        backgroundMusic = this.sound.add('BGMusic', {volume: 0.15});
         backgroundMusic.loop = true;
         backgroundMusic.play();
 
@@ -306,32 +314,32 @@ var tutorialScene = new Phaser.Class({
         
         ///////////////////////////////////////////////////////////////ANIMACIONES//////////////////////////////////////////////////////////////
         // Carga la animacion de andar hacia la izquierda (Hitt)
-    this.anims.create({
-        key: 'leftHitt',
-        frames: this.anims.generateFrameNumbers('Hitt', { start: 3, end: 5 }),
-        frameRate: 6,
-        repeat: -1
-    });
-    // Carga la animacion de darse la vuelta (Hitt)
-    this.anims.create({
-        key: 'turnHitt',
-        frames: [ { key: 'Hitt', frame: 0 } ],
-        frameRate: 20
-    });
-    // Carga la animacion de ir hacia la dcha (Hitt)
-    this.anims.create({
-        key: 'rightHitt',
-        frames: this.anims.generateFrameNumbers('Hitt', { start: 0, end: 2 }),
-        frameRate: 6,
-        repeat: -1
-    });
-    // Animacion giro de la moneda
-    this.anims.create({ 
-        key: 'spin',
-        frames: this.anims.generateFrameNumbers('coin', { start: 0, end: 5 }),
-        frameRate: 16,
-        repeat: -1
-    });
+        this.anims.create({
+            key: 'leftHitt',
+            frames: this.anims.generateFrameNumbers('Hitt', { start: 3, end: 5 }),
+            frameRate: 6,
+            repeat: -1
+        });
+        // Carga la animacion de darse la vuelta (Hitt)
+        this.anims.create({
+            key: 'turnHitt',
+            frames: [ { key: 'Hitt', frame: 0 } ],
+            frameRate: 20
+        });
+        // Carga la animacion de ir hacia la dcha (Hitt)
+        this.anims.create({
+            key: 'rightHitt',
+            frames: this.anims.generateFrameNumbers('Hitt', { start: 0, end: 2 }),
+            frameRate: 6,
+            repeat: -1
+        });
+        // Animacion giro de la moneda
+        this.anims.create({ 
+            key: 'spin',
+            frames: this.anims.generateFrameNumbers('coin', { start: 0, end: 5 }),
+            frameRate: 16,
+            repeat: -1
+        });
         ////////////////////////////////////////////////////////////CONTROLES/////////////////////////////////////////////////////////////////////////
         // Controles
         this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W); // Arriba
@@ -439,11 +447,10 @@ var tutorialScene = new Phaser.Class({
         }
     },
     
-
     update: function() {
         var cam = this.cameras.main;
         var scene = this.scene;
-        // Controles 
+        ////////////////////////////////////////CONTROLES///////////////////////////// 
         if (this.keyA.isDown){ // Interacciones W-A-S-D
             player1.setVelocityX(-player1.vel);
     
@@ -470,6 +477,52 @@ var tutorialScene = new Phaser.Class({
                 player1.body.setVelocityY(-400);
                 saltar.play();
               player1.numJump--;
+            }
+        }
+
+        // Menu de pausa
+        if(Phaser.Input.Keyboard.JustDown(this.keyESC)){ 
+            if(!paused){
+                menuPausa = this.add.image(900, 500, 'menuPausa').setScrollFactor(0);
+                ajustes = this.add.image(900, 450, 'ajustes').setScale(2).setScrollFactor(0);
+                exit = this.add.image(900, 700, 'exit').setScale(2).setScrollFactor(0);
+                player1.body.moves = false;
+                paused = true;
+
+                ajustes.setInteractive();
+                ajustes.on("pointerdown",()=>{
+                    console.log("pinchado");
+                })
+        
+                ajustes.on("pointerover",()=>{
+                    ajustes.setScale(2.5);
+                })
+        
+                ajustes.on("pointerout",()=>{
+                    ajustes.setScale(2);
+                })
+                
+
+                exit.setInteractive();
+                exit.on("pointerdown",()=>{
+                    this.scene.start("MenuScene");
+                    backgroundMusic.stop();
+                })
+        
+                exit.on("pointerover",()=>{
+                    exit.setScale(2.5);
+                })
+        
+                exit.on("pointerout",()=>{
+                    exit.setScale(2);
+                })
+
+            }else if(paused){
+                menuPausa.visible = false;
+                ajustes.visible = false;
+                exit.visible = false;
+                player1.body.moves = true;
+                paused = false;
             }
         }
 
