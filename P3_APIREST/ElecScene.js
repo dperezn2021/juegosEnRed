@@ -9,21 +9,25 @@ var ElecScene = new Phaser.Class({
     },
 
     preload: function() {
-        this.load.image('fondoTutoColor','assets/Partida/prue_tuto1.png');
-        this.load.image('fondoPartColor','assets/Partida/prue_tuto2.png');
+        this.load.image('fondoTutoColor','assets/Menu/menuTutorialColor.png');
+        this.load.image('fondoPartColor','assets/Menu/menuVersusColor.png');
         this.load.image('volver','assets/Menu/BotonVolver.png');
-        this.load.image('fondoTutoBN','assets/Partida/prue_tuto1_BN.png');
-        this.load.image('fondoPartBN','assets/Partida/prue_tuto2_BN.png');
+        this.load.image('fondoTutoBN','assets/Menu/menuTutorialBN.png');
+        this.load.image('fondoPartBN','assets/Menu/menuVersusBN.png');
     },
 
     create: function() {
         this.add.image(900, 500, 'fondo').setScale(0.85);
         
-        imgTutoBN = this.add.image(500, 550, 'fondoTutoBN').setScale(0.8);
-        imgPartBN = this.add.image(1300, 550, 'fondoPartBN').setScale(0.8);
-        volver = this.add.image(120, 80, 'volver').setScale(1.2);
+        imgTutoBN = this.add.image(450, 500, 'fondoTutoBN').setScale(1);
+        imgPartBN = this.add.image(1350, 500, 'fondoPartBN').setScale(1);
+        imgPartColor = this.add.image(1350, 500, 'fondoPartColor').setScale(1);
+        imgTutoColor = this.add.image(450, 500, 'fondoTutoColor').setScale(1);
         imgTutoBN.setInteractive();
         imgPartBN.setInteractive();
+        imgPartColor.setVisible(false);
+        imgTutoColor.setVisible(false);
+        volver = this.add.image(120, 80, 'volver').setScale(1.2);
         volver.setInteractive();
 
         imgPartBN.on("pointerdown",()=>{
@@ -31,11 +35,11 @@ var ElecScene = new Phaser.Class({
         })
 
         imgPartBN.on("pointerover",()=>{
-            imgPartColor = this.add.image(1300, 550, 'fondoPartColor').setScale(0.8);
+            imgPartColor.setVisible(true);
         })
 
         imgPartBN.on("pointerout",()=>{
-            imgPartColor.destroy();
+            imgPartColor.setVisible(false);
         })
 
         imgTutoBN.on("pointerdown",()=>{
@@ -43,11 +47,11 @@ var ElecScene = new Phaser.Class({
         })
 
         imgTutoBN.on("pointerover",()=>{
-            imgTutoColor = this.add.image(500, 550, 'fondoTutoColor').setScale(0.8);
+            imgTutoColor.setVisible(true);
         })
 
         imgTutoBN.on("pointerout",()=>{
-            imgTutoColor.destroy();
+            imgTutoColor.setVisible(false);
         })
 
         volver.on("pointerdown",()=>{

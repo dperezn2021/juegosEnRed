@@ -9,15 +9,15 @@ var RegScene = new Phaser.Class({
     },
 
     preload: function() {
-        this.load.image('fondo1','assets/Partida/pantalla_Verde.png');
-        this.load.image('fondo2','assets/Partida/pantalla_Rojo.png');
+        this.load.image('fondo1','assets/Menu/Registrarse.jpg');
+        this.load.image('fondo2','assets/Menu/Iniciar sesion.jpg');
     },
 
     create: function() {
         this.add.image(900, 500, 'fondo').setScale(0.85);
         
-        imgTutoBN = this.add.image(500, 550, 'fondo1').setScale(0.8);
-        imgPartBN = this.add.image(1300, 550, 'fondo2').setScale(0.8);
+        imgTutoBN = this.add.image(540, 550, 'fondo1').setScale(0.8);
+        imgPartBN = this.add.image(1260, 550, 'fondo2').setScale(0.8);
         volver = this.add.image(120, 80, 'volver').setScale(1.2);
         imgTutoBN.setInteractive();
         imgPartBN.setInteractive();
@@ -28,11 +28,11 @@ var RegScene = new Phaser.Class({
         })
 
         imgPartBN.on("pointerover",()=>{
-            imgPartBN.setTint(0xffffff);
+            imgPartBN.setScale(0.8,0.9);
         })
 
         imgPartBN.on("pointerout",()=>{
-            imgPartBN.clearTint();
+            imgPartBN.setScale(0.8,0.8);
         })
 
         imgTutoBN.on("pointerdown",()=>{
@@ -40,11 +40,11 @@ var RegScene = new Phaser.Class({
         })
 
         imgTutoBN.on("pointerover",()=>{
-            imgTutoBN.setTint(0xffffff);
+            imgTutoBN.setScale(0.8,0.9);
         })
 
         imgTutoBN.on("pointerout",()=>{
-            imgTutoBN.clearTint();
+            imgTutoBN.setScale(0.8,0.8);
         })
 
         volver.on("pointerdown",()=>{

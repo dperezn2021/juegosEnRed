@@ -11,10 +11,10 @@
         <script src="logInScene.js"></script>
         <script src="signInScene.js"></script>
         <script src="RegScene.js"></script>
+        <script src="rankingScene.js"></script>
     </head>
     <title>Hitt and Ufo</title>
     <link rel="icon" href="assets/Menu/logo.png">
-
     <body style="background-color:#000000">
         <div id="game"></div>
         <script>
@@ -26,7 +26,7 @@
     height: 1000,
     autoCenter: Phaser.Scale.CENTER_BOTH,
     mode: Phaser.Scale.FIT,
-    scene: [ MenuScene, Scene1, Scene2, ElecScene, logInScene, tutorialScene, signInScene, RegScene ],
+    scene: [ MenuScene, Scene1, Scene2, ElecScene, logInScene, RegScene, signInScene, tutorialScene, rankingScene ],
     physics: {
         default: 'arcade',
         arcade: {

@@ -6,7 +6,10 @@ var Scene1 = new Phaser.Class({
         Phaser.Scene.call(this, { "key": "Scene1" });
     },
 
-    init: function() {},
+    init: function(data) {
+		IdP1 = data.IdP1;
+        IdP2 = data.IdP2;
+	},
 
     preload: function() {
         // Pantalla de carga
@@ -546,7 +549,7 @@ var Scene1 = new Phaser.Class({
         }
         backgroundMusic.stop();
         victory.play();
-        this.scene.start("Scene2", { "points1": player1.score, "points2": player2.score });
+        this.scene.start("Scene2", { "points1": player1.score, "points2": player2.score, "IdP1":IdP1, "IdP2": IdP2});
     }
     function paArriba(player){
         if(player == player1){
@@ -767,7 +770,7 @@ var Scene1 = new Phaser.Class({
             }
             backgroundMusic.stop();
             victory.play();
-            scene.start("Scene2", { "points1": player1.score, "points2": player2.score });
+            scene.start("Scene2", { "points1": player1.score, "points2": player2.score, "IdP1":IdP1, "IdP2": IdP2});
         }
     }
 
