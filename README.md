@@ -255,15 +255,15 @@ Figura 46: Interfaz de victoria de Hitt
 Para el registro de los jugadores se han diseñado 3 interfaces distintas que abarcan el proceso. Todas estas interfaces siguiendo el miismo patrón de diseño para estar acorde a la estética general. En ellas podremos ver la pantalla dividida en 2 partes, una mitad tematizada con Hiit y la otra con UFO.
 
 La primera interfaz (figura 47) es en la que los usuarios podrán elegir si quieren iniciar sesión en una cuenta ya existente o crear una.
-![Hitt](Interfaces/Registro_Inicio)
+![Hitt](Interfaces/Registro_Inicio.jpg)
 Figura 47: Registro o inicio de sesión
 
 La segund ainterfaz (figura 48) será la que se use para realizar el registro o el inicio de sesión del jugador que lo haya elegido, además se ha añadido la funcionalidad de poder poner una nueva contraseña.
-![Hitt](Interfaces/Registro)
+![Hitt](Interfaces/Registro.jpg)
 Figura 48: Registro de usuarios
 
 La tercera interfaz (figura 49) servirá para restablecer la contraseña del usuario.
-![Hitt](Interfaces/nuevas_contr)
+![Hitt](Interfaces/nuevas_contr.jpg)
 Figura 49: Nueva contraseña
 
 ## MÚSICA Y SONIDOS
