@@ -252,14 +252,26 @@ Figura 45: Interfaz de victoria de Ufo
 Figura 46: Interfaz de victoria de Hitt
 
 ## INTERFACES DE REGISTRO
-Para el registro de los jugadores se han diseñado 3 interfaces distintas que abarcan el proceso. Todas estas interfaces siguiendo el miismo patrón de diseño para estar acorde a la estética general.
+Para el registro de los jugadores se han diseñado 3 interfaces distintas que abarcan el proceso. Todas estas interfaces siguiendo el miismo patrón de diseño para estar acorde a la estética general. En ellas podremos ver la pantalla dividida en 2 partes, una mitad tematizada con Hiit y la otra con UFO.
+
 La primera interfaz (figura 47) es en la que los usuarios podrán elegir si quieren iniciar sesión en una cuenta ya existente o crear una.
+![Hitt](Interfaces/Registro_Inicio)
+Figura 47: Registro o inicio de sesión
+
+La segund ainterfaz (figura 48) será la que se use para realizar el registro o el inicio de sesión del jugador que lo haya elegido, además se ha añadido la funcionalidad de poder poner una nueva contraseña.
+![Hitt](Interfaces/Registro)
+Figura 48: Registro de usuarios
+
+La tercera interfaz (figura 49) servirá para restablecer la contraseña del usuario.
+![Hitt](Interfaces/nuevas_contr)
+Figura 49: Nueva contraseña
+
 ## MÚSICA Y SONIDOS
-Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 47), y otra totalmente diferente como música de fondo del videojuego (Figura 48).
+Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 50), y otra totalmente diferente como música de fondo del videojuego (Figura 51).
 ![Hitt](PatronMusica1.png)
-Figura 47: Patrón de la música de la pantalla de inicio
+Figura 50: Patrón de la música de la pantalla de inicio
 ![Hitt](PatronMusica2.png)
-Figura 48: Patrón de la música de fondo del videojuego
+Figura 51: Patrón de la música de fondo del videojuego
 
 Además, se han incluido diferentes sonidos, extraídos de la página web de “Pixabay”, como los siguientes:
 - Coger moneda
@@ -268,7 +280,7 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 - Victoria
 
 # FLUJOGRAMA
-Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 49).
+Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 52).
 ![Hitt](flujograma.png)
-Figura 49: Flujograma
+Figura 52: Flujograma
 
