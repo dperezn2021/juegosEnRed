@@ -266,12 +266,15 @@ La tercera interfaz (figura 49) servirá para restablecer la contraseña del usu
 ![Hitt](Interfaces/nuevas_contr.jpg)
 Figura 49: Nueva contraseña
 
+De esta forma la paleta de colores utilizada para estas interfaces queda de la siguiente forma (figura 50):
+![Hitt](paleta_registro.png)
+
 ## MÚSICA Y SONIDOS
-Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 50), y otra totalmente diferente como música de fondo del videojuego (Figura 51).
+Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 51), y otra totalmente diferente como música de fondo del videojuego (Figura 52).
 ![Hitt](PatronMusica1.png)
-Figura 50: Patrón de la música de la pantalla de inicio
+Figura 51: Patrón de la música de la pantalla de inicio
 ![Hitt](PatronMusica2.png)
-Figura 51: Patrón de la música de fondo del videojuego
+Figura 52: Patrón de la música de fondo del videojuego
 
 Además, se han incluido diferentes sonidos, extraídos de la página web de “Pixabay”, como los siguientes:
 - Coger moneda
@@ -280,7 +283,7 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 - Victoria
 
 # FLUJOGRAMA
-Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 52).
+Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 53).
 ![Hitt](flujograma.png)
-Figura 52: Flujograma
+Figura 53: Flujograma
 
