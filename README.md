@@ -1,13 +1,13 @@
 GRUPO 10: GG TEAM
 “HITT AND UFO”
-#INTEGRANTES
+# INTEGRANTES
 GG TEAM
 Mario Martín Escribano	          Javier Martín García
 
 
 Daniel Pérez Navarro 		  Marcos Vivar Muiño
 
-#INTEGRANTES DEL EQUIPO
+# INTEGRANTES DEL EQUIPO
 Daniel Pérez Navarro
 Correo oficial: d.perezn.2021@alumnos.urjc.es
 Cuenta GitHub: dperezn2021
@@ -25,8 +25,8 @@ Correo oficial: m.vivar.2021@alumnos.urjc.es
 Cuenta GitHub: MarcosVivarMuiño
 
 
-#CONCEPTOS DEL JUEGO
-##NOMBRE DEL JUEGO Y DESCRIPCIÓN
+# CONCEPTOS DEL JUEGO
+## NOMBRE DEL JUEGO Y DESCRIPCIÓN
 El nombre elegido para nuestro juego ha sido “Hitt and Ufo”. Se pretendía buscar algo sencillo, tal como los nombres de los personajes, que están relacionados con la naturaleza  de cada uno. 
 ‘Hitt’, es el nombre elegido para el cromañón, haciendo el juego de palabra con el término inglés ‘Hit’ que significa golpear. (Figura 1).
 ![Hitt](Spritesheets/spritesheetHitt.png)
@@ -37,7 +37,7 @@ Mientras que para el marciano, se elige ‘UFO’, haciendo el símil con las si
 ![Ufo](Spritesheets/spritesheetUFOV3.png)
 Figura 2: Spritesheet de Ufo.
 
-##HISTORIA
+## HISTORIA
 Nos encontramos en una época prematura del planeta Tierra, los humanos habitantes de la época son brutos, testarudos y poco inteligentes, viven en paz entre ellos, cazan y sobreviven como pueden utilizando su fuerza. De entre todos ellos, destaca Hitt, un líder innato, con una fuerza que sobrepasa lo inimaginable, que deberá guiar a su pueblo ante cualquier adversidad. Es entonces cuando Ufo, líder de los “d’Aliens”, junto con su grupo de guerreros extraterrestres, de tamaño reducido pero inteligencia superior, aterrizan en la tierra en busca de un nuevo planeta que adoctrinar.
 Lejos de poder enfrentarse a todo un planeta de bárbaros cromañones, los “d’Aliens” organizan una carrera líder contra líder, cuyo ganador definirá quién debe quedarse con el planeta Tierra. Hitt deberá sacar su poca inteligencia y sus enormes capacidades físicas para vencer a Ufo y defender la Tierra. Ufo en cambio, se aprovechará de su pequeño tamaño e intelecto superior para dejar a Hitt atrás. Inteligencia contra fuerza, ¿quién ganará?
 DESCRIPCIÓN DE LA TEMÁTICA DEL JUEGO
@@ -46,7 +46,7 @@ El juego trata de 2 jugadores que, en una carrera de obstáculos por diferentes 
 Hitt es un hombre forzudo pero poco inteligente, digno de la época prematura en la que se encuentra la Tierra de hace millones de años. Además, debido a su estatura y peso, es más lento que Ufo, que es un marciano pequeño y ligeramente más rápido y avanzado intelectualmente ya que procede de un planeta mucho más desarrollado.
 Cada jugador deberá llegar a la meta lo antes posible, utilizando las herramientas y mecánicas según el personaje que maneje. En el caso de Hitt, se moverá algo más despacio pero podrá sortear obstáculos con mayor facilidad que Ufo, que tendrá que utilizar su ingenio y herramientas para avanzar.
 
-##PÚBLICO OBJETIVO
+## PÚBLICO OBJETIVO
 	“Hitt and Ufo” es un juego de plataformas y parkour basado en algunos de los títulos más famosos del mercado como el “Celeste” (figura 3) o el mismo “Super Mario Bros” (figura 4). A diferencia de estos títulos, “Hitt and Ufo” es un juego casual, dedicado a todos los públicos, a aquellos jugadores a los que les gusten los juegos de competición y que quieran jugar partidas puntuales.
 
 	
@@ -56,8 +56,8 @@ La historia del juego es básica para entender el contexto, al no ser un juego p
 
 Por otra parte, se busca llegar a tanta gente como sea posible, de entre todos aquellos públicos que puedan tener acceso a ordenadores se ha seleccionado un público objetivo mayor a los 7 años, implementando un estilo cartoon que no resulta agresivo para aquellos jugadores menores que lo jueguen.
 
-#ASPECTO TÉCNICO DEL JUEGO
-##CONDICIONES DE VICTORIA Y DERROTA
+# ASPECTO TÉCNICO DEL JUEGO
+## CONDICIONES DE VICTORIA Y DERROTA
 A priori, la victoria y la derrota se pueden definir de forma muy sencilla, tal que el ganador será aquel jugador que alcance la meta primero. Sin embargo, esta no tiene por qué ser la forma en la que se gane, existen diversas formas.
 La primera forma será por puntos, en el juego se irán otorgando puntos durante la carrera dependiendo de lo que logren hacer los corredores. Primero, por el mapa aparecerán monedas (Figura 5) que otorgarán 100 puntos por cada una de ellas recogida. En segundo lugar, habrá una llave (Figura 6) que dejará una puerta abierta, de tal forma que el primero que llegue a esa llave, conseguirá 1000 puntos y por último, el jugador que llegue primero a la meta, recibirá 2000 puntos.
 
@@ -69,8 +69,8 @@ Figura 6: Llave
 
 La segunda forma será sacarlo de la pantalla, si un jugador es lo suficientemente rápido y consigue sacar la ventaja necesaria a su contrincante para hacer que salga de la pantalla por un tiempo determinado, el jugador que quede fuera de la pantalla será eliminado y el otro jugador recibirá 1000 puntos.
 Con estos métodos, conseguiremos que el juego tenga un nivel de estrategia superior que la de una simple carrera. Durante la partida los jugadores deberán pensar la mejor estrategia para poder ganar.
-#MECÁNICAS
-###2.1. BÁSICAS
+# MECÁNICAS
+### 2.1. BÁSICAS
 Estas son las mecánicas básicas que permiten avanzar en el juego, ya sean tanto de movilidad como de usabilidad:
 
 Correr: Mas te vale ser el primero en llegar a la meta, o puede que tu civilización entera desaparezca.
@@ -81,12 +81,12 @@ Figura 7: Boceto interacción con el entorno
 
 Conseguir objetos: Existen diversos “Power-Ups” para beneficio propio y objetos para dificultar el avance del rival.
 
-###2.2. POWER-UPS
+### 2.2. POWER-UPS
 En el juego podremos encontrar 3 tipos de “Power-Ups” diferentes, que saldrán de bloques misteriosos (Figura 8),  unos son los lanzables o arrojadizos, otros son consumibles y otros son armaduras.
 ![Ufo](ASSETS/powerUp.png)
 Figura 8: Bloque misterioso
 
-####2.2.1. LANZABLES
+#### 2.2.1. LANZABLES
 Bola de hielo: Objeto arrojadizo que se lanza al adversario para reducir su velocidad y obtener ventaja. (Figura 9)
 Rayo paralizante: Rayo que aturde al rival, lo que le hace paralizarse y quedarse inmóvil por unos instantes. (Figura 10)
 
@@ -95,11 +95,11 @@ Figura 9: Bola de hielo
 ![Ufo](PowerUps/RayoParalizantePU.png)
 Figura 10: Rayo paralizante
 
-####2.2.2. CONSUMIBLES
+#### 2.2.2. CONSUMIBLES
 Poción rápida: Poción que otorga un 50% más de velocidad y que solo puede ser consumida por Hitt. (Figura 11)
 ![Ufo](PowerUps/PocionHittPU.png)
 Figura 11: Poción rápida
-####	2.2.3 .“ARMADURA”
+#### 2.2.3 .“ARMADURA”
 Batería: Batería que recarga la nave de Ufo, lo que le otorga temporalmente un 50% más de fuerza. (Figura 12)
 ![Ufo](PowerUps/BateriaPU.png)
 Figura 12: Batería
@@ -108,7 +108,7 @@ Botas Saltarinas: Proporciona doble salto a quien las consigue, durante un corto
 ![Ufo](PowerUps/BotasSaltarinasPU.png)
 Figura 13: Botas saltarinas
 
-##CONTROLES EN LOCAL Y EN RED
+## CONTROLES EN LOCAL Y EN RED
 El juego se puede jugar tanto en local, con ambos jugadores en un mismo dispositivo (Figura 14), como en red, donde cada jugador competirá desde su propio dispositivo (Figura 15).
 
 En cuanto a los controles, existen 3 tipos de movimientos básicos y 2 de usabilidad. En la movilidad se puede avanzar hacia delante (derecha), hacia atrás (izquierda) y saltar (arriba). Mientras que en la usabilidad están la utilización de objetos y power ups y las interacciones.
@@ -127,11 +127,11 @@ Por su parte, para le juego en red, los controles se reducen simplemente a los c
 
 Figura 15. Controles en red de los jugadores
 
-#DISEÑOS Y CONCEPT-ARTS
-##PERSONAJES
+# DISEÑOS Y CONCEPT-ARTS
+## PERSONAJES
 Como ya se ha comentado previamente, los personajes serán “Hitt”, un cromañón testarudo, fuerte y bruto, que destroza todo lo que toca; y “Ufo”, un pequeño marciano de altas habilidades que con su inteligencia es capaz de cosas impensables.
 
-###1.1. HITT
+### 1.1. HITT
 Para el bárbaro, pensamos en desarrollar un personaje estilo “cromañón” caricaturizado, plasmando un cartoon y agradable, acorde con la temática del juego. Para ello, el personaje ha sido basado en diferentes tipos de cavernícolas o gigantes, como los personajes del famoso juego “Clash of Clans”, el gigante (Figura 16) y el bárbaro (Figura 17), adaptando sus vestimentas a la ambientación prehistórica del juego.
 ![Hitt](giganteCoC.jpg)			
 Figura 16: Gigante, Clash of Clans
@@ -148,7 +148,7 @@ Así podemos ver la paleta de colores del personaje (Figura 20), en el que predo
 ![Hitt](paletaColoresHitt.png)
 Figura 20: Paleta de colores de Hitt
 
-###1.2. UFO
+### 1.2. UFO
 En el caso del marciano, llamándose Ufo, se pensó que el mejor sprite posible sería el propio marciano subido en su OVNI particular, de tal forma que fuera su método de movimiento, lo que le permite ser más rápido que Hitt. Por lo que se elaboró un primer boceto inicial, de un marciano normal metido en su nave, la cual tiene los instrumentos necesarios para coger utilizables y poder disparar realizar la acción de pegar (Figura 21).
 ![Ufo](Ufo.png)
 Figura 21: Boceto inicial de Ufo.
@@ -165,7 +165,7 @@ Figura 24: Sprite de Ufo.
 ![Hitt](paletaUfo.png)
 Figura 25: Paleta de colores de Ufo
 
-##NIVELES
+## NIVELES
 Para los niveles, por ser un juego de plataformas, se basó el diseño en los mapas de algunos de los mejores juegos indie de plataformas de la actualidad. Intentando dar luz con elementos característicos de estos juegos, añadiendo mecánicas de “parkour” y elementos interactuables que dan lugar a puzzles, ya sean ruedas, llaves, plataformas móviles…
 
 Por lo general, a la hora de realizar el diseño de niveles, se recabaron diversos títulos conocidos de este tipo de juegos, en base a estos títulos se fueron cogiendo ideas de cada uno de ellos, ya que  como ejemplo, las físicas que mejor encajaban con el juego a al hora de implementar la movilidad, serían las de juegos como “Furwind” (Figura 26) o “Kirby, & The Amazing Mirror” (Figura 27)
@@ -189,7 +189,7 @@ Figura 30: Boceto de la primera mitad del nivel
 
 Figura 31: Boceto de la segunda mitad del nivel
 
-##ESCENARIOS
+## ESCENARIOS
 Con todo el diseño de niveles ya definido y el diseño general de los personajes, se establece el diseño de los tiles y demás objetos que formarán parte del escenario. Para ello, una vez más, se tomó referencia de algunos de los juegos de plataformas más populares, alguno ya mencionado como el “Kirby, & The Amazing Mirror” (Figura 32), cuyos colores y ambientación general eran los más adecuados para nuestro juego. Para su adaptación, se fusionó junto con el diseño del dibujo de “The Meat Boy” (Figura 33).
 ![Hitt](kirby.jpg)		
 Figura 32: Kirby, & The Amazing Mirror
@@ -210,7 +210,7 @@ Una vez disponemos de los tiles necesarios para la creación de los escenarios, 
 ![Ufo](evolucionEscenario1/tilesFinal.png)
 Figura 36: Escenario 1, primera parte
 
-##LOGO DEL JUEGO
+## LOGO DEL JUEGO
 Para el logo del juego (Figura 38) se ha decidido seguir el estilo cartoon, dividiendo el logo en 2 partes, por una parte el nombre de Hitt, envuelto en la estela de llamas naranjas, rojas y amarillas de un asteroide granate por el fuego (Figura 39), representando la época prehistórica a la que pertenecen Hitt y su pueblo. Por otro lado, el nombre de UFO, envuelto en una estela moderna, de tonalidades verdes (Figura 40), de estilo digital y futurista que representa la llegada del ovni con la población alienígena. De esta forma, podemos combinar el logo jugando con las ambientaciones antiguas y modernas para cada personaje.
 
 ![Ufo](Logo_Hitt_and_Ufo.png)
@@ -221,7 +221,7 @@ Figura 39: Paleta de color logo Hitt
 ![Hitt](paletaLogoUfo.png)
 Figura 40: Paleta de color logo Ufo
 
-##MENÚ DE INICIO
+## MENÚ DE INICIO
 Para el menú de inicio (Figura 41), se ha dibujado tanto un fondo de pantalla personalizado, como un fondo con un marco personalizado para el logo del juego.
 
 Para el fondo de pantalla, se ha hecho una composición con la supuesta nave alienígena en el centro, con un haz de luz que contendría las opciones de la pantalla, “Jugar”, “Ajustes” y “Salir”.
@@ -243,14 +243,18 @@ Por lo que para la paleta de colores de este marco (Figura 42), se han combinado
 ![Hitt](paletaMarcoLogo.png)
 Figura 44: Paleta de colores del marco del logo
 
-##INTERFAZ DE VICTORIA Y DERROTA
+## INTERFAZ DE VICTORIA Y DERROTA
 Finalmente, a la hora de determinar el ganador, se ha desarrollado una interfaz final dedicada a esta condición (Figuras 45 y 46). Dividiendo en dos la pantalla, la zona en la que aparece el ganador será mayor que la del perdedor. En cada mitad se definirá el nombre, el sprite y la puntuación de cada uno.
 ![Ufo](Interfaces/InterfazFinal.png)
 Figura 45: Interfaz de victoria de Ufo
 
 ![Ufo](Interfaces/InterfazFinal2.png)
 Figura 46: Interfaz de victoria de Hitt
-##MÚSICA Y SONIDOS
+
+## INTERFACES DE REGISTRO
+Para el registro de los jugadores se han diseñado 3 interfaces distintas que abarcan el proceso. Todas estas interfaces siguiendo el miismo patrón de diseño para estar acorde a la estética general.
+La primera interfaz (figura 47) es en la que los usuarios podrán elegir si quieren iniciar sesión en una cuenta ya existente o crear una.
+## MÚSICA Y SONIDOS
 Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 47), y otra totalmente diferente como música de fondo del videojuego (Figura 48).
 ![Hitt](PatronMusica1.png)
 Figura 47: Patrón de la música de la pantalla de inicio
@@ -263,7 +267,7 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 - Tirar Power-Up
 - Victoria
 
-#FLUJOGRAMA
+# FLUJOGRAMA
 Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 49).
 ![Hitt](flujograma.png)
 Figura 49: Flujograma
