@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="phaser.js"></script>
+        <script src="scene1.js"></script>
+        <script src="scene2.js"></script>
+        <script src="MenuScene.js"></script>
+        <script src="ElecScene.js"></script>
+        <script src="tutorialScene.js"></script>
+        <script src="jquery.js"></script>
+        <script src="logInScene.js"></script>
+        <script src="signInScene.js"></script>
+        <script src="RegScene.js"></script>
+        <script src="rankingScene.js"></script>
+    </head>
+    <title>Hitt and Ufo</title>
+    <link rel="icon" href="assets/Menu/logo.png">
+    <body style="background-color:#000000">
+        <div id="game"></div>
+        <script>
+
+    var config = {
+        type: Phaser.AUTO,
+    parent: "game",
+    width: 1800,
+    height: 1000,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    mode: Phaser.Scale.FIT,
+    scene: [ MenuScene, Scene1, Scene2, ElecScene, logInScene, RegScene, signInScene, tutorialScene, rankingScene ],
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+        }
+    },
+    dom: {
+        createContainer: true
+    }
+    };
+            const game = new Phaser.Game(config);
+
+        </script>
+    </body>
+</html>
