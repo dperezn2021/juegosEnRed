@@ -292,9 +292,25 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 - Coger Power-Up
 - Tirar Power-Up
 - Victoria
+- Caerse al agua o a la lava
+- Saltar
+- ...
 
 # FLUJOGRAMA
 Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 53).
 ![Hitt](flujograma2.png)
 Figura 57: Flujograma
 
+# INSTRUCCIONES PRECISAS PARA EJECUTAR LA APLICACIÓN+
+## 1. Eclipse SpringBoot
+Abrimos la aplicacion Eclipse Spring Boot.
+## 2. Carpeta del proyecto
+Abrimos la carpeta F3_API de nuestro explorador de archivos.
+## 3. F3ApiApplication.java
+Seleccionamos dentro de la carpeta src/main/java nuestro archivo F3ApiApplication.java.
+## 4. Inicializar servidor
+Iniciamos el servidor como Java Application.
+## 5. Abrir navegador
+Iniciamos el navegador, donde se levantará el servidor y se ejecutará el archivo .html. 
+## 6. Disfrutar del juego
+Con esto, ya tenemos la posibilidad de jugar a este juego. ¡A disfrutar!
