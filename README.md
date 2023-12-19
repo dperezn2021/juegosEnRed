@@ -269,12 +269,23 @@ Figura 49: Nueva contraseña
 De esta forma la paleta de colores utilizada para estas interfaces queda de la siguiente forma (figura 50):
 ![Hitt](paleta_registro.png)
 
+## BOTONES INTERFACES
+Se han creado diversos botones para implementar en las interfaces, todos ellos siguiendo una estética común, estilo cartoon, con sombras y luces que resaltan el efecto 3D.(Figuras 51, 52, 53 y 54).
+![Hitt](botones2.0/botonAceptar.png)
+(Figuras 51)
+![Hitt](botones2.0/botonCancelar.png)
+(Figuras 52)
+![Hitt](botones2.0/botonVolver.png)
+(Figuras 53)
+![Hitt](botones2.0/botonBorrarUsuario.png)
+(Figuras 54)
+
 ## MÚSICA Y SONIDOS
-Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 51), y otra totalmente diferente como música de fondo del videojuego (Figura 52).
+Se han creado 2 canciones con la herramienta “Soundtrap”, una que ha sido implementada en el menú principal, justo en la pantalla de inicio (Figura 51), y otra totalmente diferente como música de fondo del videojuego (Figura 56).
 ![Hitt](PatronMusica1.png)
-Figura 51: Patrón de la música de la pantalla de inicio
+Figura 55: Patrón de la música de la pantalla de inicio
 ![Hitt](PatronMusica2.png)
-Figura 52: Patrón de la música de fondo del videojuego
+Figura 56: Patrón de la música de fondo del videojuego
 
 Además, se han incluido diferentes sonidos, extraídos de la página web de “Pixabay”, como los siguientes:
 - Coger moneda
@@ -285,5 +296,5 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 # FLUJOGRAMA
 Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 53).
 ![Hitt](flujograma.png)
-Figura 53: Flujograma
+Figura 57: Flujograma
 
