@@ -311,6 +311,6 @@ Seleccionamos dentro de la carpeta src/main/java nuestro archivo F3ApiApplicatio
 ## 4. Inicializar servidor
 Iniciamos el servidor como Java Application.
 ## 5. Abrir navegador
-Iniciamos el navegador, donde se levantará el servidor y se ejecutará el archivo .html. 
+Iniciamos el navegador, donde se levantará el servidor y se ejecutará el archivo .html, justo despues de indicar la IP deseada. 
 ## 6. Disfrutar del juego
 Con esto, ya tenemos la posibilidad de jugar a este juego. ¡A disfrutar!
