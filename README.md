@@ -301,7 +301,7 @@ Por último se ha incluido un flujograma que muestra el avance entre las diferen
 ![Hitt](flujograma2.png)
 Figura 57: Flujograma
 
-# INSTRUCCIONES PRECISAS PARA EJECUTAR LA APLICACIÓN+
+# INSTRUCCIONES PRECISAS PARA EJECUTAR LA APLICACIÓN
 ## 1. Eclipse SpringBoot
 Abrimos la aplicacion Eclipse Spring Boot.
 ## 2. Carpeta del proyecto
