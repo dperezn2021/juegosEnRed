@@ -252,19 +252,21 @@ Figura 45: Interfaz de victoria de Ufo
 Figura 46: Interfaz de victoria de Hitt
 
 ## INTERFACES DE REGISTRO
-Para el registro de los jugadores se han diseñado 3 interfaces distintas que abarcan el proceso. Todas estas interfaces siguiendo el miismo patrón de diseño para estar acorde a la estética general. En ellas podremos ver la pantalla dividida en 2 partes, una mitad tematizada con Hiit y la otra con UFO.
+Para el registro de los jugadores se han diseñado 3 interfaces distintas que abarcan el proceso. Todas estas interfaces siguiendo el miismo patrón de diseño para estar acorde a la estética general. En ellas podremos ver la pantalla dividida en 2 partes, una mitad tematizada con Hiit y la otra con UFO. Primero se muestran las interfaces locales, es decir, las correpondientes a la fase del juego en la que ambos jugadores se registraban en el mismo sistema. Después se mostrarán esas mismas interfaces pero para el multijugador en sistemas diferentes.
 
-La primera interfaz (figura 47) es en la que los usuarios podrán elegir si quieren iniciar sesión en una cuenta ya existente o crear una.
+La primera interfaz (figura 47) es en la que los usuarios podrán elegir si quieren iniciar sesión en una cuenta ya existente o crear una. Es igual tanto para el registro de ambos jugadores en el mismo dispositivo como para el registro de jugadores en diferentes sistemas.
 ![Hitt](Interfaces/Registro_Inicio.jpg)
 Figura 47: Registro o inicio de sesión
 
-La segunda interfaz (figura 48) será la que se use para realizar el registro o el inicio de sesión del jugador que lo haya elegido, además se ha añadido la funcionalidad de poder poner una nueva contraseña.
+La segunda interfaz local (figura 48) será la que se use para realizar el registro o el inicio de sesión del jugador que lo haya elegido, además se ha añadido la funcionalidad de poder poner una nueva contraseña.
 ![Hitt](Interfaces/Registro.jpg)
-Figura 48: Registro de usuarios
+Figura 48: Registro de usuarios locales
 
 La tercera interfaz (figura 49) servirá para restablecer la contraseña del usuario.
 ![Hitt](Interfaces/nuevas_contr.jpg)
 Figura 49: Nueva contraseña
+
+En el caso del multijugador en sistemas diferentes las interfaces de inicio o registro e inicio de sesión quedarían de la siguiente manera:
 
 De esta forma la paleta de colores utilizada para estas interfaces queda de la siguiente forma (figura 50):
 ![Hitt](paleta_registro.png)
