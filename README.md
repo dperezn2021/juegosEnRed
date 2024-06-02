@@ -315,9 +315,9 @@ Figura 57: Flujograma
 ## 1. Eclipse SpringBoot
 Abrimos la aplicacion Eclipse Spring Boot.
 ## 2. Carpeta del proyecto
-Abrimos la carpeta F3_API de nuestro explorador de archivos.
-## 3. F3ApiApplication.java
-Seleccionamos dentro de la carpeta src/main/java nuestro archivo F3ApiApplication.java.
+Abrimos la carpeta del proyecto de nuestro explorador de archivos.
+## 3. "Application.java"
+Seleccionamos dentro de la carpeta src/main/java nuestro archivo "Application.java".
 ## 4. Inicializar servidor
 Iniciamos el servidor como Java Application.
 ## 5. Abrir navegador
