@@ -251,14 +251,22 @@ Figura 45: Interfaz de victoria de Ufo
 ![Ufo](Interfaces/InterfazFinal2.png)
 Figura 46: Interfaz de victoria de Hitt
 
-## INTERFACES DE REGISTRO
+## INTERFACES DE REGISTRO Y ELECCIÓN DE PERSONAJE
 Para el registro de los jugadores se han diseñado 3 interfaces distintas que abarcan el proceso. Todas estas interfaces siguiendo el miismo patrón de diseño para estar acorde a la estética general. En ellas podremos ver la pantalla dividida en 2 partes, una mitad tematizada con Hiit y la otra con UFO. Primero se muestran las interfaces locales, es decir, las correpondientes a la fase del juego en la que ambos jugadores se registraban en el mismo sistema. Después se mostrarán esas mismas interfaces pero para el multijugador en sistemas diferentes.
 
-La primera interfaz (figura 47) es en la que los usuarios podrán elegir si quieren iniciar sesión en una cuenta ya existente o crear una. Es igual tanto para el registro de ambos jugadores en el mismo dispositivo como para el registro de jugadores en diferentes sistemas.
+En primer lugar, los jugadores podrán elegir el personaje que desean, en una interfaz que combina tanto el recuadra que marca a Hitt como el recuadro que marca a UFO, es decir, las 2 siguientes figuras juntas conforman la interfaz.
+![Hitt](SELECCIONPERSONAJEHITT.jpg)
+![Hitt](SELECCIONPERSONAJEUFO.jpg)
+
+En segundo lugar, en el multijugador en sistemas diferentes, cuando uno de los 2 elige personaje primero, el segundo verá como el recuadro del personaje que ha elegido el primer jugador se ve en blanco y negro como los siguientes.
+![Hitt](SELECCIONPERSONAJEHITTBYN.jpg)
+![Hitt](SELECCIONPERSONAJEUFOBYN.jpg)
+
+La primera interfaz de registro(figura 47) es en la que los usuarios podrán elegir si quieren iniciar sesión en una cuenta ya existente o crear una. Es igual tanto para el registro de ambos jugadores en el mismo dispositivo como para el registro de jugadores en diferentes sistemas.
 ![Hitt](Interfaces/Registro_Inicio.jpg)
 Figura 47: Registro o inicio de sesión
 
-La segunda interfaz local (figura 48) será la que se use para realizar el registro o el inicio de sesión del jugador que lo haya elegido, además se ha añadido la funcionalidad de poder poner una nueva contraseña.
+La segunda interfaz de registro (figura 48) será la que se use para realizar el registro o el inicio de sesión del jugador que lo haya elegido, además se ha añadido la funcionalidad de poder poner una nueva contraseña.
 ![Hitt](Interfaces/Registro.jpg)
 Figura 48: Registro de usuarios locales
 
