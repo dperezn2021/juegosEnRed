@@ -308,7 +308,7 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 
 # FLUJOGRAMA
 Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 53).
-![Hitt](FLUJOGRAMA.png)
+![Hitt](flujogramFinal.png)
 Figura 57: Flujograma
 
 # INSTRUCCIONES PRECISAS PARA EJECUTAR LA APLICACIÓN
