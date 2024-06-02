@@ -258,7 +258,7 @@ La primera interfaz (figura 47) es en la que los usuarios podrán elegir si quie
 ![Hitt](Interfaces/Registro_Inicio.jpg)
 Figura 47: Registro o inicio de sesión
 
-La segund ainterfaz (figura 48) será la que se use para realizar el registro o el inicio de sesión del jugador que lo haya elegido, además se ha añadido la funcionalidad de poder poner una nueva contraseña.
+La segunda interfaz (figura 48) será la que se use para realizar el registro o el inicio de sesión del jugador que lo haya elegido, además se ha añadido la funcionalidad de poder poner una nueva contraseña.
 ![Hitt](Interfaces/Registro.jpg)
 Figura 48: Registro de usuarios
 
