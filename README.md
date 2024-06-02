@@ -154,9 +154,9 @@ En el caso del marciano, llamándose Ufo, se pensó que el mejor sprite posible 
 Figura 21: Boceto inicial de Ufo.
 
 Primeramente, para el diseño del marciano, se tomaron como referencias algunos personajes de series famosas, como “Materia Gris (Ben 10)” (Figura 22), caricaturizándolo a un estilo más infantil, como el de “Marvin (Looney Tunes)” (Figura 23)
-![Hitt](materiaGris.png)					
+![Hitt](materiaGris.jpg)					
 Figura 22: Materia Gris (Ben 10)
-![Hitt](Marvin.png)
+![Hitt](Marvin.jpg)
 Figura 23: Marvin (Looney Toons)
 
 Finalmente, al igual que con Hitt, se realizaron grandes avances y cambios en la idea del concepto, que permitieron elegir un sprite final para Ufo (Figura 24), que no se alejaba de la idea principal. Los cambios realizados fueron en la paleta de colores (Figura 25), poner colores más llamativos que pegasen con ese estilo cartoon de colores más vivos.
