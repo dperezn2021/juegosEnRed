@@ -307,9 +307,14 @@ Además, se han incluido diferentes sonidos, extraídos de la página web de “
 - ...
 
 # FLUJOGRAMA
-Por último se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 53).
+Se ha incluido un flujograma que muestra el avance entre las diferentes pantallas del juego mediante el siguiente esquema (Figura 57).
 ![Hitt](flujogramaFinal.png)
 Figura 57: Flujograma
+
+# DIAGRAMA
+Por último se ha incluido el diagrama que muestra las pantallas del juego (Figura 58).
+![Hitt](DIAGRAMA.png)
+Figura 58: Diagrama
 
 # INSTRUCCIONES PRECISAS PARA EJECUTAR LA APLICACIÓN
 ## 1. Eclipse SpringBoot
