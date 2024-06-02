@@ -330,3 +330,6 @@ Iniciamos el servidor como Java Application.
 Iniciamos el navegador, donde se levantará el servidor y se ejecutará el archivo .html, justo despues de indicar la IP deseada. 
 ## 6. Disfrutar del juego
 Con esto, ya tenemos la posibilidad de jugar a este juego. ¡A disfrutar!
+
+# ENLACE A VIDEO DEMOSTRACIÓN
+https://youtu.be/DoyZk1e1j50
