@@ -191,9 +191,10 @@ Figura 31: Boceto de la segunda mitad del nivel
 
 ## ESCENARIOS
 Con todo el diseño de niveles ya definido y el diseño general de los personajes, se establece el diseño de los tiles y demás objetos que formarán parte del escenario. Para ello, una vez más, se tomó referencia de algunos de los juegos de plataformas más populares, alguno ya mencionado como el “Kirby, & The Amazing Mirror” (Figura 32), cuyos colores y ambientación general eran los más adecuados para nuestro juego. Para su adaptación, se fusionó junto con el diseño del dibujo de “The Meat Boy” (Figura 33).
-![Hitt](kirby.jpg)		
+![Hitt](kirby2.png)		
 Figura 32: Kirby, & The Amazing Mirror
 
+![Hitt](meatBoy.jpg)
 Figura 33: The Meat Boy
 
 En el juego se implementarán varios niveles, es por eso que podemos encontrar diversas ambientaciones dependiendo del lugar en el que transcurra la carrera (Figura 34).
